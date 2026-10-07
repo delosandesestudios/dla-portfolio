@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Agencia creativa en San Cristóbal: gestión de redes sociales, diseño de contenido, publicidad en Meta Ads, creación de Reels, asesoría creativa y Content Kit para marcas que quieren crecer.">
   <meta name="theme-color" content="#b1a4d5">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
   <title>De los Andes Estudio — Hacemos que tu marca se note</title>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="De los Andes Estudio">
   <meta property="og:title" content="De los Andes Estudio — Hacemos que tu marca se note">
   <meta property="og:description" content="Estrategia, contenido y anuncios para marcas que quieren crecer sin perder su esencia. Redes sociales · Contenido · Meta Ads · Reels · Content Kit.">
   <meta property="og:locale" content="es_VE">
+  <meta property="og:image" content="https://dla-portfolio.vercel.app/og.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="De los Andes Estudio — Hacemos que tu marca se note">
   <meta name="twitter:description" content="Estrategia, contenido y anuncios para marcas que quieren crecer sin perder su esencia.">
@@ -141,6 +143,10 @@
     .hero-mark { position: relative; display: grid; width: min(430px, 78vw); aspect-ratio: 1.7; margin: -14px auto 16px; place-items: center; animation: markIn 1s var(--ease) both; }
     .hero-mark::before { content: ''; position: absolute; inset: 8% -12%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
     .hero-mark > div { position: relative; z-index: 1; }
+    .hero-mark .logo-eye { width: min(430px, 78vw); height: auto; overflow: visible; }
+    .hero-mark .logo-eye .eye-blink { transform-origin: 50% 50%; transform-box: view-box; animation: eyeBlink 6.5s ease-in-out 2.2s infinite; }
+    @keyframes eyeBlink { 0%, 91%, 100% { transform: scaleY(1); } 94.5% { transform: scaleY(.08); } 97% { transform: scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) { .hero-mark .logo-eye .eye-blink { animation: none; } }
     @keyframes auraOpen { from { transform: scaleX(.35); opacity: 0; } to { transform: scaleX(1.1); opacity: .9; } }
     @keyframes auraBreathe { 0%, 100% { transform: scaleX(1.1); opacity: .9; } 50% { transform: scaleX(.82); opacity: .45; } }
     @media (prefers-reduced-motion: reduce) { .hero-mark::before { animation: none; transform: none; opacity: .55; } }
@@ -528,7 +534,26 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-inner">
-        <div class="hero-mark" aria-label="Logo DLA"><div><span>DLA</span><small>DE LOS ANDES ESTUDIO</small></div></div>
+        <div class="hero-mark"><svg class="logo-eye" viewBox="0 0 200 120" role="img" aria-label="Logo de De los Andes Estudio">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#3a2f4d" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <g class="eye-blink" filter="url(#softShadow)">
+    <path d="M 8 60 Q 100 -12 192 60 Q 100 132 8 60 Z" fill="#ffebc9" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="100" cy="60" r="35" fill="#b1a4d5" stroke="#ffffff" stroke-width="6"/>
+    <g stroke="#ffffff" stroke-width="5" stroke-linecap="round">
+      <line x1="100.0" y1="46.5" x2="131.5" y2="44.7"/>
+      <line x1="111.7" y1="53.2" x2="129.0" y2="79.6"/>
+      <line x1="111.7" y1="66.8" x2="97.6" y2="94.9"/>
+      <line x1="100.0" y1="73.5" x2="68.5" y2="75.3"/>
+      <line x1="88.3" y1="66.8" x2="71.0" y2="40.4"/>
+      <line x1="88.3" y1="53.2" x2="102.4" y2="25.1"/>
+    </g>
+    <circle cx="100" cy="60" r="6.5" fill="#ffffff"/>
+  </g>
+</svg></div>
         <p class="eyebrow">• Estudio creativo · San Cristóbal</p>
         <h1>Tu marca puede verse bien.<br>Pero también debe <em>significar algo.</em></h1>
         <p class="lede">En De los Andes Estudio desarrollamos estrategia, identidad, contenido y publicidad para empresas que quieren crecer con una marca clara, atractiva y competitiva.</p>
