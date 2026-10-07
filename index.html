@@ -213,6 +213,7 @@
     .case-top--burbu { background: linear-gradient(135deg, #b1a4d5, #8d6ac2); }
     .case-top--savia { background: linear-gradient(135deg, #132c2a, #a4c6ad); }
     .case-top--brasa { background: linear-gradient(135deg, #f0a36a, #55233d); }
+    [data-parallax] { will-change: transform; }
     .case-art { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.9); font-family: 'League Spartan', sans-serif; font-size: clamp(36px, 5vw, 62px); font-weight: 900; letter-spacing: -.1em; mix-blend-mode: screen; }
     .case-number { position: absolute; top: 14px; right: 16px; z-index: 2; display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(11,11,11,.38); color: var(--cream); font-size: 13px; font-weight: 800; }
     .case-content { padding: 24px 20px 18px; }
@@ -509,7 +510,7 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-inner">
+      <div class="hero-inner" data-parallax="0.22" data-parallax-fade="1">
         <div class="hero-mark"><img class="logo-eye" src="/images/logo-original.png" alt="Logo de De los Andes Estudio" width="900" height="558" fetchpriority="high"></div>
         <p class="eyebrow">• Estudio creativo · San Cristóbal</p>
         <h1>Tu marca puede verse bien.<br>Pero también debe <em>significar algo.</em></h1>
@@ -561,15 +562,15 @@
         </div>
         <div class="project-grid">
           <article class="case-card reveal" id="caso-burbu">
-            <div class="case-top case-top--burbu"><span class="case-art">BURBU<br>FRESH</span><span class="case-number">01</span></div>
+            <div class="case-top case-top--burbu"><span class="case-art" data-parallax="0.08">BURBU<br>FRESH</span><span class="case-number">01</span></div>
             <div class="case-content"><span class="case-category">Bebidas · Identidad y contenido</span><h3>Burbu Fresh</h3><span class="case-label">Servicios realizados</span><p>Dirección visual, narrativa de contenido y estrategia de lanzamiento.</p><span class="case-label">Problema principal</span><p>Necesitaba una identidad más reconocible y una comunicación consistente para sus canales digitales.</p><button class="case-link" type="button" data-case="Burbu Fresh">Ver caso <span>↗</span></button></div>
           </article>
           <article class="case-card reveal" id="caso-savia">
-            <div class="case-top case-top--savia"><span class="case-art">SAVIA<br>VIVA</span><span class="case-number">02</span></div>
+            <div class="case-top case-top--savia"><span class="case-art" data-parallax="0.08">SAVIA<br>VIVA</span><span class="case-number">02</span></div>
             <div class="case-content"><span class="case-category">Alimentos · Estrategia y campaña</span><h3>Savia Viva</h3><span class="case-label">Servicios realizados</span><p>Dirección estratégica, concepto creativo y campaña de comunicación.</p><span class="case-label">Problema principal</span><p>Necesitaba convertir sus valores de marca en una comunicación clara y reconocible.</p><button class="case-link" type="button" data-case="Savia Viva">Ver caso <span>↗</span></button></div>
           </article>
           <article class="case-card reveal" id="caso-brasas">
-            <div class="case-top case-top--brasa"><span class="case-art">MIGUEL<br>BRASAS</span><span class="case-number">03</span></div>
+            <div class="case-top case-top--brasa"><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">03</span></div>
             <div class="case-content"><span class="case-category">Restauración · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">Problema principal</span><p>Necesitaba comunicar la experiencia de la marca y sostener una presencia digital más activa.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
           </article>
         </div>
@@ -1042,6 +1043,34 @@
       event.stopPropagation();
       navigateToCase(['burbu-fresh', 'savia-viva', 'miguel-brasas'][index]);
     }));
-  </script>
+  
+  // Parallax sutil (UX: profundidad sin distraer; respeta prefers-reduced-motion)
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!els.length || reduced) return;
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight;
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var r = el.getBoundingClientRect();
+        var mid = r.top + r.height / 2 - vh / 2;
+        var k = parseFloat(el.getAttribute('data-parallax')) || 0.15;
+        var t = Math.max(-90, Math.min(90, mid * k));
+        el.style.transform = 'translate3d(0,' + t.toFixed(1) + 'px,0)';
+        if (el.hasAttribute('data-parallax-fade')) {
+          var o = 1 + mid / (vh * 0.6);
+          el.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3);
+        }
+      }
+    }
+    function onMove() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onMove, { passive: true });
+    window.addEventListener('resize', onMove, { passive: true });
+    update();
+  })();
+</script>
 </body>
 </html>
