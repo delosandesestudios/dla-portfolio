@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Agencia creativa en San Cristóbal: gestión de redes sociales, diseño de contenido, publicidad en Meta Ads, creación de Reels, asesoría creativa y Content Kit para marcas que quieren crecer.">
   <meta name="theme-color" content="#b1a4d5">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon-180.png">
   <title>De los Andes Estudio — Hacemos que tu marca se note</title>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="De los Andes Estudio">
@@ -89,7 +90,7 @@
     h1, h2, h3 { font-weight: 800; letter-spacing: -.055em; }
     em { color: var(--lilac-deep); font-family: Allura, cursive; font-size: 1.28em; font-style: normal; font-weight: 400; letter-spacing: 0; }
     .eyebrow { color: var(--lilac-deep); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .section { padding: clamp(76px, 10vw, 150px) clamp(20px, 5vw, 72px); }
+    .section { padding: clamp(56px, 7vw, 108px) clamp(20px, 5vw, 72px); }
     .section-inner { width: min(1180px, 100%); margin: 0 auto; }
 
     /* Navegación */
@@ -140,14 +141,11 @@
     .hero { position: relative; display: grid; min-height: 90svh; place-items: center; overflow: hidden; background: linear-gradient(115deg, #d8c8e5, #eee7fa 45%, var(--cream)); }
     .hero::before { content: ""; position: absolute; inset: -28%; background: radial-gradient(circle at 20% 35%, var(--lilac), transparent 32%), radial-gradient(circle at 80% 25%, var(--cream), transparent 30%), radial-gradient(circle at 55% 90%, rgba(141,106,194,.58), transparent 35%); filter: blur(44px); animation: breath 18s ease-in-out infinite alternate; }
     .hero::after { content: ""; position: absolute; right: 9%; bottom: 14%; width: 24vw; height: 24vw; max-width: 320px; max-height: 320px; border: 1px solid rgba(11, 11, 11, .14); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.12), 0 0 0 70px rgba(255,255,255,.08); }
-    .hero-inner { position: relative; z-index: 1; width: min(850px, 100%); padding: 110px 20px 80px; text-align: center; }
-    .hero-mark { position: relative; display: grid; width: min(430px, 78vw); aspect-ratio: 1.7; margin: -14px auto 16px; place-items: center; animation: markIn 1s var(--ease) both; }
+    .hero-inner { position: relative; z-index: 1; width: min(850px, 100%); padding: 96px 20px 64px; text-align: center; }
+    .hero-mark { position: relative; display: grid; width: min(460px, 80vw); aspect-ratio: 900/558; margin: -10px auto 12px; place-items: center; animation: markIn 1s var(--ease) both; }
     .hero-mark::before { content: ''; position: absolute; inset: 8% -12%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
     .hero-mark > div { position: relative; z-index: 1; }
-    .hero-mark .logo-eye { width: min(430px, 78vw); height: auto; overflow: visible; }
-    .hero-mark .logo-eye .eye-blink { transform-origin: 50% 50%; transform-box: view-box; animation: eyeBlink 6.5s ease-in-out 2.2s infinite; }
-    @keyframes eyeBlink { 0%, 91%, 100% { transform: scaleY(1); } 94.5% { transform: scaleY(.08); } 97% { transform: scaleY(1); } }
-    @media (prefers-reduced-motion: reduce) { .hero-mark .logo-eye .eye-blink { animation: none; } }
+    .hero-mark .logo-eye { width: min(460px, 80vw); height: auto; }
     @keyframes auraOpen { from { transform: scaleX(.35); opacity: 0; } to { transform: scaleX(1.1); opacity: .9; } }
     @keyframes auraBreathe { 0%, 100% { transform: scaleX(1.1); opacity: .9; } 50% { transform: scaleX(.82); opacity: .45; } }
     @media (prefers-reduced-motion: reduce) { .hero-mark::before { animation: none; transform: none; opacity: .55; } }
@@ -254,9 +252,9 @@
     .workflow-step h3 { margin: 0 0 12px; font-size: 23px; line-height: .98; }
     .workflow-step p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
     .plans-note { max-width: 680px; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .plans { background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 230px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 90px), linear-gradient(135deg, #17131d 0%, #1c2b24 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
+    .plans { background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 230px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 90px), linear-gradient(135deg, #17131d 0%, #241b2b 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
     .plans h2 { color: var(--cream); }
-    .plan { display: flex; min-height: 355px; flex-direction: column; padding: 27px; border: 1px solid rgba(255,235,201,.14); background: linear-gradient(155deg, #17131d 0%, #1a2a22 60%, #15131d 100%); }
+    .plan { display: flex; min-height: 355px; flex-direction: column; padding: 27px; border: 1px solid rgba(255,235,201,.14); background: linear-gradient(155deg, #17131d 0%, #251a2b 60%, #15131d 100%); }
     .plan.featured { background: var(--lilac); color: var(--ink); }
     .plan h3 { margin: 18px 0 22px; font-size: 44px; line-height: .85; }
     .plan p { color: #c8bddf; font-size: 12px; }
@@ -266,7 +264,7 @@
     .plan .btn { width: max-content; margin-top: auto; }
 
     /* Contacto */
-    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 220px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(160deg, #0b0b0b 0%, #14211b 55%, #101318 100%); color: var(--cream); }
+    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 220px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(160deg, #0b0b0b 0%, #181322 55%, #101318 100%); color: var(--cream); }
     .contact h2 { margin: 16px 0 22px; font-size: clamp(55px, 7vw, 102px); line-height: .84; }
     .contact-copy > p { max-width: 390px; color: #c8bddf; font-size: 13px; line-height: 1.65; }
     .contact-details { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 35px; color: var(--lilac); font-family: 'League Spartan', sans-serif; font-size: 13px; font-weight: 700; }
@@ -376,7 +374,7 @@
     @media (prefers-reduced-motion: reduce) { .project-grid .case-card { transition: none; } }
     .case-modal { position: fixed; inset: 0; z-index: 90; display: grid; visibility: hidden; place-items: center; padding: 20px; background: rgba(11,11,11,.78); opacity: 0; pointer-events: none; backdrop-filter: blur(8px); transition: opacity .3s ease, visibility .3s ease; }
     .case-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
-    .case-modal-panel { position: relative; width: min(920px, 100%); max-height: 90vh; overflow: auto; border: 1px solid rgba(255,235,201,.25); border-radius: 24px; background: linear-gradient(160deg, #19151f 0%, #1a2622 100%); color: var(--cream); box-shadow: 0 30px 90px rgba(0,0,0,.5); transform: translateY(20px) scale(.96); transition: transform .4s var(--ease); }
+    .case-modal-panel { position: relative; width: min(920px, 100%); max-height: 90vh; overflow: auto; border: 1px solid rgba(255,235,201,.25); border-radius: 24px; background: linear-gradient(160deg, #19151f 0%, #221a2b 100%); color: var(--cream); box-shadow: 0 30px 90px rgba(0,0,0,.5); transform: translateY(20px) scale(.96); transition: transform .4s var(--ease); }
     .case-modal.is-open .case-modal-panel { transform: none; }
     .case-modal-visual { min-height: 220px; display: grid; place-items: center; padding: 32px; background: radial-gradient(circle at 72% 20%, rgba(255,235,201,.3), transparent 30%), linear-gradient(135deg, #b1a4d5, #211a2b); color: var(--cream); font-family: 'League Spartan', sans-serif; font-size: clamp(44px, 9vw, 110px); font-weight: 900; letter-spacing: -.1em; line-height: .82; text-align: center; }
     .case-modal-content { padding: clamp(25px, 5vw, 54px); }
@@ -442,7 +440,7 @@
     .plan-group { margin-top: 14px; }
     .plan-group b { display: block; margin-bottom: 7px; color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .plan.featured .plan-group b { color: var(--ink); }
-    .retainer { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) max-content; gap: clamp(20px, 4vw, 48px); align-items: center; margin-top: 18px; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(255,235,201,.14); background: linear-gradient(150deg, #17131d 0%, #1a2a22 65%, #15131d 100%); color: var(--cream); }
+    .retainer { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) max-content; gap: clamp(20px, 4vw, 48px); align-items: center; margin-top: 18px; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(255,235,201,.14); background: linear-gradient(150deg, #17131d 0%, #251a2b 65%, #15131d 100%); color: var(--cream); }
     .retainer h3 { margin: 12px 0 10px; font-size: clamp(26px, 3.4vw, 40px); line-height: .9; }
     .retainer p { margin: 0; color: #c8bddf; font-size: 13px; line-height: 1.6; }
     .retainer ul { display: grid; gap: 8px; margin: 0; padding: 0 0 0 16px; color: #c8bddf; font-size: 12px; }
@@ -512,27 +510,7 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-inner">
-        <div class="hero-mark"><svg class="logo-eye" viewBox="0 0 200 120" role="img" aria-label="Logo de De los Andes Estudio">
-  <defs>
-    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#3a2f4d" flood-opacity=".22"/>
-    </filter>
-  </defs>
-  <g class="eye-blink" filter="url(#softShadow)">
-    <path d="M 6 60 Q 100 -16 194 60 Q 100 136 6 60 Z" fill="#ffebc9" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
-    <circle cx="100" cy="60" r="36" fill="#b1a4d5" stroke="#ffffff" stroke-width="6.5"/>
-    <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="107.5" y1="24.8" x2="111.9" y2="63.0"/>
-      <line x1="134.2" y1="48.9" x2="103.4" y2="71.8"/>
-      <line x1="126.8" y1="84.1" x2="91.5" y2="68.8"/>
-      <line x1="92.5" y1="95.2" x2="88.1" y2="57.0"/>
-      <line x1="65.8" y1="71.1" x2="96.6" y2="48.2"/>
-      <line x1="73.2" y1="35.9" x2="108.5" y2="51.2"/>
-      <polygon points="111.9,63.0 103.4,71.8 91.5,68.8 88.1,57.0 96.6,48.2 108.5,51.2" fill="none"/>
-    </g>
-    <circle cx="100" cy="60" r="5" fill="#ffffff"/>
-  </g>
-</svg></div>
+        <div class="hero-mark"><img class="logo-eye" src="/images/logo-original.png" alt="Logo de De los Andes Estudio" width="900" height="558" fetchpriority="high"></div>
         <p class="eyebrow">• Estudio creativo · San Cristóbal</p>
         <h1>Tu marca puede verse bien.<br>Pero también debe <em>significar algo.</em></h1>
         <p class="lede">En De los Andes Estudio desarrollamos estrategia, identidad, contenido y publicidad para empresas que quieren crecer con una marca clara, atractiva y competitiva.</p>
