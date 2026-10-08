@@ -516,9 +516,30 @@
     .consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--lilac); }
     .consent a { color: inherit; }
     .quick-form .consent { color: #c8bddf; }
-    .site-footer { display: grid; gap: 14px; justify-items: center; text-align: center; padding: 46px 20px 60px; background: var(--ink-soft); color: var(--cream); }
+    .site-footer { display: block; background: var(--ink-soft); color: var(--cream); }
+    .footer-photos { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; padding: 0 clamp(14px, 4vw, 64px); margin-top: -58px; position: relative; z-index: 2; pointer-events: none; }
+    .fshot { width: clamp(84px, 11.5vw, 168px); aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; display: grid; place-items: center; gap: 6px; padding: 10px; text-align: center; color: rgba(255,255,255,.92); font-family: 'League Spartan', Arial, sans-serif; font-size: clamp(10px, 1.2vw, 14px); font-weight: 900; letter-spacing: -.04em; line-height: 1; box-shadow: 0 22px 46px rgba(11,11,11,.38); transform: rotate(var(--r, 0deg)) translateY(var(--y, 0px)); }
+    .fshot img { width: 52%; }
+    .f1 { background: linear-gradient(140deg, #b1a4d5, #8d6ac2); }
+    .f2 { background: linear-gradient(140deg, #132c2a, #3f6b5c); }
+    .f3 { background: linear-gradient(140deg, #f0a36a, #55233d); }
+    .f4 { background: linear-gradient(140deg, #cbc0e6, #a998cf); color: #fff7e6; }
+    .f5 { background: linear-gradient(140deg, #e8def7, #f6ecdf); color: #5a4478; }
+    .f6 { background: linear-gradient(140deg, #dff0e6, #f3ead8); color: #3f6b5c; }
+    .fshot .mark { font-size: clamp(22px, 3vw, 40px); letter-spacing: -.06em; }
+    .fshot:nth-child(2), .fshot:nth-child(6) { width: clamp(72px, 9vw, 130px); }
+    .fshot:nth-child(4) { width: clamp(96px, 13vw, 190px); }
+    @media (max-width: 700px) { .fshot:nth-child(n+6) { display: none; } }
+    .footer-main { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 54px clamp(20px, 5vw, 72px) 30px; }
+    .footer-left { display: grid; gap: 14px; justify-items: start; text-align: left; }
+    .footer-cta { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 26px); justify-self: end; text-decoration: none; }
+    .footer-cta-text { font-family: 'League Spartan', Arial, sans-serif; font-size: clamp(40px, 5.2vw, 78px); font-weight: 900; line-height: .86; letter-spacing: -.05em; color: var(--cream); }
+    .footer-cta-text em { color: var(--lilac); }
+    .footer-cta-arrow { display: grid; flex: 0 0 auto; place-items: center; width: clamp(60px, 7vw, 92px); aspect-ratio: 1; border-radius: 50%; background: var(--lilac); color: var(--ink); font-size: clamp(24px, 3vw, 34px); transition: transform .35s var(--ease); }
+    .footer-cta:hover .footer-cta-arrow, .footer-cta:focus-visible .footer-cta-arrow { transform: rotate(-10deg) scale(1.08); }
+    @media (max-width: 700px) { .footer-main { grid-template-columns: 1fr; } .footer-cta { justify-self: start; } }
     .footer-brand-row { display: flex; gap: 12px; align-items: center; }
-    .footer-logo-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--lilac); color: var(--ink); font-family: 'League Spartan', Arial, sans-serif; font-weight: 900; font-size: 15px; letter-spacing: -.04em; }
+    .footer-logo-mark { display: block; } .footer-logo-mark img { display: block; height: 44px; width: auto; }
     .footer-brand-row strong { display: block; font-size: 15px; }
     .footer-brand-row span { color: #c8bddf; font-size: 12px; }
     .footer-data { display: flex; flex-wrap: wrap; gap: 8px 26px; justify-content: center; font-size: 12.5px; }
@@ -526,7 +547,7 @@
     .footer-legal { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center; font-size: 12px; }
     .footer-legal a { color: #c8bddf; text-decoration: underline; text-underline-offset: 3px; }
     .footer-disclaimer { max-width: 620px; color: #9d92ab; font-size: 11px; line-height: 1.6; }
-    @media (max-width: 700px) { .footer-data, .footer-legal { flex-direction: column; gap: 8px; } }
+    @media (max-width: 700px) { .footer-data, .footer-legal { justify-content: start; } }
 
   </style>
 <script type="application/ld+json">
@@ -819,20 +840,36 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-brand-row"><span class="footer-logo-mark">DLA</span><div><strong>De los Andes Estudio</strong><span>Branding · Contenido · Performance</span></div></div>
-    <div class="footer-data">
-      <a href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a>
-      <a href="https://wa.me/584247817247" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7247</a>
-      <span>San Cristóbal · Táchira · Venezuela</span>
+    <div class="footer-photos" aria-hidden="true">
+      <div data-rot="-14deg" class="fshot f1" style="--y:6px" data-parallax="0.05">BURBU<br>FRESH</div>
+      <div data-rot="10deg" class="fshot f4" style="--y:-8px" data-parallax="0.08"><img src="/images/logo-original.png" alt=""></div>
+      <div data-rot="-8deg" class="fshot f2" style="--y:4px" data-parallax="0.04">SAVIA<br>VIVA</div>
+      <div data-rot="16deg" class="fshot f3" style="--y:-10px" data-parallax="0.09">MIGUEL<br>BRASAS</div>
+      <div data-rot="-12deg" class="fshot f5" style="--y:2px" data-parallax="0.05"><span class="mark">DLA</span></div>
+      <div data-rot="7deg" class="fshot f6" style="--y:-6px" data-parallax="0.07"><img src="/images/logo-original.png" alt=""></div>
+      <div data-rot="-16deg" class="fshot f4" style="--y:8px" data-parallax="0.06"><span class="mark">DLA</span></div>
     </div>
-    <nav class="footer-legal" aria-label="Legal">
-      <a href="/privacidad.html">Política de privacidad</a>
-      <a href="/terminos.html">Términos y condiciones</a>
-      <a href="/cookies.html">Política de cookies</a>
-      <a href="/reembolsos.html">Política de reembolsos</a>
-    </nav>
-    <span class="footer-disclaimer">Las marcas mostradas pertenecen a sus respectivos propietarios y se presentan como ejemplos de trabajos realizados.</span>
-    <span>© 2026 De los Andes Estudio</span>
+    <div class="footer-main">
+      <div class="footer-left">
+        <div class="footer-brand-row"><span class="footer-logo-mark"><img src="/images/logo-original.png" alt="Logo de De los Andes Estudio"></span><div><strong>De los Andes Estudio</strong><span>Branding · Contenido · Performance</span></div></div>
+        <div class="footer-data">
+          <a href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a>
+          <a href="https://wa.me/584247817247" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7247</a>
+          <span>San Cristóbal · Táchira · Venezuela</span>
+        </div>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="/privacidad.html">Política de privacidad</a>
+          <a href="/terminos.html">Términos y condiciones</a>
+          <a href="/cookies.html">Política de cookies</a>
+          <a href="/reembolsos.html">Política de reembolsos</a>
+        </nav>
+        <p class="footer-disclaimer">De los Andes Estudio no es afiliado ni distribuidor autorizado de las marcas mencionadas. Las marcas y logotipos pertenecen a sus respectivos titulares y se muestran como referencia de trabajos realizados con autorización de sus propietarios.</p>
+      </div>
+      <a class="footer-cta" href="#contacto">
+        <span class="footer-cta-text">¿Empezamos?<br><em>Hablemos.</em></span>
+        <span class="footer-cta-arrow">→</span>
+      </a>
+    </div>
   </footer>
 
   <!-- Este es el botón flotante solicitado. En reposo es negro; al pasar el cursor aparece el efecto Button 49. -->
@@ -1174,7 +1211,8 @@
         var mid = r.top + r.height / 2 - vh / 2;
         var k = parseFloat(el.getAttribute('data-parallax')) || 0.15;
         var t = Math.max(-90, Math.min(90, mid * k));
-        el.style.transform = 'translate3d(0,' + t.toFixed(1) + 'px,0)';
+        var rot = el.getAttribute('data-rot') || '0deg';
+        el.style.transform = rot === '0deg' ? 'translate3d(0,' + t.toFixed(1) + 'px,0)' : 'rotate(' + rot + ') translate3d(0,' + t.toFixed(1) + 'px,0)';
         if (el.hasAttribute('data-parallax-fade')) {
           var o = (mid + vh * 0.75) / (vh * 0.45);
           el.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3);
