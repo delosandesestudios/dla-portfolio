@@ -551,6 +551,21 @@
     .footer-disclaimer { max-width: 620px; color: #9d92ab; font-size: 11px; line-height: 1.6; }
     @media (max-width: 700px) { .footer-data, .footer-legal { justify-content: start; } }
 
+      /* Sección Páginas web */
+      .web-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+      .web-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--paper); box-shadow: 0 14px 30px rgba(11,11,11,.06); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+      .web-card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(11,11,11,.12); }
+      .web-shot { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--cream); }
+      .web-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .45s var(--ease); }
+      .web-card:hover .web-shot img { transform: scale(1.04); }
+      .web-body { display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 24px; flex: 1; }
+      .web-logo { display: inline-flex; width: 58px; height: 58px; border-radius: 16px; overflow: hidden; align-items: center; justify-content: center; background: #ffffff; border: 1px solid var(--line); }
+      .web-logo img { width: 100%; height: 100%; object-fit: contain; padding: 7px; }
+      .web-body h3 { font-size: 19px; margin: 0; }
+      .web-body p { font-size: 14px; color: var(--muted); margin: 0; flex: 1; }
+      .web-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+      .web-ig { font-size: 13px; font-weight: 700; color: var(--purple); border-bottom: 2px solid var(--lilac); }
+      @media (max-width: 960px) { .web-grid { grid-template-columns: 1fr; } }
   </style>
 <script type="application/ld+json">
 {
@@ -618,6 +633,7 @@
       <a href="#portafolio">Portafolio</a>
       <a href="#como-trabajamos">Cómo trabajamos</a>
       <a href="#content-kit">Content Kit</a>
+      <a href="#web">Páginas web</a>
       <a href="#contacto">Contacto →</a>
       <label class="theme-switch" title="Cambiar modo de color"><input id="themeToggle" type="checkbox" aria-label="Activar modo oscuro"><span class="slider round"><span class="sun-moon"><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg></span><span class="stars"><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg></span></span></label>
     </nav>
@@ -808,6 +824,40 @@
             <div class="gtile g1"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Content Kit</small></div>
             <div class="gtile g5"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Branding</small></div>
           </div>
+        </div>
+      </div>
+    </section>
+<section class="section web" id="web">
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Páginas web</span><h2>Sitios que también<br><em>hacemos nosotros.</em></h2><p class="services-lede">Además de contenido y pauta, diseñamos y publicamos páginas web: menús digitales, directorios y sitios de marca, listos para verse bien desde cualquier teléfono.</p></div>
+        <div class="web-grid">
+          <article class="web-card reveal">
+            <a class="web-shot" href="https://www.asoretatachira.com/" target="_blank" rel="noreferrer" aria-label="Visitar el sitio web de ASORETA Táchira"><img loading="lazy" decoding="async" src="/images/web-asoreta.jpg" alt="Vista del sitio web de ASORETA Táchira"></a>
+            <div class="web-body">
+              <span class="web-logo"><img loading="lazy" decoding="async" src="/images/asoreta-logo-sm.png" alt="Logo de ASORETA Táchira"></span>
+              <h3>ASORETA Táchira</h3>
+              <p>Directorio gastronómico de la Ruta San Cristóbal: restaurantes, menús y contacto directo en un solo lugar.</p>
+              <div class="web-links"><a class="btn btn-outline" href="https://www.asoretatachira.com/" target="_blank" rel="noreferrer">Visitar sitio ↗</a><a class="web-ig" href="https://instagram.com/asoreta.tachira" target="_blank" rel="noreferrer">@asoreta.tachira</a></div>
+            </div>
+          </article>
+          <article class="web-card reveal">
+            <a class="web-shot" href="https://el-establo-menu-drab.vercel.app/" target="_blank" rel="noreferrer" aria-label="Ver el menú digital de El Establo"><img loading="lazy" decoding="async" src="/images/web-establo-menu.jpg" alt="Vista del menú digital de El Establo"></a>
+            <div class="web-body">
+              <span class="web-logo"><img loading="lazy" decoding="async" src="/images/logo-el-establo.png" alt="Logo de El Establo"></span>
+              <h3>El Establo · Menú digital</h3>
+              <p>Menú digital premium con carrito de pedidos, instalable como app y pensado para verse desde la mesa.</p>
+              <div class="web-links"><a class="btn btn-outline" href="https://el-establo-menu-drab.vercel.app/" target="_blank" rel="noreferrer">Ver menú ↗</a></div>
+            </div>
+          </article>
+          <article class="web-card reveal">
+            <a class="web-shot" href="https://dla-portfolio.vercel.app/" target="_blank" rel="noreferrer" aria-label="Ver el portfolio de De los Andes Estudio"><img loading="lazy" decoding="async" src="/images/web-dla-portfolio.jpg" alt="Vista del portfolio de De los Andes Estudio"></a>
+            <div class="web-body">
+              <span class="web-logo"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt="Logo de De los Andes Estudio"></span>
+              <h3>DLA · Portfolio</h3>
+              <p>Este mismo sitio: el portfolio de De los Andes Estudio, diseñado y desarrollado por nosotros.</p>
+              <div class="web-links"><a class="btn btn-outline" href="https://dla-portfolio.vercel.app/" target="_blank" rel="noreferrer">Estás aquí ↗</a></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
