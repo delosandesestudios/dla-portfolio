@@ -224,7 +224,9 @@
     /* Servicios y planes */
     .services { background: linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 120px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 120px), linear-gradient(130deg, #eee7fa, var(--lilac), var(--cream)); }
     .services h2, .plans h2 { margin: 0 0 38px; font-size: clamp(50px, 6vw, 90px); line-height: .86; }
-    .service-grid, .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .service:first-child { grid-column: span 2; }
+    .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .services-lede { max-width: 650px; margin: 22px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
     .services-mantra { display: inline-block; margin-top: 18px; color: var(--purple); font-family: 'Caveat', cursive; font-size: 30px; transform: rotate(-3deg); }
     .service:nth-child(1) { background: linear-gradient(150deg, #f3e8fb, #fdf3ea); }
@@ -232,21 +234,30 @@
     .service:nth-child(3) { background: linear-gradient(150deg, #fdece2, #fdf3f0); }
     .service:nth-child(4) { background: linear-gradient(150deg, #fdeef1, #f3edfb); }
     .service:nth-child(5) { background: linear-gradient(150deg, #fbf5e0, #efedfb); }
-    .service { position: relative; display: flex; min-height: 240px; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 27px; border: 1px solid rgba(11,11,11,.1); background: rgba(255,255,255,.58); transition: transform .35s var(--ease), box-shadow .35s ease, background .35s ease; }
+    .service { position: relative; display: flex; flex-direction: column; min-height: 205px; overflow: hidden; padding: 24px; border-radius: 22px; border: 1px solid rgba(11,11,11,.08); background: rgba(255,255,255,.58); transition: transform .35s var(--ease), box-shadow .35s ease, background .35s ease; }
     .service::after { content: ''; position: absolute; right: -45px; bottom: -65px; width: 180px; height: 180px; border-radius: 50%; background: var(--lilac); opacity: .16; transition: transform .45s var(--ease), opacity .35s ease; }
     .service:hover, .service:focus-within { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(50,35,65,.14); background: rgba(255,255,255,.78); }
     .service:hover::after, .service:focus-within::after { transform: scale(1.5); opacity: .28; }
-    .service-number { position: relative; z-index: 1; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
-    .service h3 { position: relative; z-index: 1; max-width: 360px; margin: auto 0 20px; font-size: clamp(28px, 3vw, 42px); line-height: .92; }
-    .service-reveal { position: relative; z-index: 1; max-width: 430px; opacity: 0; transform: translateY(14px); transition: opacity .3s ease, transform .35s var(--ease); }
+    .service-head { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .service-ico { font-size: 30px; line-height: 1; filter: drop-shadow(0 4px 10px rgba(70,46,91,.18)); }
+    .service-number { position: relative; z-index: 1; font-size: 11px; font-weight: 800; letter-spacing: .08em; opacity: .75; }
+    .service h3 { position: relative; z-index: 1; max-width: 340px; margin: auto 0 4px; font-size: clamp(20px, 2.1vw, 25px); line-height: 1; }
+    .service-reveal { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 22px 24px; border-radius: inherit; background: linear-gradient(160deg, #fffdfa, #faf6ff); opacity: 0; transform: translateY(12px); transition: opacity .3s ease, transform .35s var(--ease); }
     .service:hover .service-reveal, .service:focus-within .service-reveal { opacity: 1; transform: none; }
-    .service-kicker { display: block; margin-bottom: 8px; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .service-kicker { display: block; margin: 0; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .service p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
     .service .text-link { display: inline-block; padding-top: 16px; }
     .case-label { display: block; margin-top: 12px; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .case-content .case-label + p { margin-top: 4px; }
     .workflow { background: linear-gradient(130deg, #f6f1fb, #fff8ed); }
     .steps-accordion { display: grid; gap: 12px; max-width: 880px; margin: 34px auto 0; }
+    .steps-deck { display: grid; gap: 18px; max-width: 860px; margin: 40px auto 0; }
+    .gstep { position: sticky; top: calc(96px + var(--i, 0) * 20px); display: flex; gap: 20px; align-items: flex-start; padding: 30px 30px 34px; border-radius: 26px; border: 1px solid rgba(11,11,11,.06); background: linear-gradient(155deg, #fdfcff, #f4eefc); box-shadow: 0 20px 46px rgba(83,60,120,.12); }
+    .gstep-ico { font-size: 34px; line-height: 1.15; filter: drop-shadow(0 5px 12px rgba(70,46,91,.2)); }
+    .gstep h3 { margin: 0 0 10px; font-size: clamp(24px, 2.6vw, 30px); line-height: 1; }
+    .gstep p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    body.dark-mode .gstep { background: linear-gradient(155deg, #241c2e, #1b1524); border-color: rgba(255,235,201,.14); box-shadow: 0 20px 46px rgba(0,0,0,.4); }
+    body.dark-mode .gstep p { color: #c3b7d1; }
     .step { border: 1px solid rgba(11,11,11,.1); border-radius: 18px; background: rgba(255,255,255,.66); overflow: hidden; transition: border-color .3s ease, background .3s ease, box-shadow .3s ease; }
     .step.is-open { background: #fff; border-color: rgba(177,164,213,.75); box-shadow: 0 16px 38px rgba(83,60,120,.13); }
     .step-head { display: flex; align-items: center; gap: 18px; width: 100%; padding: 20px 22px; border: 0; background: none; cursor: pointer; text-align: left; font: inherit; }
@@ -333,6 +344,7 @@
     body.dark-mode .service { border-color: rgba(248,241,255,.16); background: rgba(27,22,37,.72); }
     body.dark-mode .service:hover, body.dark-mode .service:focus-within { background: rgba(35,28,47,.9); }
     body.dark-mode .service p { color: #c3b7d1; }
+    body.dark-mode .service-reveal { background: linear-gradient(160deg, rgba(27,22,37,.97), rgba(35,28,47,.97)); }
     body.dark-mode .nav.open { border-color: rgba(248,241,255,.14); background: rgba(20,17,27,.96); color: var(--ink); }
     body.dark-mode .theme-toggle { border-color: rgba(248,241,255,.24); background: rgba(255,255,255,.08); color: var(--ink); }
     body.dark-mode .modal { background: #211a2b; color: #f8f1ff; }
@@ -358,8 +370,9 @@
       .section-head { display: block; }
       .section-note { margin-top: 22px; }
       .service-grid, .plans-grid { grid-template-columns: 1fr; }
+      .service:first-child { grid-column: auto; }
       .service { min-height: 300px; }
-      .service-reveal { opacity: 1; transform: none; }
+      .service-reveal { position: static; padding: 0; border-radius: 0; background: none; opacity: 1; transform: none; }
       .project-grid { grid-template-columns: 1fr; }
       .case-card { min-height: auto; }
       .collab-bubble { width: 118px; height: 118px; font-size: 14px; }
@@ -679,11 +692,11 @@
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Lo que hacemos</span><h2>Una agencia,<br><em>todas las piezas.</em></h2><p class="services-lede">Elige el área que más se parece a lo que necesitas. Diseñamos cada propuesta a la medida de tu marca.</p><span class="services-mantra">Presupuesto personalizado.</span></div>
         <div class="service-grid">
-          <article class="service reveal"><span class="service-number">01 · Redes</span><h3>Gestión de redes sociales</h3><div class="service-reveal"><span class="service-kicker">Estrategia · Comunidad · Constancia</span><p>Una presencia constante, estratégica y humana para que tus redes trabajen contigo.</p><ul class="service-list"><li>Reunión inicial y diagnóstico de marca</li><li>Planeación mensual de contenidos</li><li>Creación y programación de publicaciones</li><li>Atención a mensajes y optimización de perfil</li><li>Informe de resultados</li></ul><a class="text-link" href="#contacto" data-service="Gestión de redes sociales">Quiero este servicio →</a></div></article>
-          <article class="service reveal"><span class="service-number">02 · Contenido</span><h3>Diseño de contenido</h3><div class="service-reveal"><span class="service-kicker">Parrilla · Copys · Piezas</span><p>Una parrilla visual y verbal lista para publicar, con una idea clara detrás de cada pieza.</p><ul class="service-list"><li>Reunión inicial y planeación de contenido</li><li>Diseño de parrilla de contenido</li><li>Redacción de copys para cada post</li><li>Entrega organizada vía Drive y lista para publicar</li></ul><a class="text-link" href="#contacto" data-service="Diseño de contenido">Quiero este servicio →</a></div></article>
-          <article class="service reveal"><span class="service-number">03 · Publicidad</span><h3>Publicidad digital · Meta Ads</h3><div class="service-reveal"><span class="service-kicker">Creatividad · Campañas · Optimización</span><p>Creatividad, estrategia y optimización para que tu inversión tenga dirección.</p><ul class="service-list"><li>Estrategia y distribución de presupuesto</li><li>Identificación de clientes ideales</li><li>Asesoría o creación de anuncios visuales</li><li>Montaje, configuración y optimización constante</li><li>Reporte de ventas y retorno de inversión</li></ul><a class="text-link" href="#contacto" data-service="Publicidad digital · Meta Ads">Quiero este servicio →</a></div></article>
-          <article class="service reveal"><span class="service-number">04 · Video</span><h3>Creación de Reels</h3><div class="service-reveal"><span class="service-kicker">Guion · Grabación · Edición</span><p>Videos dinámicos que detienen el scroll, cuentan algo y dejan una sensación.</p><ul class="service-list"><li>Guion y estrategia de contenido</li><li>Grabación y producción de video</li><li>Edición dinámica y subtitulado</li><li>Copys, hashtags y entrega lista para publicar</li></ul><a class="text-link" href="#contacto" data-service="Creación de Reels">Quiero este servicio →</a></div></article>
-          <article class="service reveal"><span class="service-number">05 · Acompañamiento</span><h3>Asesoría creativa</h3><div class="service-reveal"><span class="service-kicker">Objetivos · Estrategia · Guía</span><p>Acompañamiento guiado para ordenar tus ideas y tomar mejores decisiones.</p><ul class="service-list"><li>Reunión inicial de valoración</li><li>Definición de objetivos claros</li><li>Estrategia para tu público objetivo</li><li>Calendario mensual y engagement</li><li>Acompañamiento mensual guiado</li></ul><a class="text-link" href="#contacto" data-service="Asesoría creativa">Quiero este servicio →</a></div></article>
+          <article class="service reveal"><div class="service-head"><span class="service-ico">📱</span><span class="service-number">01 · Redes</span></div><h3>Gestión de redes sociales</h3><span class="service-kicker">Estrategia · Comunidad · Constancia</span><div class="service-reveal"><p>Una presencia constante, estratégica y humana para que tus redes trabajen contigo.</p><ul class="service-list"><li>Reunión inicial y diagnóstico de marca</li><li>Planeación mensual de contenidos</li><li>Creación y programación de publicaciones</li><li>Atención a mensajes y optimización de perfil</li><li>Informe de resultados</li></ul><a class="text-link" href="#contacto" data-service="Gestión de redes sociales">Quiero este servicio →</a></div></article>
+          <article class="service reveal"><div class="service-head"><span class="service-ico">✏️</span><span class="service-number">02 · Contenido</span></div><h3>Diseño de contenido</h3><span class="service-kicker">Parrilla · Copys · Piezas</span><div class="service-reveal"><p>Una parrilla visual y verbal lista para publicar, con una idea clara detrás de cada pieza.</p><ul class="service-list"><li>Reunión inicial y planeación de contenido</li><li>Diseño de parrilla de contenido</li><li>Redacción de copys para cada post</li><li>Entrega organizada vía Drive y lista para publicar</li></ul><a class="text-link" href="#contacto" data-service="Diseño de contenido">Quiero este servicio →</a></div></article>
+          <article class="service reveal"><div class="service-head"><span class="service-ico">📣</span><span class="service-number">03 · Publicidad</span></div><h3>Publicidad digital · Meta Ads</h3><span class="service-kicker">Creatividad · Campañas · Optimización</span><div class="service-reveal"><p>Creatividad, estrategia y optimización para que tu inversión tenga dirección.</p><ul class="service-list"><li>Estrategia y distribución de presupuesto</li><li>Identificación de clientes ideales</li><li>Asesoría o creación de anuncios visuales</li><li>Montaje, configuración y optimización constante</li><li>Reporte de ventas y retorno de inversión</li></ul><a class="text-link" href="#contacto" data-service="Publicidad digital · Meta Ads">Quiero este servicio →</a></div></article>
+          <article class="service reveal"><div class="service-head"><span class="service-ico">🎬</span><span class="service-number">04 · Video</span></div><h3>Creación de Reels</h3><span class="service-kicker">Guion · Grabación · Edición</span><div class="service-reveal"><p>Videos dinámicos que detienen el scroll, cuentan algo y dejan una sensación.</p><ul class="service-list"><li>Guion y estrategia de contenido</li><li>Grabación y producción de video</li><li>Edición dinámica y subtitulado</li><li>Copys, hashtags y entrega lista para publicar</li></ul><a class="text-link" href="#contacto" data-service="Creación de Reels">Quiero este servicio →</a></div></article>
+          <article class="service reveal"><div class="service-head"><span class="service-ico">🧭</span><span class="service-number">05 · Acompañamiento</span></div><h3>Asesoría creativa</h3><span class="service-kicker">Objetivos · Estrategia · Guía</span><div class="service-reveal"><p>Acompañamiento guiado para ordenar tus ideas y tomar mejores decisiones.</p><ul class="service-list"><li>Reunión inicial de valoración</li><li>Definición de objetivos claros</li><li>Estrategia para tu público objetivo</li><li>Calendario mensual y engagement</li><li>Acompañamiento mensual guiado</li></ul><a class="text-link" href="#contacto" data-service="Asesoría creativa">Quiero este servicio →</a></div></article>
         </div>
       </div>
     </section>
@@ -691,11 +704,11 @@
     <section class="section workflow" id="proceso">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Cómo trabaja DLA</span><h2>Un proceso con<br><em>dirección.</em></h2><p class="services-lede">Cada proyecto se organiza a partir del contexto real de la empresa. No trabajamos con soluciones idénticas para todo el mundo ni prometemos resultados garantizados.</p></div>
-                <div class="steps-accordion" id="stepsAccordion">
-          <article class="step is-open"><button class="step-head" type="button" aria-expanded="true"><span class="step-num">01</span><h3>Entendemos el contexto</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver. Sin este paso no hay dirección posible.</p></div></div></article>
-          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">02</span><h3>Definimos la dirección</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña. Aquí se decide qué se comunica y por qué.</p></div></div></article>
-          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">03</span><h3>Desarrollamos la solución</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias, con revisión contigo en cada entrega.</p></div></div></article>
-          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">04</span><h3>Optimizamos y acompañamos</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Revisamos lo que ocurre, ajustamos el trabajo cuando el proyecto lo requiere y acompañamos la operación día a día.</p></div></div></article>
+                <div class="steps-deck">
+          <article class="gstep reveal" style="--i:0"><span class="gstep-ico">🔍</span><div><h3>Entendemos el contexto</h3><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver. Sin este paso no hay dirección posible.</p></div></article>
+          <article class="gstep reveal" style="--i:1"><span class="gstep-ico">🧭</span><div><h3>Definimos la dirección</h3><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña. Aquí se decide qué se comunica y por qué.</p></div></article>
+          <article class="gstep reveal" style="--i:2"><span class="gstep-ico">🎨</span><div><h3>Desarrollamos la solución</h3><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias, con revisión contigo en cada entrega.</p></div></article>
+          <article class="gstep reveal" style="--i:3"><span class="gstep-ico">🚀</span><div><h3>Optimizamos y acompañamos</h3><p>Revisamos lo que ocurre, ajustamos el trabajo cuando el proyecto lo requiere y acompañamos la operación día a día.</p></div></article>
         </div>
       </div>
     </section>
