@@ -175,16 +175,17 @@
     .carousel-arrow:last-child { right: 10px; }
     .carousel-arrow:hover, .carousel-arrow:focus-visible { border-color: var(--lilac-deep); background: var(--lilac); outline: none; transform: translateY(-50%) scale(1.06); }
     .carousel-arrow:active { transform: scale(.95); }
-    .bubble-track { min-width: 0; overflow: hidden; padding: 12px 0 24px; cursor: grab; user-select: none; touch-action: pan-y; mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent); }
+    .bubble-track { min-width: 0; overflow: hidden; padding: 12px 0 24px; cursor: grab; user-select: none; touch-action: pan-y; }
     .bubble-track.is-dragging { cursor: grabbing; }
     .bubble-row { display: flex; width: max-content; gap: 0; padding: 0; animation: collaborationsMarquee 54s linear infinite; animation-play-state: running; will-change: transform; }
     .bubble-row.is-nudging { transition: transform .68s cubic-bezier(.23, 1, .32, 1); }
-    .bubble-set { display: flex; flex-shrink: 0; gap: clamp(52px, 6.5vw, 92px); padding: 0 46px; align-items: center; }
-    .collab-bubble { display: grid; height: 54px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
-    .collab-bubble img { height: 54px; width: auto; max-width: none; }
-    .collab-link { display: grid; height: 54px; flex: 0 0 auto; place-items: center; outline: none; }
+    .bubble-set { display: flex; flex-shrink: 0; gap: clamp(56px, 7vw, 104px); padding: 0 40px; align-items: center; }
+    .collab-bubble { display: grid; height: 76px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
+    .collab-bubble img { height: 76px; width: auto; max-width: none; }
+    .collab-link { display: grid; height: 76px; flex: 0 0 auto; place-items: center; outline: none; }
     .collab-link:hover .collab-bubble, .collab-bubble:hover { opacity: 1; transform: translateY(-4px); }
     .collab-link { cursor: inherit; }
+    @media (max-width: 700px) { .collab-bubble, .collab-link { height: 58px; } .collab-bubble img { height: 58px; } }
     .collab-link:focus-visible { border-radius: 50%; outline: 3px solid var(--lilac-deep); outline-offset: 6px; }
     body.dark-mode .carousel-arrow { border-color: rgba(248,241,255,.2); background: rgba(20,17,27,.86); color: var(--ink); }
     @keyframes collaborationsMarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
@@ -283,6 +284,8 @@
     .form input, .form textarea, .form select { width: 100%; border: 0; border-bottom: 1px solid #5a4b70; border-radius: 0; outline: 0; padding: 12px 0; background: transparent; color: var(--cream); }
     .form select { appearance: none; }
     .form option { color: var(--ink); }
+    .form-note { margin: 12px 0 0; font-size: 11.5px; color: var(--muted); }
+    body.dark-mode .form-note { color: #c3b7d1; }
     .form textarea { min-height: 105px; resize: vertical; }
     .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--lilac); }
     .form .btn { width: max-content; margin-top: 7px; background: var(--cream); color: var(--ink); }
@@ -610,7 +613,7 @@
             <label>Tu nombre<input required name="nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?"></label>
             <label>Cuéntanos brevemente<textarea name="detalles" placeholder="Objetivo, fecha o contexto del proyecto"></textarea></label>
             <label class="consent"><input type="checkbox" required name="consentimiento"><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
-            <button class="btn" type="submit">Continuar por WhatsApp ↗</button>
+            <button class="btn" type="submit">Continuar por WhatsApp ↗</button><p class="form-note">Respuesta en menos de 24 horas · Sin compromiso</p>
           </form>
         </div>
       </div>
@@ -677,7 +680,7 @@
     </section>
 
     <section class="section contact" id="contacto">
-      <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar.</p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817247" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7247</a><span>San Cristóbal · Venezuela</span></div></div>
+      <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar. <strong>Recibirás respuesta en menos de 24 horas.</strong></p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817247" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7247</a><span>San Cristóbal · Venezuela</span></div></div>
       <form class="form reveal" id="contactForm">
         <label>Tu nombre<input required name="nombre" type="text" placeholder="¿Cómo te llamas?"></label>
         <label>Tu correo<input required name="correo" type="email" autocomplete="email" placeholder="tu@correo.com"></label>
@@ -688,7 +691,7 @@
         </div>
         <label>Cuéntanos un poco<textarea required name="mensaje" placeholder="¿Qué quieres construir?"></textarea></label>
         <label class="consent"><input type="checkbox" required name="consentimiento"><span>Acepto la <a href="/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para responder a mi solicitud.</span></label>
-        <button class="btn" type="submit">Enviar por WhatsApp ↗</button>
+        <button class="btn" type="submit">Enviar por WhatsApp ↗</button><p class="form-note">Respuesta en menos de 24 horas · Sin compromiso</p>
       </form>
     </section>
   </main>
