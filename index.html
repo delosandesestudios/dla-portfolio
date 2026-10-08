@@ -360,18 +360,20 @@
     }
     @media (max-width: 420px) { .brand { font-size: 24px; } .brand small { display: none; } .hero-inner { padding-right: 16px; padding-left: 16px; } .hero h1 { font-size: 54px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .bubble-row { transform: none; } .reveal, .hero .hero-inner > * { opacity: 1; transform: none; } }
-    /* Carrusel 3D del portafolio inspirado en la animación compartida */
-    .project-grid { position: relative; display: flex; width: min(1120px, 100%); min-height: 570px; align-items: center; justify-content: center; margin: 0 auto; perspective: 1400px; }
-    .project-grid .case-card { position: absolute; width: min(360px, 72vw); min-height: 540px; transform: translate3d(calc(var(--offset, 0) * 245px), 0, 0) rotateY(calc(var(--offset, 0) * -58deg)) scale(var(--card-scale, .82)); transform-origin: center center; opacity: var(--card-opacity, .74); filter: blur(var(--card-blur, 1px)); z-index: var(--card-z, 1); transition: transform .8s cubic-bezier(.23,1,.32,1), opacity .65s ease, filter .65s ease, box-shadow .45s ease, border-color .35s ease; }
-    .project-grid .case-card.is-active { --card-scale: 1; --card-opacity: 1; --card-blur: 0px; --card-z: 3; }
-    .project-grid .case-card.is-near { --card-scale: .86; --card-opacity: .86; --card-blur: .5px; --card-z: 2; }
-    .project-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
-    .project-control { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(255,235,201,.35); border-radius: 50%; background: rgba(255,255,255,.06); color: var(--cream); cursor: pointer; font-size: 18px; transition: background .25s ease, color .25s ease; }
-    .project-control:hover, .project-control:focus-visible { background: var(--lilac); color: var(--ink); outline: none; }
+    /* Carrusel showcase del portafolio */
+    .project-grid { position: relative; display: flex; width: min(1120px, 100%); min-height: 590px; align-items: center; justify-content: center; margin: 0 auto; perspective: 1400px; }
+    .project-grid .case-card { position: absolute; width: min(430px, 80vw); min-height: 540px; transform: translate3d(calc(var(--offset, 0) * 300px), 0, 0) rotateY(calc(var(--offset, 0) * -10deg)) scale(var(--card-scale, .85)); transform-origin: center center; opacity: var(--card-opacity, .55); filter: blur(var(--card-blur, 5px)) brightness(var(--card-bright, 1.18)) saturate(var(--card-sat, .8)); z-index: var(--card-z, 1); transition: transform .8s cubic-bezier(.23,1,.32,1), opacity .65s ease, filter .65s ease, box-shadow .45s ease, border-color .35s ease; }
+    .project-grid .case-card.is-active { --card-scale: 1; --card-opacity: 1; --card-blur: 0px; --card-bright: 1; --card-sat: 1; --card-z: 3; }
+    .project-arrows { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+    .project-arrows .project-control { position: absolute; top: 50%; transform: translateY(-50%); pointer-events: auto; width: 56px; height: 56px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(23,19,29,.55); backdrop-filter: blur(10px); color: var(--cream); font-size: 21px; box-shadow: 0 12px 32px rgba(0,0,0,.35); }
+    .project-arrows .project-control:hover, .project-arrows .project-control:focus-visible { background: rgba(23,19,29,.82); outline: none; }
+    .project-arrows #projectPrev { left: calc(50% - min(215px, 40vw) - 84px); }
+    .project-arrows #projectNext { right: calc(50% - min(215px, 40vw) - 84px); }
+    .project-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 26px; }
     .project-dots { display: flex; align-items: center; gap: 7px; }
     .project-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,235,201,.35); cursor: pointer; transition: width .35s var(--ease), background .35s ease; }
     .project-dot.is-active { width: 27px; background: var(--cream); }
-    @media (max-width: 700px) { .project-grid { min-height: 550px; } .project-grid .case-card { width: min(340px, 82vw); min-height: 520px; transform: translate3d(calc(var(--offset, 0) * 92px), 0, 0) rotateY(calc(var(--offset, 0) * -34deg)) scale(var(--card-scale, .82)); } }
+    @media (max-width: 700px) { .project-grid { min-height: 550px; } .project-grid .case-card { width: min(340px, 82vw); min-height: 520px; transform: translate3d(calc(var(--offset, 0) * 110px), 0, 0) rotateY(calc(var(--offset, 0) * -8deg)) scale(var(--card-scale, .88)); } .project-arrows .project-control { top: 30%; width: 44px; height: 44px; font-size: 18px; } .project-arrows #projectPrev { left: 12px; } .project-arrows #projectNext { right: 12px; } }
     @media (prefers-reduced-motion: reduce) { .project-grid .case-card { transition: none; } }
     .case-modal { position: fixed; inset: 0; z-index: 90; display: grid; visibility: hidden; place-items: center; padding: 20px; background: rgba(11,11,11,.78); opacity: 0; pointer-events: none; backdrop-filter: blur(8px); transition: opacity .3s ease, visibility .3s ease; }
     .case-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
@@ -573,11 +575,13 @@
             <div class="case-top case-top--brasa"><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">03</span></div>
             <div class="case-content"><span class="case-category">Restauración · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">Problema principal</span><p>Necesitaba comunicar la experiencia de la marca y sostener una presencia digital más activa.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
           </article>
+          <div class="project-arrows">
+            <button class="project-control" id="projectPrev" type="button" aria-label="Proyecto anterior">‹</button>
+            <button class="project-control" id="projectNext" type="button" aria-label="Proyecto siguiente">›</button>
+          </div>
         </div>
         <div class="project-controls" aria-label="Controles del portafolio">
-          <button class="project-control" id="projectPrev" type="button" aria-label="Proyecto anterior">←</button>
           <div class="project-dots" id="projectDots" aria-label="Seleccionar proyecto"></div>
-          <button class="project-control" id="projectNext" type="button" aria-label="Proyecto siguiente">→</button>
         </div>
       </div>
     </section>
@@ -878,7 +882,9 @@
     projectPrev.addEventListener('click', () => setActiveProject(activeProject - 1));
     projectNext.addEventListener('click', () => setActiveProject(activeProject + 1));
     projectCards.forEach((card, index) => card.addEventListener('click', event => {
-      if (!event.target.closest('.case-link')) { navigateToCase(['burbu-fresh', 'savia-viva', 'miguel-brasas'][index]); }
+      if (event.target.closest('.case-link')) return;
+      if (index !== activeProject) { setActiveProject(index); return; }
+      navigateToCase(['burbu-fresh', 'savia-viva', 'miguel-brasas'][index]);
     }));
     setActiveProject(0);
 
