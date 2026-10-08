@@ -251,6 +251,24 @@
     .case-content .case-label + p { margin-top: 4px; }
     .workflow { background: linear-gradient(130deg, #f6f1fb, #fff8ed); }
     .steps-accordion { display: grid; gap: 12px; max-width: 880px; margin: 34px auto 0; }
+    #faqAccordion .step { border-radius: 999px; transition: border-radius .45s var(--ease), background .3s ease, border-color .3s ease, box-shadow .3s ease; }
+    #faqAccordion .step:hover { border-color: rgba(177,164,213,.5); }
+    #faqAccordion .step.is-open { border-radius: 26px; }
+    .step .step-body-in { opacity: 0; transition: opacity .35s ease; }
+    .step.is-open .step-body-in { opacity: 1; transition-delay: .12s; }
+    .gallery-cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; max-width: 1060px; margin: 40px auto 0; align-items: start; }
+    .gcol { display: grid; gap: 16px; }
+    .gtile { border-radius: 22px; aspect-ratio: 4/5; display: grid; place-items: center; padding: 20px; text-align: center; color: rgba(255,255,255,.92); font-family: 'League Spartan', Arial, sans-serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 900; letter-spacing: -.06em; line-height: .9; box-shadow: 0 16px 36px rgba(70,46,91,.14); }
+    .gtile img { width: 56%; opacity: .95; }
+    .gtile-mark { font-size: clamp(40px, 5vw, 60px); letter-spacing: -.08em; }
+    .gtile small { display: block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; opacity: .75; }
+    .g1 { background: linear-gradient(140deg, #b1a4d5, #8d6ac2); }
+    .g2 { background: linear-gradient(140deg, #132c2a, #3f6b5c); }
+    .g3 { background: linear-gradient(140deg, #f0a36a, #55233d); }
+    .g4 { background: linear-gradient(140deg, #e8def7, #f6ecdf); color: #5a4478; }
+    .g5 { background: linear-gradient(140deg, #dff0e6, #f3ead8); color: #3f6b5c; }
+    .g6 { background: linear-gradient(140deg, #fdeef1, #ece4f9); color: #96526e; }
+    @media (max-width: 700px) { .gallery-cols { grid-template-columns: repeat(2, minmax(0,1fr)); } .gcol:nth-child(3) { display: none; } }
     .steps-deck { display: grid; gap: 18px; max-width: 860px; margin: 40px auto 0; }
     .gstep { position: sticky; top: calc(96px + var(--i, 0) * 20px); display: flex; gap: 20px; align-items: flex-start; padding: 30px 30px 34px; border-radius: 26px; border: 1px solid rgba(11,11,11,.06); background: linear-gradient(155deg, #fdfcff, #f4eefc); box-shadow: 0 20px 46px rgba(83,60,120,.12); }
     .gstep-ico { font-size: 34px; line-height: 1.15; filter: drop-shadow(0 5px 12px rgba(70,46,91,.2)); }
@@ -748,7 +766,29 @@
       </div>
     </section>
 
-        <section class="section faq" id="faq">
+            <section class="section gallery" id="galeria">
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Nuestro trabajo</span><h2>Piezas que dejan<br><em>huella visual.</em></h2></div>
+        <div class="gallery-cols">
+          <div class="gcol" data-parallax="0.12">
+            <div class="gtile g1">BURBU<br>FRESH</div>
+            <div class="gtile g4"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Identidad</small></div>
+            <div class="gtile g2">SAVIA<br>VIVA</div>
+          </div>
+          <div class="gcol" data-parallax="-0.10">
+            <div class="gtile g5"><span class="gtile-mark">DLA</span><small>Contenido</small></div>
+            <div class="gtile g3">MIGUEL<br>BRASAS</div>
+            <div class="gtile g6"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Reels</small></div>
+          </div>
+          <div class="gcol" data-parallax="0.16">
+            <div class="gtile g6"><span class="gtile-mark">DLA</span><small>Meta Ads</small></div>
+            <div class="gtile g1"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Content Kit</small></div>
+            <div class="gtile g5"><img src="/images/logo-original.png" alt="De los Andes Estudio"><small>Branding</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="section faq" id="faq">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que las marcas<br><em>nos preguntan.</em></h2></div>
         <div class="steps-accordion" id="faqAccordion">
