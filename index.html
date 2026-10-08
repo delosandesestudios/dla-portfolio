@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Agencia creativa en San Cristóbal: gestión de redes sociales, diseño de contenido, publicidad en Meta Ads, creación de Reels, asesoría creativa y Content Kit para marcas que quieren crecer.">
   <meta name="theme-color" content="#b1a4d5">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon-64.png">
   <link rel="apple-touch-icon" href="/images/favicon-180.png">
   <title>De los Andes Estudio — Hacemos que tu marca se note</title>
   <meta property="og:type" content="website">
@@ -41,10 +41,10 @@
     "priceRange": "$$$"
   }
   </script>
+  <link rel="preload" as="image" href="/images/logo-original.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=League+Spartan:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=League+Spartan:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -145,7 +145,11 @@
     .hero-mark { position: relative; display: grid; width: min(460px, 80vw); aspect-ratio: 900/558; margin: -10px auto 12px; place-items: center; animation: markIn 1s var(--ease) both; }
     .hero-mark::before { content: ''; position: absolute; inset: 8% -12%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
     .hero-mark > div { position: relative; z-index: 1; }
-    .hero-mark .logo-eye { width: min(460px, 80vw); height: auto; }
+    .hero-mark .logo-eye { width: min(460px, 80vw); height: auto; transform-origin: 50% 50%; }
+    @media (hover: hover) {
+      .hero-mark:hover .logo-eye { animation: logoBlink 1.1s var(--ease); }
+    }
+    @keyframes logoBlink { 0% { transform: scaleY(1); } 40% { transform: scaleY(.05); } 55% { transform: scaleY(.05); } 100% { transform: scaleY(1); } }
     @keyframes auraOpen { from { transform: scaleX(.35); opacity: 0; } to { transform: scaleX(1.1); opacity: .9; } }
     @keyframes auraBreathe { 0%, 100% { transform: scaleX(1.1); opacity: .9; } 50% { transform: scaleX(.82); opacity: .45; } }
     @media (prefers-reduced-motion: reduce) { .hero-mark::before { animation: none; transform: none; opacity: .55; } }
@@ -233,7 +237,12 @@
     .service-grid, .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .services-lede { max-width: 650px; margin: 22px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
     .services-mantra { display: inline-block; margin-top: 18px; color: var(--purple); font-family: 'Caveat', cursive; font-size: 30px; transform: rotate(-3deg); }
-    .service { position: relative; display: flex; min-height: 270px; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 27px; border: 1px solid rgba(11,11,11,.1); background: rgba(255,255,255,.58); transition: transform .35s var(--ease), box-shadow .35s ease, background .35s ease; }
+    .service:nth-child(1) { background: linear-gradient(150deg, #f3e8fb, #fdf3ea); }
+    .service:nth-child(2) { background: linear-gradient(150deg, #e6f2ea, #fdf7ee); }
+    .service:nth-child(3) { background: linear-gradient(150deg, #fdece2, #fdf3f0); }
+    .service:nth-child(4) { background: linear-gradient(150deg, #fdeef1, #f3edfb); }
+    .service:nth-child(5) { background: linear-gradient(150deg, #fbf5e0, #efedfb); }
+    .service { position: relative; display: flex; min-height: 240px; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 27px; border: 1px solid rgba(11,11,11,.1); background: rgba(255,255,255,.58); transition: transform .35s var(--ease), box-shadow .35s ease, background .35s ease; }
     .service::after { content: ''; position: absolute; right: -45px; bottom: -65px; width: 180px; height: 180px; border-radius: 50%; background: var(--lilac); opacity: .16; transition: transform .45s var(--ease), opacity .35s ease; }
     .service:hover, .service:focus-within { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(50,35,65,.14); background: rgba(255,255,255,.78); }
     .service:hover::after, .service:focus-within::after { transform: scale(1.5); opacity: .28; }
@@ -247,13 +256,24 @@
     .case-label { display: block; margin-top: 12px; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .case-content .case-label + p { margin-top: 4px; }
     .workflow { background: linear-gradient(130deg, #f6f1fb, #fff8ed); }
-    .workflow-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 34px; }
-    .workflow-step { min-height: 210px; padding: 24px; border: 1px solid rgba(11,11,11,.1); background: rgba(255,255,255,.58); }
-    .workflow-step strong { display: block; margin-bottom: 34px; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 13px; }
-    .workflow-step h3 { margin: 0 0 12px; font-size: 23px; line-height: .98; }
-    .workflow-step p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .steps-accordion { display: grid; gap: 12px; max-width: 880px; margin: 34px auto 0; }
+    .step { border: 1px solid rgba(11,11,11,.1); border-radius: 18px; background: rgba(255,255,255,.66); overflow: hidden; transition: border-color .3s ease, background .3s ease, box-shadow .3s ease; }
+    .step.is-open { background: #fff; border-color: rgba(177,164,213,.75); box-shadow: 0 16px 38px rgba(83,60,120,.13); }
+    .step-head { display: flex; align-items: center; gap: 18px; width: 100%; padding: 20px 22px; border: 0; background: none; cursor: pointer; text-align: left; font: inherit; }
+    .step-num { color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+    .step-head h3 { flex: 1; margin: 0; font-size: clamp(20px, 2.4vw, 27px); line-height: .98; }
+    .step-chevron { display: grid; place-items: center; color: var(--purple); }
+    .step-chevron svg { transition: transform .4s var(--ease); }
+    .step.is-open .step-chevron svg { transform: rotate(180deg); }
+    .step-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+    .step.is-open .step-body { grid-template-rows: 1fr; }
+    .step-body-in { overflow: hidden; }
+    .step-body p { margin: 0; padding: 0 22px 22px 53px; color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+    body.dark-mode .step { background: rgba(255,255,255,.05); border-color: rgba(255,235,201,.16); }
+    body.dark-mode .step.is-open { background: rgba(255,255,255,.1); border-color: rgba(177,164,213,.5); }
+    body.dark-mode .step-body p { color: #d0c4dc; }
     .plans-note { max-width: 680px; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .plans { background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 230px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 90px), linear-gradient(135deg, #17131d 0%, #241b2b 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
+    .plans { background: linear-gradient(180deg, rgba(177,164,213,.35) 0, rgba(177,164,213,0) 130px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 90px), linear-gradient(135deg, #17131d 0%, #241b2b 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
     .plans h2 { color: var(--cream); }
     .plan { display: flex; min-height: 355px; flex-direction: column; padding: 27px; border: 1px solid rgba(255,235,201,.14); background: linear-gradient(155deg, #17131d 0%, #251a2b 60%, #15131d 100%); }
     .plan.featured { background: var(--lilac); color: var(--ink); }
@@ -265,7 +285,7 @@
     .plan .btn { width: max-content; margin-top: auto; }
 
     /* Contacto */
-    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, rgba(177,164,213,.4) 0, rgba(177,164,213,0) 220px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(160deg, #0b0b0b 0%, #181322 55%, #101318 100%); color: var(--cream); }
+    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, rgba(177,164,213,.35) 0, rgba(177,164,213,0) 130px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(160deg, #0b0b0b 0%, #181322 55%, #101318 100%); color: var(--cream); }
     .contact h2 { margin: 16px 0 22px; font-size: clamp(55px, 7vw, 102px); line-height: .84; }
     .contact-copy > p { max-width: 390px; color: #c8bddf; font-size: 13px; line-height: 1.65; }
     .contact-details { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 35px; color: var(--lilac); font-family: 'League Spartan', sans-serif; font-size: 13px; font-weight: 700; }
@@ -344,7 +364,7 @@
       .hero::after { right: -18%; bottom: 9%; width: 55vw; height: 55vw; }
       .section-head { display: block; }
       .section-note { margin-top: 22px; }
-      .service-grid, .plans-grid, .workflow-grid { grid-template-columns: 1fr; }
+      .service-grid, .plans-grid { grid-template-columns: 1fr; }
       .service { min-height: 300px; }
       .service-reveal { opacity: 1; transform: none; }
       .project-grid { grid-template-columns: 1fr; }
@@ -512,7 +532,7 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-inner" data-parallax="0.22" data-parallax-fade="1">
+      <div class="hero-inner" data-parallax="0.12" data-parallax-fade="1">
         <div class="hero-mark"><img class="logo-eye" src="/images/logo-original.png" alt="Logo de De los Andes Estudio" width="900" height="558" fetchpriority="high"></div>
         <p class="eyebrow">• Estudio creativo · San Cristóbal</p>
         <h1>Tu marca puede verse bien.<br>Pero también debe <em>significar algo.</em></h1>
@@ -535,20 +555,20 @@
         <div class="bubble-track" aria-label="Marcas con las que hemos colaborado">
         <div class="bubble-row">
           <div class="bubble-set" aria-hidden="false">
-            <a class="collab-link" href="#caso-burbu" aria-label="Ver caso de éxito de Burbu Fresh"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-burbufresh.jpg" alt="Logo de Burbu Fresh"></span></a>
-            <a class="collab-link" href="#caso-brasas" aria-label="Ver caso de éxito de Miguel Brasas"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-miguel-brasas.jpg" alt="Logo de Miguel Brasas"></span></a>
-            <a class="collab-link" href="#caso-brasas" aria-label="Ver caso de éxito de El Establo"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-el-establo.jpg" alt="Logo de El Establo"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Primos Café Gourmet"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-primos-cafe.jpg" alt="Logo de Primos Café Gourmet"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Entrecortes"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-entrecortes.jpg" alt="Logo de Entrecortes"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Mostris"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-mostris.jpg" alt="Logo de Mostris"></span></a><a class="collab-link" href="#portafolio" aria-label="Enigma Café"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/dla-portfolio/main/images/enigma.jpg" alt="Logo de Enigma Café"></span></a><a class="collab-link" href="#portafolio" aria-label="Kobayashi"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/dla-portfolio/main/images/kobayashi.jpg" alt="Logo de Kobayashi"></span></a>
+            <a class="collab-link" href="#caso-burbu" aria-label="Ver caso de éxito de Burbu Fresh"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-burbufresh.jpg" alt="Logo de Burbu Fresh"></span></a>
+            <a class="collab-link" href="#caso-brasas" aria-label="Ver caso de éxito de Miguel Brasas"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-miguel-brasas.jpg" alt="Logo de Miguel Brasas"></span></a>
+            <a class="collab-link" href="#caso-brasas" aria-label="Ver caso de éxito de El Establo"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-el-establo.jpg" alt="Logo de El Establo"></span></a>
+            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Primos Café Gourmet"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.jpg" alt="Logo de Primos Café Gourmet"></span></a>
+            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Entrecortes"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.jpg" alt="Logo de Entrecortes"></span></a>
+            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Mostris"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.jpg" alt="Logo de Mostris"></span></a><a class="collab-link" href="#portafolio" aria-label="Enigma Café"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/enigma.jpg" alt="Logo de Enigma Café"></span></a><a class="collab-link" href="#portafolio" aria-label="Kobayashi"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.jpg" alt="Logo de Kobayashi"></span></a>
           </div>
           <div class="bubble-set" aria-hidden="true">
-            <a class="collab-link" href="#caso-burbu" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-burbufresh.jpg" alt=""></span></a>
-            <a class="collab-link" href="#caso-brasas" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-miguel-brasas.jpg" alt=""></span></a>
-            <a class="collab-link" href="#caso-brasas" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-el-establo.jpg" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-primos-cafe.jpg" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-entrecortes.jpg" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/DLAPORTFOLIO/main/images/logo-mostris.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/dla-portfolio/main/images/enigma.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/delosandesestudios/dla-portfolio/main/images/kobayashi.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-burbu" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-burbufresh.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-brasas" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-miguel-brasas.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-brasas" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-el-establo.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.jpg" alt=""></span></a>
+            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/enigma.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.jpg" alt=""></span></a>
           </div>
         </div>
       </div>
@@ -632,11 +652,11 @@
     <section class="section workflow" id="proceso">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Cómo trabaja DLA</span><h2>Un proceso con<br><em>dirección.</em></h2><p class="services-lede">Cada proyecto se organiza a partir del contexto real de la empresa. No trabajamos con soluciones idénticas para todo el mundo ni prometemos resultados garantizados.</p></div>
-        <div class="workflow-grid">
-          <article class="workflow-step reveal"><strong>01</strong><h3>Entendemos el contexto</h3><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver.</p></article>
-          <article class="workflow-step reveal"><strong>02</strong><h3>Definimos la dirección</h3><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña.</p></article>
-          <article class="workflow-step reveal"><strong>03</strong><h3>Desarrollamos la solución</h3><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias.</p></article>
-          <article class="workflow-step reveal"><strong>04</strong><h3>Optimizamos y acompañamos</h3><p>Revisamos lo que ocurre y ajustamos el trabajo cuando el proyecto lo requiere.</p></article>
+                <div class="steps-accordion" id="stepsAccordion">
+          <article class="step is-open"><button class="step-head" type="button" aria-expanded="true"><span class="step-num">01</span><h3>Entendemos el contexto</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver. Sin este paso no hay dirección posible.</p></div></div></article>
+          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">02</span><h3>Definimos la dirección</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña. Aquí se decide qué se comunica y por qué.</p></div></div></article>
+          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">03</span><h3>Desarrollamos la solución</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias, con revisión contigo en cada entrega.</p></div></div></article>
+          <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">04</span><h3>Optimizamos y acompañamos</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Revisamos lo que ocurre, ajustamos el trabajo cuando el proyecto lo requiere y acompañamos la operación día a día.</p></div></div></article>
         </div>
       </div>
     </section>
@@ -1050,6 +1070,23 @@
       navigateToCase(['burbu-fresh', 'savia-viva', 'miguel-brasas'][index]);
     }));
   
+  // Acordeon de pasos del proceso
+  (function () {
+    var acc = document.getElementById('stepsAccordion');
+    if (!acc) return;
+    acc.addEventListener('click', function (e) {
+      var head = e.target.closest('.step-head');
+      if (!head) return;
+      var item = head.parentElement;
+      var yaAbierto = item.classList.contains('is-open');
+      acc.querySelectorAll('.step').forEach(function (st) {
+        st.classList.remove('is-open');
+        st.querySelector('.step-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!yaAbierto) { item.classList.add('is-open'); head.setAttribute('aria-expanded', 'true'); }
+    });
+  })();
+
   // Parallax sutil (UX: profundidad sin distraer; respeta prefers-reduced-motion)
   (function () {
     var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
@@ -1067,7 +1104,7 @@
         var t = Math.max(-90, Math.min(90, mid * k));
         el.style.transform = 'translate3d(0,' + t.toFixed(1) + 'px,0)';
         if (el.hasAttribute('data-parallax-fade')) {
-          var o = 1 + mid / (vh * 0.6);
+          var o = (mid + vh * 0.75) / (vh * 0.45);
           el.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3);
         }
       }
