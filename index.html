@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Agencia creativa en San Cristóbal: gestión de redes sociales, diseño de contenido, publicidad en Meta Ads, creación de Reels, asesoría creativa y Content Kit para marcas que quieren crecer.">
+  <link rel="canonical" href="https://dla-portfolio.vercel.app/">
   <meta name="theme-color" content="#b1a4d5">
   <link rel="icon" type="image/png" href="/images/favicon-64.png">
   <link rel="apple-touch-icon" href="/images/favicon-180.png">
@@ -107,9 +108,13 @@
       padding: 0 clamp(20px, 5vw, 72px);
       border-bottom: 1px solid transparent;
       color: var(--ink);
-      transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease, opacity .3s ease, visibility .3s ease, transform .3s var(--ease);
+      transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease, top .5s var(--ease), left .5s var(--ease), width .5s var(--ease), height .5s var(--ease), padding .5s var(--ease), border-radius .5s var(--ease), box-shadow .5s ease, transform .5s var(--ease);
     }
     .topbar.scrolled { background: rgba(252, 251, 255, .78); border-color: rgba(11, 11, 11, .08); backdrop-filter: blur(18px); }
+    .topbar.compact { top: 14px; left: 50%; width: min(1080px, calc(100% - 28px)); height: 64px; padding: 0 clamp(20px, 3vw, 34px); border: 1px solid rgba(11,11,11,.08); border-radius: 999px; background: rgba(252,251,255,.84); backdrop-filter: blur(18px); box-shadow: 0 16px 42px rgba(23,19,29,.16); transform: translateX(-50%); }
+    .topbar.compact .brand { font-size: 23px; }
+    body.dark-mode .topbar.compact { background: rgba(20,17,27,.85); border-color: rgba(255,235,201,.14); }
+    @media (max-width: 700px) { .topbar.compact { top: 10px; width: calc(100% - 20px); height: 58px; } .topbar.compact .brand { font-size: 20px; } }
     .topbar.scroll-hidden { opacity: 0; visibility: hidden; transform: translateY(-18px); pointer-events: none; }
     .brand { font-size: 28px; font-weight: 900; letter-spacing: -.09em; line-height: 1; }
     .brand small { display: inline-block; margin-left: 8px; font-size: 8px; font-weight: 700; letter-spacing: .14em; }
@@ -119,14 +124,6 @@
     .nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
     .menu { display: none; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 25px; line-height: 1; transition: opacity .25s ease, visibility .25s ease, transform .25s ease; }
     .menu.scroll-hidden { opacity: 0; visibility: hidden; transform: translateY(-8px); pointer-events: none; }
-    .utility-toggle { position: fixed; top: 18px; right: 20px; z-index: 70; display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid rgba(11,11,11,.14); border-radius: 50%; background: rgba(252,251,255,.82); color: var(--ink); cursor: pointer; font-size: 19px; box-shadow: 0 12px 28px rgba(38,25,55,.14); opacity: 0; visibility: hidden; transform: translateY(-10px) scale(.92); transition: opacity .3s ease, visibility .3s ease, transform .3s var(--ease), background .3s ease; backdrop-filter: blur(16px); }
-    .utility-toggle.is-visible { opacity: 1; visibility: visible; transform: none; }
-    .utility-toggle:hover, .utility-toggle:focus-visible { background: var(--lilac); outline: none; }
-    .utility-panel { position: fixed; top: 70px; right: 20px; z-index: 69; display: grid; width: 210px; gap: 4px; padding: 10px; border: 1px solid rgba(11,11,11,.12); background: rgba(252,251,255,.94); color: var(--ink); box-shadow: 0 20px 44px rgba(38,25,55,.18); opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.96); transition: opacity .25s ease, visibility .25s ease, transform .25s var(--ease); backdrop-filter: blur(18px); }
-    .utility-panel.open { opacity: 1; visibility: visible; transform: none; }
-    .utility-panel a, .utility-theme { display: flex; align-items: center; justify-content: space-between; padding: 11px 12px; border: 0; background: transparent; color: inherit; cursor: pointer; font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700; text-align: left; }
-    .utility-panel a:hover, .utility-theme:hover { background: rgba(177,164,213,.3); }
-    body.dark-mode .utility-toggle, body.dark-mode .utility-panel { border-color: rgba(248,241,255,.18); background: rgba(20,17,27,.94); color: var(--ink); }
 
     /* Botones normales */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; padding: 15px 21px; background: var(--ink); color: var(--cream); cursor: pointer; font-size: 12px; font-weight: 800; transition: transform .18s var(--ease), background .25s ease, box-shadow .25s ease; }
@@ -349,14 +346,15 @@
     body.dark-mode .modal-close { background: var(--lilac); color: #14111b; }
 
     /* Apariciones y responsive */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s var(--ease); }
+    .reveal { opacity: 0; transform: translateY(26px) scale(.965); transition: opacity .7s ease, transform .85s cubic-bezier(.22,1,.36,1); }
     .reveal.is-visible { opacity: 1; transform: none; }
     @keyframes breath { to { transform: translate(5%, 4%) scale(1.08); filter: blur(55px); } }
     @keyframes revealUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
     @keyframes markIn { from { opacity: 0; transform: scale(.88) rotate(-5deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
     @media (max-width: 900px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .contact { grid-template-columns: 1fr; } }
     @media (max-width: 700px) {
-      .nav { position: absolute; top: 76px; right: 20px; left: 20px; display: none; flex-direction: column; gap: 0; padding: 10px 18px 14px; border: 1px solid var(--line); background: rgba(252,251,255,.94); box-shadow: 0 18px 32px rgba(11,11,11,.1); }
+      .nav.open a { min-height: 44px; display: flex; align-items: center; }
+    .nav { position: absolute; top: calc(100% + 12px); right: 20px; left: 20px; display: none; flex-direction: column; gap: 0; padding: 10px 18px 14px; border: 1px solid var(--line); background: rgba(252,251,255,.94); box-shadow: 0 18px 32px rgba(11,11,11,.1); }
       .nav.open { display: flex; }
       .nav a { padding: 11px 0; }
       .menu { display: block; }
@@ -458,7 +456,7 @@
     .nav a.is-current::after { transform: scaleX(1); transform-origin: left; }
     @media (max-width: 700px) {
       .btn { min-height: 46px; display: inline-flex; align-items: center; }
-      .nav.open a, .utility-panel a, .utility-theme { min-height: 44px; display: flex; align-items: center; }
+
     }
     .plan-group { margin-top: 14px; }
     .plan-group b { display: block; margin-bottom: 7px; color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -518,17 +516,9 @@
       <a href="#contacto">Contacto →</a>
       <label class="theme-switch" title="Cambiar modo de color"><input id="themeToggle" type="checkbox" aria-label="Activar modo oscuro"><span class="slider round"><span class="sun-moon"><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg><svg class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg></span><span class="stars"><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg><svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10,0 10 C 10 10,10 10,10 20 C 10 10,10 10,20 10 C 10 10,10 10,10 0 C 10 10,10 10,0 10 Z"></path></svg></span></span></label>
     </nav>
-    <button class="menu" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="menu" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
   </header>
-  <button class="utility-toggle" id="utilityToggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false">☰</button>
-  <div class="utility-panel" id="utilityPanel" aria-hidden="true">
-    <a href="#servicios">Servicios</a>
-    <a href="#portafolio">Portafolio</a>
-    <a href="#como-trabajamos">Cómo trabajamos</a>
-    <a href="#content-kit">Content Kit</a>
-    <a href="#contacto">Solicitar propuesta <span>→</span></a>
-    <button class="utility-theme" id="utilityTheme" type="button"><span>Modo de color</span><strong id="utilityThemeIcon">☼</strong></button>
-  </div>
+  
 
   <main>
     <section class="hero" id="inicio">
@@ -734,34 +724,22 @@
   <button class="float float-talk" id="talkButton" type="button"><span class="float-dot" aria-hidden="true"></span> Solicitar propuesta</button>
 
   <script>
+    const BURGER = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
     const topbar = document.getElementById('topbar');
     const nav = document.getElementById('nav');
     const menuButton = document.getElementById('menuButton');
-    const utilityToggle = document.getElementById('utilityToggle');
-    const utilityPanel = document.getElementById('utilityPanel');
-    const utilityTheme = document.getElementById('utilityTheme');
-    const utilityThemeIcon = document.getElementById('utilityThemeIcon');
     const themeToggle = document.getElementById('themeToggle');
     const talkButton = document.getElementById('talkButton');
     const contactForm = document.getElementById('contactForm');
 
     window.addEventListener('scroll', () => {
-      const isScrolled = window.scrollY > 24;
-      const showUtility = window.scrollY > 90;
+      const isScrolled = window.scrollY > 60;
+      topbar.classList.toggle('compact', isScrolled);
       topbar.classList.toggle('scrolled', isScrolled);
-      topbar.classList.toggle('scroll-hidden', showUtility);
-      utilityToggle.classList.toggle('is-visible', showUtility);
-      if (!showUtility && utilityPanel.classList.contains('open')) {
-        utilityPanel.classList.remove('open');
-        utilityToggle.setAttribute('aria-expanded', 'false');
-        utilityPanel.setAttribute('aria-hidden', 'true');
-        utilityToggle.textContent = '☰';
-      }
-      menuButton.classList.toggle('scroll-hidden', isScrolled);
       if (isScrolled && nav.classList.contains('open')) {
         nav.classList.remove('open');
         menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.textContent = '☰';
+        menuButton.innerHTML = BURGER;
       }
     }, { passive: true });
 
@@ -771,8 +749,6 @@
       const dark = document.body.classList.contains('dark-mode');
       themeToggle.checked = dark;
       themeToggle.setAttribute('aria-label', dark ? 'Activar modo claro' : 'Activar modo oscuro');
-      utilityThemeIcon.textContent = dark ? '☾' : '☼';
-      utilityTheme.setAttribute('aria-label', dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
     }
     updateThemeToggle();
     themeToggle.addEventListener('change', () => {
@@ -780,33 +756,16 @@
       localStorage.setItem('dla-theme', dark ? 'dark' : 'light');
       updateThemeToggle();
     });
-    utilityTheme.addEventListener('click', () => {
-      const dark = document.body.classList.toggle('dark-mode');
-      localStorage.setItem('dla-theme', dark ? 'dark' : 'light');
-      updateThemeToggle();
-    });
-    utilityToggle.addEventListener('click', () => {
-      const isOpen = utilityPanel.classList.toggle('open');
-      utilityToggle.setAttribute('aria-expanded', String(isOpen));
-      utilityPanel.setAttribute('aria-hidden', String(!isOpen));
-      utilityToggle.textContent = isOpen ? '×' : '☰';
-    });
-    utilityPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      utilityPanel.classList.remove('open');
-      utilityToggle.setAttribute('aria-expanded', 'false');
-      utilityPanel.setAttribute('aria-hidden', 'true');
-      utilityToggle.textContent = '☰';
-    }));
 
     menuButton.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.textContent = isOpen ? '×' : '☰';
+      menuButton.innerHTML = isOpen ? '×' : BURGER;
     });
     nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       nav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.textContent = '☰';
+      menuButton.innerHTML = BURGER;
     }));
 
     talkButton.addEventListener('click', () => {
