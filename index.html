@@ -114,6 +114,10 @@
     .topbar.scrolled { background: rgba(252, 251, 255, .78); border-color: rgba(11, 11, 11, .08); backdrop-filter: blur(18px); }
     .topbar.compact { top: 14px; left: 50%; width: min(1080px, calc(100% - 28px)); height: 64px; padding: 0 clamp(20px, 3vw, 34px); border: 1px solid rgba(11,11,11,.08); border-radius: 999px; background: rgba(252,251,255,.84); backdrop-filter: blur(18px); box-shadow: 0 16px 42px rgba(23,19,29,.16); transform: translateX(-50%); }
     .topbar.compact .brand { font-size: 23px; }
+    body.dark-mode .btn:not(.btn-outline) { color: var(--ink-soft); }
+    body.dark-mode .btn-outline { color: var(--cream); }
+    body.dark-mode .form .btn { color: var(--ink-soft); }
+    body.dark-mode .eyebrow { color: var(--lilac); }
     body.dark-mode .topbar.compact { background: rgba(20,17,27,.85); border-color: rgba(255,235,201,.14); }
     @media (max-width: 700px) { .topbar.compact { top: 10px; width: calc(100% - 20px); height: 58px; } .topbar.compact .brand { font-size: 20px; } }
     .topbar.scroll-hidden { opacity: 0; visibility: hidden; transform: translateY(-18px); pointer-events: none; }
@@ -144,6 +148,8 @@
     .hero-mark::before { content: ''; position: absolute; inset: -55% -60%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
     .hero-mark > div { position: relative; z-index: 1; }
     .hero-mark .logo-eye { width: min(150px, 34vw); height: auto; transform-origin: 50% 50%; }
+    .hero-mark { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .hero-mark:active .logo-eye, .hero-mark.blink .logo-eye { animation: logoBlink 1.1s var(--ease); }
     @media (hover: hover) {
       .hero-mark:hover .logo-eye { animation: logoBlink 1.1s var(--ease); }
     }
@@ -207,7 +213,6 @@
     .case-top::before { width: 230px; height: 230px; top: -90px; right: -25px; background: rgba(255,235,201,.55); }
     .case-top::after { width: 190px; height: 190px; bottom: -100px; left: -20px; border: 1px solid rgba(255,255,255,.48); box-shadow: 0 0 0 22px rgba(255,255,255,.14), 0 0 0 44px rgba(255,255,255,.1); }
     .case-top--burbu { background: linear-gradient(135deg, #b1a4d5, #8d6ac2); }
-    .case-top--savia { background: linear-gradient(135deg, #132c2a, #a4c6ad); }
     .case-top--brasa { background: linear-gradient(135deg, #f0a36a, #55233d); }
     [data-parallax] { will-change: transform; }
     .case-art { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.9); font-family: 'League Spartan', sans-serif; font-size: clamp(36px, 5vw, 62px); font-weight: 900; letter-spacing: -.1em; mix-blend-mode: screen; }
@@ -256,6 +261,8 @@
     .case-content .case-label + p { margin-top: 4px; }
     .workflow { background: linear-gradient(130deg, #f6f1fb, #fff8ed); }
     .steps-accordion { display: grid; gap: 12px; max-width: 880px; margin: 34px auto 0; }
+    #faq .section-head em, #faq h2 em { color: inherit; }
+    #faq .step-head h3 { color: var(--ink); }
     #faqAccordion .step { border-radius: 999px; transition: border-radius .45s var(--ease), background .3s ease, border-color .3s ease, box-shadow .3s ease; }
     #faqAccordion .step:hover { border-color: rgba(177,164,213,.5); }
     #faqAccordion .step.is-open { border-radius: 26px; }
@@ -318,6 +325,7 @@
     .form input, .form textarea, .form select { width: 100%; border: 0; border-bottom: 1px solid #5a4b70; border-radius: 0; outline: 0; padding: 12px 0; background: transparent; color: var(--cream); }
     .form select { appearance: none; }
     .form option { color: var(--ink); }
+    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
     .form-note { margin: 12px 0 0; font-size: 11.5px; color: var(--muted); }
     body.dark-mode .form-note { color: #c3b7d1; }
     .form textarea { min-height: 105px; resize: vertical; }
@@ -478,7 +486,6 @@
     .project-grid .case-card .case-content::after { content: "↗"; position: absolute; right: 14px; bottom: 14px; display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: rgba(255,255,255,.78); font-size: 18px; }
     .project-grid .case-card .case-art { text-shadow: 0 5px 25px rgba(0,0,0,.35); }
     #caso-burbu { --case-accent: conic-gradient(from 120deg, #9e8bd2, #f2a8d4, #ffebc9, #9e8bd2); }
-    #caso-savia { --case-accent: conic-gradient(from 120deg, #91a878, #d8e3bb, #b1a4d5, #91a878); }
     #caso-brasas { --case-accent: conic-gradient(from 120deg, #e47e42, #ffcf77, #8f4d39, #e47e42); }
     #caso-establo { --case-accent: conic-gradient(from 120deg, #8f4d39, #d9b46a, #6b0f12, #8f4d39); }
     .service-list { display: grid; gap: 5px; margin: 12px 0 0; padding: 0 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
@@ -493,6 +500,7 @@
     .plan-group { margin-top: 14px; }
     .plan-group b { display: block; margin-bottom: 7px; color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .plan.featured .plan-group b { color: var(--ink); }
+    .plan.featured .eyebrow { color: var(--ink-soft); }
     .retainer { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) max-content; gap: clamp(20px, 4vw, 48px); align-items: center; margin-top: 18px; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(255,235,201,.14); background: linear-gradient(150deg, #17131d 0%, #251a2b 65%, #15131d 100%); color: var(--cream); }
     .retainer h3 { margin: 12px 0 10px; font-size: clamp(26px, 3.4vw, 40px); line-height: .9; }
     .retainer p { margin: 0; color: #c8bddf; font-size: 13px; line-height: 1.6; }
@@ -582,7 +590,9 @@
       .web-logo img { width: 100%; height: 100%; object-fit: contain; padding: 7px; }
       .web-body h3 { font-size: 19px; margin: 0; }
       .web-body p { font-size: 14px; color: var(--muted); margin: 0; flex: 1; }
-      .web-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+      .web-links .btn-outline { border-color: rgba(11, 11, 11, .3); color: var(--ink); }
+    body.dark-mode .web-links .btn-outline { border-color: rgba(255, 235, 201, .3); color: var(--cream); }
+    .web-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
       .web-ig { font-size: 13px; font-weight: 700; color: var(--purple); border-bottom: 2px solid var(--lilac); }
       @media (max-width: 960px) { .web-grid { grid-template-columns: 1fr; } }
       /* Métricas en tarjetas de caso */
@@ -590,6 +600,30 @@
       .case-stats span { display: flex; flex-direction: column; gap: 3px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
       .case-stats b { font-family: 'League Spartan', Arial, sans-serif; font-size: 19px; letter-spacing: 0; text-transform: none; color: var(--ink); }
       .case-top--establo { background: linear-gradient(135deg, #8f4d39, #d9b46a); }
+      #loader { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 38%, #2e2340 0%, #1b1425 62%, #120d18 100%); transition: opacity .6s var(--ease), visibility .6s; }
+      #loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+      #loader .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; will-change: transform; }
+      #loader .orb--lila { width: 52vmax; height: 52vmax; left: -14vmax; top: -18vmax; background: radial-gradient(circle, rgba(141,106,194,.85), rgba(141,106,194,0) 70%); animation: orb-a 14s ease-in-out infinite alternate; }
+      #loader .orb--crema { width: 44vmax; height: 44vmax; right: -12vmax; bottom: -16vmax; background: radial-gradient(circle, rgba(255,235,201,.7), rgba(255,235,201,0) 70%); animation: orb-b 18s ease-in-out infinite alternate; }
+      #loader .orb--rosa { width: 34vmax; height: 34vmax; right: 8vmax; top: -10vmax; background: radial-gradient(circle, rgba(242,168,212,.5), rgba(242,168,212,0) 70%); animation: orb-c 16s ease-in-out infinite alternate; }
+      @keyframes orb-a { to { transform: translate(10vmax, 8vmax) scale(1.15); } }
+      @keyframes orb-b { to { transform: translate(-9vmax, -7vmax) scale(1.12); } }
+      @keyframes orb-c { to { transform: translate(-6vmax, 9vmax) scale(.9); } }
+      #loader .star { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px 2px rgba(255,235,201,.8); animation: twinkle 2.2s ease-in-out infinite; }
+      @keyframes twinkle { 0%, 100% { opacity: .12; transform: scale(.7); } 50% { opacity: .9; transform: scale(1.2); } }
+      #loader .lring { position: relative; height: 180px; width: 180px; border-radius: 50%; }
+      #loader .lring::before, #loader .lring::after { content: ""; height: 100%; width: 100%; border: 1.5px solid rgba(177,164,213,.85); border-radius: 50%; position: absolute; }
+      #loader .lring::before { animation: doitreverse 4s infinite; }
+      #loader .lring::after { border-color: rgba(255,235,201,.85); animation: doit 4s infinite; }
+      @keyframes doit { 0% { transform: scale(1); } 50% { border-radius: 20% 50%; transform: scale(1.25); } 100% { transform: scale(1); } }
+      @keyframes doitreverse { 0% { transform: rotate(360deg); } 50% { border-radius: 50% 20%; transform: rotate(180deg); } 100% { transform: rotate(0deg); } }
+      #loader .leye { height: 50%; width: 50%; border-radius: 50%; background: #8d6ac2; border: 1px solid rgba(255,255,255,.4); position: absolute; left: 25%; top: 25%; animation: showme 4s infinite; box-shadow: 0 0 46px rgba(141,106,194,.85), inset 0 0 20px rgba(255,255,255,.22); }
+      #loader .leye::before { content: ""; height: 20%; width: 20%; border-radius: 50%; background: #fff; position: absolute; top: 25%; left: 50%; animation: showme 4s infinite; }
+      #loader .leye::after { content: ""; height: 10%; width: 10%; border-radius: 50%; background: #fff; position: absolute; top: 60%; left: 50%; animation: showme 4s infinite; }
+      @keyframes showme { 0% { transform: scale(.3); } 50% { transform: scale(1); } 100% { transform: scale(.3); } }
+      #loader .loader-mark { position: absolute; top: calc(50% + 132px); left: 50%; transform: translateX(-50%); color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-weight: 800; letter-spacing: .35em; font-size: 11px; text-transform: uppercase; white-space: nowrap; animation: mark-pulse 2.8s ease-in-out infinite; }
+      @keyframes mark-pulse { 0%, 100% { opacity: .5; } 50% { opacity: .95; } }
+      @media (prefers-reduced-motion: reduce) { #loader { display: none; } }
   </style>
 <script type="application/ld+json">
 {
@@ -601,7 +635,7 @@
       "name": "¿Cuánto cuesta trabajar con DLA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cada proyecto tiene un presupuesto personalizado según el alcance, la frecuencia y los objetivos. Los planes Start, Growth, Scale y Signature sirven de referencia y la propuesta se ajusta a cada marca."
+        "text": "Cada proyecto tiene un presupuesto personalizado según el alcance, la frecuencia y los objetivos. Los planes Standard, Medium y Premium sirven de referencia y la propuesta se ajusta a cada marca."
       }
     },
     {
@@ -650,6 +684,31 @@
 </head>
 
 <body>
+<div id="loader" aria-hidden="true">
+  <span class="orb orb--lila"></span><span class="orb orb--crema"></span><span class="orb orb--rosa"></span>
+  <span class="star" style="left:16%; top:26%; animation-delay:-.4s"></span>
+  <span class="star" style="left:78%; top:20%; animation-delay:-1.1s"></span>
+  <span class="star" style="left:30%; top:74%; animation-delay:-1.7s"></span>
+  <span class="star" style="left:70%; top:68%; animation-delay:-.8s"></span>
+  <span class="star" style="left:50%; top:14%; animation-delay:-2s"></span>
+  <div class="lring"><div class="leye"></div></div>
+  <span class="loader-mark">De los Andes Estudio</span>
+</div>
+<script>
+  (function () {
+    var l = document.getElementById('loader');
+    if (!l) return;
+    var hidden = false;
+    function hide() {
+      if (hidden) return;
+      hidden = true;
+      l.classList.add('is-done');
+      setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 600);
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { hide(); }
+    else { setTimeout(hide, 4300); }
+  })();
+</script>
   <header class="topbar" id="topbar">
     <a class="brand" href="#inicio" aria-label="De los Andes Estudio, inicio">DLA <small>DE LOS ANDES ESTUDIO</small></a>
     <nav class="nav" id="nav" aria-label="Navegación principal">
@@ -691,17 +750,17 @@
             <a class="collab-link" href="#caso-burbu" aria-label="Ver caso de éxito de Burbu Fresh"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-burbufresh.png" alt="Logo de Burbu Fresh"></span></a>
             <a class="collab-link" href="#caso-brasas" aria-label="Ver caso de éxito de Miguel Brasas"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-miguel-brasas.png" alt="Logo de Miguel Brasas"></span></a>
             <a class="collab-link" href="#caso-establo" aria-label="Ver caso de éxito de El Establo"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-el-establo.png" alt="Logo de El Establo"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Primos Café Gourmet"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.png" alt="Logo de Primos Café Gourmet"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Entrecortes"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.png" alt="Logo de Entrecortes"></span></a>
-            <a class="collab-link" href="#caso-savia" aria-label="Ver caso de éxito de Mostris"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.png" alt="Logo de Mostris"></span></a><a class="collab-link" href="#portafolio" aria-label="Enigma Café"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/enigma-ig.jpg" alt="Logo de Enigma Café"></span></a><a class="collab-link" href="#portafolio" aria-label="Kobayashi"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.png" alt="Logo de Kobayashi"></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/giniplay-ig.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/estanciaparamillosc.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/kokuyo_ve.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/ahumadores.nomadas.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/monchis_vipsc.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" aria-label="Gini"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/giniplay-ig.jpg" alt="Gini"></span></a><a class="collab-link" href="#portafolio" aria-label="Estancia Para Millos"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/estanciaparamillosc.jpg" alt="Estancia Para Millos"></span></a><a class="collab-link" href="#portafolio" aria-label="Kokuyo"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/kokuyo_ve.jpg" alt="Kokuyo"></span></a><a class="collab-link" href="#portafolio" aria-label="Ahumadores Nómadas"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/ahumadores.nomadas.jpg" alt="Ahumadores Nómadas"></span></a><a class="collab-link" href="#portafolio" aria-label="Monchis"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/monchis_vipsc.jpg" alt="Monchis"></span></a>
+            <a class="collab-link" href="#portafolio" aria-label="Ver caso de éxito de Primos Café Gourmet"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.png" alt="Logo de Primos Café Gourmet"></span></a>
+            <a class="collab-link" href="#portafolio" aria-label="Ver caso de éxito de Entrecortes"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.png" alt="Logo de Entrecortes"></span></a>
+            <a class="collab-link" href="#portafolio" aria-label="Ver caso de éxito de Mostris"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.png" alt="Logo de Mostris"></span></a><a class="collab-link" href="#portafolio" aria-label="Enigma Café"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/enigma-ig.jpg" alt="Logo de Enigma Café"></span></a><a class="collab-link" href="#portafolio" aria-label="Kobayashi"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.png" alt="Logo de Kobayashi"></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/giniplay-ig.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/estanciaparamillosc.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/kokuyo_ve.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/ahumadores.nomadas.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/monchis_vipsc.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" aria-label="Gini"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/giniplay-ig.jpg" alt="Gini"></span></a><a class="collab-link" href="#portafolio" aria-label="Estancia Para Millos"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/estanciaparamillosc.jpg" alt="Estancia Para Millos"></span></a><a class="collab-link" href="#portafolio" aria-label="Kokuyo"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/kokuyo_ve.jpg" alt="Kokuyo"></span></a><a class="collab-link" href="#portafolio" aria-label="Ahumadores Nómadas"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/ahumadores.nomadas.jpg" alt="Ahumadores Nómadas"></span></a><a class="collab-link" href="#portafolio" aria-label="Monchis"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/monchis_vipsc.jpg" alt="Monchis"></span></a>
           </div>
           <div class="bubble-set" aria-hidden="true">
             <a class="collab-link" href="#caso-burbu" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-burbufresh.png" alt=""></span></a>
             <a class="collab-link" href="#caso-brasas" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-miguel-brasas.png" alt=""></span></a>
             <a class="collab-link" href="#caso-establo" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-el-establo.png" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.png" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.png" alt=""></span></a>
-            <a class="collab-link" href="#caso-savia" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.png" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/enigma-ig.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.png" alt=""></span></a>
+            <a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-lilac"><img loading="lazy" decoding="async" src="/images/logo-primos-cafe.png" alt=""></span></a>
+            <a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/logo-entrecortes.png" alt=""></span></a>
+            <a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-dark"><img loading="lazy" decoding="async" src="/images/logo-mostris.png" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble collab-bubble--photo"><img loading="lazy" decoding="async" src="/images/ig/enigma-ig.jpg" alt=""></span></a><a class="collab-link" href="#portafolio" tabindex="-1" aria-hidden="true"><span class="collab-bubble bubble-cream"><img loading="lazy" decoding="async" src="/images/kobayashi.png" alt=""></span></a>
           </div>
         </div>
       </div>
@@ -720,16 +779,12 @@
             <div class="case-top case-top--burbu"><span class="case-art" data-parallax="0.08">BURBU<br>FRESH</span><span class="case-number">01</span></div>
             <div class="case-content"><span class="case-category">Experiencia · Reel UGC + Meta Ads</span><h3>Burbu Fresh</h3><div class="case-stats"><span><b>66,5K</b>views en 1 reel</span><span><b>97,6%</b>audiencia nueva</span><span><b>200→892</b>seguidores</span></div><span class="case-label">Servicios realizados</span><p>Un solo reel de colaboración con nuestra creadora UGC, pautado en Meta Ads.</p><span class="case-label">Resultado</span><p>1.009 compartidos, audiencia 87,9% femenina y, desde entonces, los fines de semana llenos.</p><button class="case-link" type="button" data-case="Burbu Fresh">Ver caso <span>↗</span></button><a class="text-link" href="https://www.instagram.com/burbufreshsc/" target="_blank" rel="noreferrer">@burbufreshsc ↗</a></div>
           </article>
-          <article class="case-card reveal" id="caso-savia">
-            <div class="case-top case-top--savia"><span class="case-art" data-parallax="0.08">SAVIA<br>VIVA</span><span class="case-number">02</span></div>
-            <div class="case-content"><span class="case-category">Alimentos · Estrategia y campaña</span><h3>Savia Viva</h3><span class="case-label">Servicios realizados</span><p>Dirección estratégica, concepto creativo y campaña de comunicación.</p><span class="case-label">Problema principal</span><p>Necesitaba convertir sus valores de marca en una comunicación clara y reconocible.</p><button class="case-link" type="button" data-case="Savia Viva">Ver caso <span>↗</span></button></div>
-          </article>
           <article class="case-card reveal" id="caso-brasas">
-            <div class="case-top case-top--brasa"><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">03</span></div>
+            <div class="case-top case-top--brasa"><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">02</span></div>
             <div class="case-content"><span class="case-category">Restauración · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">Problema principal</span><p>Necesitaba comunicar la experiencia de la marca y sostener una presencia digital más activa.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
           </article>
           <article class="case-card reveal" id="caso-establo">
-            <div class="case-top case-top--establo"><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">04</span></div>
+            <div class="case-top case-top--establo"><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">03</span></div>
             <div class="case-content"><span class="case-category">Restauración · Gestión completa + Meta Ads</span><h3>El Establo</h3><div class="case-stats"><span><b>5K→7K</b>seguidores</span><span><b>200→2.000</b>vistas promedio</span><span><b>2.138</b>visitas con pauta</span></div><span class="case-label">Servicios realizados</span><p>Gestión completa de la cuenta desde mayo y campañas de Meta Ads orientadas a ventas.</p><span class="case-label">Resultado</span><p>Ventas y presencia en la ciudad en aumento. Agosto fue el mejor mes del perfil: +674 seguidores y 51 mil vistas.</p><button class="case-link" type="button" data-case="El Establo">Ver caso <span>↗</span></button></div>
           </article>
           <div class="project-arrows">
@@ -764,6 +819,7 @@
           <h2 id="quickTitle">Hablemos de<br><em id="quickService">tu proyecto.</em></h2>
           <p>Déjanos tus datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
           <form class="form quick-form" id="quickForm">
+            <label class="hp-field" aria-hidden="true">No completar este campo<input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label>
             <label>Tu nombre<input required name="nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?"></label>
             <label>Cuéntanos brevemente<textarea name="detalles" placeholder="Objetivo, fecha o contexto del proyecto"></textarea></label>
             <label class="consent"><input type="checkbox" required name="consentimiento"><span>Acepto la <a href="/privacidad.html">política de privacidad</a>.</span></label>
@@ -802,10 +858,9 @@
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Formas de trabajar</span><h2>Cómo podemos<br><em>trabajar juntos.</em></h2><p class="plans-note">No todas las empresas necesitan el mismo nivel de acompañamiento. Definimos el alcance del trabajo según el punto en el que se encuentra tu marca, sus objetivos y lo que necesita construir.</p></div>
         <div class="plans-grid">
-          <article class="plan reveal"><span class="eyebrow">Nivel 01 · A medida</span><h3>Start</h3><p>Ideal para comenzar con dirección.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Presupuesto mensual de pauta definido</li><li>1 campaña activa</li><li>Configuración y seguimiento esencial</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Calendario base de contenidos</li><li>Piezas mensuales esenciales</li></ul></div><a class="btn btn-outline" href="#contacto" data-service="Plan Start">Solicitar este plan →</a></article>
-          <article class="plan reveal"><span class="eyebrow">Nivel 02 · A medida</span><h3>Growth</h3><p>Para marcas listas para crecer.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Presupuesto mensual de pauta gestionado</li><li>2–3 campañas activas</li><li>Optimización y reporte mensual</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Planeación de contenido</li><li>Copys y diseño de piezas</li><li>Calendario listo para publicar</li></ul></div><a class="btn btn-outline" href="#contacto" data-service="Plan Growth">Solicitar este plan →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">Nivel 03 · A medida</span><h3>Scale</h3><p>Más movimiento, más contenido.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Distribución estratégica de presupuesto</li><li>4+ campañas y anuncios</li><li>Optimización continua</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Contenido recurrente</li><li>Producción de piezas UGC</li><li>Edición de Reels y adaptaciones</li></ul></div><a class="btn" href="#contacto" data-service="Plan Scale">Solicitar este plan →</a></article>
-          <article class="plan reveal"><span class="eyebrow">Nivel 04 · A medida</span><h3>Signature</h3><p>El sistema completo de tu marca.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Gestión integral de inversión</li><li>Campañas, anuncios y pruebas creativas</li><li>Reporte de ventas y retorno</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Dirección creativa mensual</li><li>Producción UGC y audiovisual</li><li>Contenido premium a medida</li></ul></div><a class="btn btn-outline" href="#contacto" data-service="Plan Signature">Solicitar este plan →</a></article>
+          <article class="plan reveal"><span class="eyebrow">Nivel 01 · A medida</span><h3>Standard</h3><p>Ideal para comenzar con dirección.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Presupuesto mensual de pauta definido</li><li>1 campaña activa</li><li>Configuración y seguimiento esencial</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Calendario base de contenidos</li><li>Piezas mensuales esenciales</li></ul></div><a class="btn btn-outline" href="#contacto" data-service="Plan Standard">Solicitar este plan →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">Nivel 02 · A medida</span><h3>Medium</h3><p>Más movimiento, más contenido.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Distribución estratégica de presupuesto</li><li>4+ campañas y anuncios</li><li>Optimización continua</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Contenido recurrente</li><li>Producción de piezas UGC</li><li>Edición de Reels y adaptaciones</li></ul></div><a class="btn" href="#contacto" data-service="Plan Medium">Solicitar este plan →</a></article>
+          <article class="plan reveal"><span class="eyebrow">Nivel 03 · A medida</span><h3>Premium</h3><p>El sistema completo de tu marca.</p><div class="plan-group"><b>Meta Ads</b><ul><li>Gestión integral de inversión</li><li>Campañas, anuncios y pruebas creativas</li><li>Reporte de ventas y retorno</li></ul></div><div class="plan-group"><b>Contenido</b><ul><li>Dirección creativa mensual</li><li>Producción UGC y audiovisual</li><li>Contenido premium a medida</li></ul></div><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
         </div>
         <div class="retainer reveal">
           <div><span class="eyebrow">Plan de crecimiento sostenido · Trimestral</span><h3>Tarifa de Retenedor Protegida</h3><p>Reserva continuidad para tu marca durante tres meses y gana entre <strong>10–15% de beneficio</strong> frente a la contratación mes a mes.</p></div>
@@ -871,7 +926,7 @@
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que las marcas<br><em>nos preguntan.</em></h2></div>
         <div class="steps-accordion" id="faqAccordion">
-          <article class="step is-open"><button class="step-head" type="button" aria-expanded="true"><span class="step-num">01</span><h3>¿Cuánto cuesta trabajar con DLA?</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Cada proyecto tiene un presupuesto personalizado según el alcance, la frecuencia y tus objetivos. Los planes Start, Growth, Scale y Signature te dan una referencia, y ajustamos la propuesta a lo que tu marca realmente necesita.</p></div></div></article>
+          <article class="step is-open"><button class="step-head" type="button" aria-expanded="true"><span class="step-num">01</span><h3>¿Cuánto cuesta trabajar con DLA?</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Cada proyecto tiene un presupuesto personalizado según el alcance, la frecuencia y tus objetivos. Los planes Standard, Medium y Premium te dan una referencia, y ajustamos la propuesta a lo que tu marca realmente necesita.</p></div></div></article>
           <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">02</span><h3>¿Trabajan solo con marcas de San Cristóbal?</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Estamos en San Cristóbal, Táchira, y acompañamos clientes de toda Venezuela de forma remota: reuniones por videollamada y entregas organizadas en la nube, listas para publicar.</p></div></div></article>
           <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">03</span><h3>¿Qué necesito para empezar?</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Solo una conversación. Revisamos tu marca, tus objetivos y lo que tienes hasta ahora, y con eso armamos tu propuesta. No necesitas tenerlo todo definido: para eso estamos.</p></div></div></article>
           <article class="step"><button class="step-head" type="button" aria-expanded="false"><span class="step-num">04</span><h3>¿Cómo son los pagos?</h3><span class="step-chevron"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="step-body"><div class="step-body-in"><p>Aceptamos Pago Móvil, transferencia bancaria nacional y Zelle. Los detalles y el calendario de pagos se confirman por escrito al aprobar tu propuesta.</p></div></div></article>
@@ -884,6 +939,7 @@
   <section class="section contact" id="contacto">
       <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar. <strong>Recibirás respuesta en menos de 24 horas.</strong></p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817247" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7247</a><span>San Cristóbal · Venezuela</span></div></div>
       <form class="form reveal" id="contactForm">
+            <label class="hp-field" aria-hidden="true">No completar este campo<input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label>
         <label>Tu nombre<input required name="nombre" type="text" placeholder="¿Cómo te llamas?"></label>
         <label>Tu correo<input required name="correo" type="email" autocomplete="email" placeholder="tu@correo.com"></label>
         <label>¿Qué necesita tu marca?<select required name="servicio"><option value="">Selecciona un servicio</option><option>Gestión de redes sociales</option><option>Diseño de contenido</option><option>Publicidad digital · Meta Ads</option><option>Creación de Reels</option><option>Asesoría creativa</option><option>Content Kit</option><option>Páginas web y branding</option><option>Branding e identidad</option><option>Algo diferente</option></select></label>
@@ -1012,6 +1068,14 @@
     const projectCards = [...document.querySelectorAll('.project-grid .case-card')];
     const projectDots = document.getElementById('projectDots');
     const projectPrev = document.getElementById('projectPrev');
+
+    // Parpadeo del ojo al tocar (en móvil no hay hover)
+    var heroMark = document.querySelector('.hero-mark');
+    if (heroMark) heroMark.addEventListener('click', function () {
+      heroMark.classList.remove('blink');
+      void heroMark.offsetWidth;
+      heroMark.classList.add('blink');
+    });
     const projectNext = document.getElementById('projectNext');
     const caseModal = document.getElementById('caseModal');
     const caseModalClose = document.getElementById('caseModalClose');
@@ -1022,7 +1086,6 @@
     let activeProject = 0;
     const caseDetails = [
       { visual: 'BURBU<br>FRESH', category: 'Reel UGC · Meta Ads', title: 'Un reel. 66 mil vistas.', description: 'Un solo video de colaboración con nuestra creadora UGC, pautado en Meta Ads: 66.574 visualizaciones, 97,6% de gente que no seguía a la marca y 1.009 compartidos. Burbu pasó de 200 a más de 890 seguidores y hoy los fines de semana se llenan.' },
-      { visual: 'SAVIA<br>VIVA', category: 'Estrategia · Campaña', title: 'Lo natural también grita.', description: 'Una campaña honesta para volver visibles las decisiones pequeñas que hacen grande a una marca. Construimos un territorio creativo reconocible y una experiencia digital coherente.' },
       { visual: 'MIGUEL<br>BRASAS', category: 'Pauta · Performance', title: 'El fuego se comparte.', description: 'Diseñamos una presencia digital tan cálida como la experiencia de sentarse a la mesa, combinando piezas de contenido, pauta y optimización para convertir interés en reservas.' },
       { visual: 'EL<br>ESTABLO', category: 'Gestión completa · Meta Ads', title: 'De cuenta dormida a récord.', description: 'Recibimos una cuenta de 5.000 seguidores con unas 200 vistas de promedio. Con gestión completa y campañas de Meta Ads orientadas a ventas, hoy supera los 7.000 seguidores y 2.000 vistas promedio. La campaña de julio-agosto trajo 2.138 visitas al perfil y agosto fue su mejor mes: +674 seguidores y 51 mil vistas.' }
     ];
@@ -1206,6 +1269,7 @@
       event.preventDefault();
       const button = contactForm.querySelector('button[type="submit"]');
       const form = new FormData(contactForm);
+      if ((form.get('sitio_web') || '').trim()) { event.preventDefault(); return; } // honeypot anti-spam
       const message = `Hola DLA Estudio, soy ${form.get('nombre')}.\n\nQuiero conversar sobre: ${form.get('servicio')}.\nPresupuesto estimado: ${form.get('presupuesto') || 'Por definir'}.\nFecha ideal: ${form.get('fecha') || 'Por definir'}.\nEmail: ${form.get('correo')}.\n\nDetalles: ${form.get('mensaje')}`;
       window.open(`https://wa.me/584247817247?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
       button.textContent = 'WhatsApp listo ↗';
@@ -1238,6 +1302,7 @@
     quickForm.addEventListener('submit', event => {
       event.preventDefault();
       const form = new FormData(quickForm);
+      if ((form.get('sitio_web') || '').trim()) { event.preventDefault(); return; } // honeypot anti-spam
       const message = `Hola DLA Estudio, soy ${form.get('nombre')}. Me interesa: ${quickService.textContent}. ${form.get('detalles') || ''}`;
       window.open(`https://wa.me/584247817247?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
       closeQuickModal();
