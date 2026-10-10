@@ -169,7 +169,7 @@
     .actions { display: flex; justify-content: center; gap: 21px; margin-top: 30px; animation: revealUp .8s .42s var(--ease) both; }
 
     /* Colaboraciones */
-    .collaborations { overflow: hidden; padding-top: clamp(28px, 4vw, 52px); padding-bottom: 20px; background: radial-gradient(circle at 15% 15%, rgba(177,164,213,.86), transparent 28%), linear-gradient(180deg, #eee7fa 0%, var(--paper) 100%); }
+    .collaborations { overflow: hidden; padding-top: clamp(28px, 4vw, 52px); padding-bottom: 20px; background: radial-gradient(circle at 15% 15%, rgba(177,164,213,.4), transparent 28%), var(--paper); }
     .collaborations-heading { max-width: 900px; margin: 0 auto 30px; text-align: center; }
     .trusted-line { margin: 0; color: #575263; font-family: 'League Spartan', Arial, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
     .hero .hero-inner > * { opacity: 0; animation: heroTextIn .75s var(--ease) forwards; }
@@ -190,14 +190,14 @@
     .bubble-row { display: flex; width: max-content; gap: 0; padding: 0; animation: collaborationsMarquee 54s linear infinite; animation-play-state: running; will-change: transform; }
     .bubble-row.is-nudging { transition: transform .68s cubic-bezier(.23, 1, .32, 1); }
     .bubble-set { display: flex; flex-shrink: 0; gap: clamp(56px, 7vw, 104px); padding: 0 40px; align-items: center; }
-    .collab-bubble { display: grid; height: 76px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
-    .collab-bubble img { height: 76px; width: auto; max-width: none; }
+    .collab-bubble { display: grid; height: 96px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
+    .collab-bubble img { height: 96px; width: auto; max-width: none; }
     .collab-bubble--photo { border-radius: 50%; overflow: hidden; }
     .collab-bubble--photo img { width: 76px; height: 76px; object-fit: cover; border-radius: 50%; }
-    .collab-link { display: grid; height: 76px; flex: 0 0 auto; place-items: center; outline: none; }
+    .collab-link { display: grid; height: 96px; flex: 0 0 auto; place-items: center; outline: none; }
     .collab-link:hover .collab-bubble, .collab-bubble:hover { opacity: 1; transform: translateY(-4px); }
     .collab-link { cursor: inherit; }
-    @media (max-width: 700px) { .collab-bubble, .collab-link { height: 58px; } .collab-bubble img { height: 58px; } }
+    @media (max-width: 700px) { .collab-bubble, .collab-link { height: 74px; } .collab-bubble img { height: 74px; } }
     .collab-link:focus-visible { border-radius: 50%; outline: 3px solid var(--lilac-deep); outline-offset: 6px; }
     body.dark-mode .carousel-arrow { border-color: rgba(248,241,255,.2); background: rgba(20,17,27,.86); color: var(--ink); }
     @keyframes collaborationsMarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
@@ -218,6 +218,7 @@
     .case-top--foto::before, .case-top--foto::after { display: none; }
     .case-top--foto::before { display: none; }
     .case-top--burbu .case-foto { object-fit: contain; padding: 8%; filter: none; }
+    .case-top--burbu .case-art { opacity: 0; }
     .case-top--foto .case-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.82) saturate(1.05); }
     .case-top--foto::after { display: block; content: ""; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; box-shadow: none; filter: none; border-radius: 0; background: linear-gradient(180deg, rgba(11,11,11,.05), rgba(11,11,11,.52)); }
     .case-top::after { width: 190px; height: 190px; bottom: -100px; left: -20px; border: 1px solid rgba(255,255,255,.48); box-shadow: 0 0 0 22px rgba(255,255,255,.14), 0 0 0 44px rgba(255,255,255,.1); }
@@ -244,9 +245,10 @@
     .service:first-child { grid-column: span 2; }
     .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .services-lede { max-width: 650px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
-    .nichos { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; }
+    .nichos { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; margin: 16px 0 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .nichos b { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--purple); margin-right: 4px; }
-    .nichos span { padding: 7px 14px; border: 1px solid rgba(74,60,115,.28); border-radius: 999px; font-size: 11.5px; font-weight: 700; color: var(--purple); background: rgba(177,164,213,.12); }
+    .nichos::-webkit-scrollbar { display: none; }
+    .nichos span { flex: 0 0 auto; padding: 6px 12px; border: 1px solid rgba(74,60,115,.28); border-radius: 999px; font-size: 11.5px; font-weight: 700; color: var(--purple); background: rgba(177,164,213,.12); }
     .service:nth-child(1) { background: linear-gradient(150deg, #f3e8fb, #fdf3ea); }
     .service:nth-child(2) { background: linear-gradient(150deg, #e6f2ea, #fdf7ee); }
     .service:nth-child(3) { background: linear-gradient(150deg, #fdece2, #fdf3f0); }
@@ -528,7 +530,7 @@
     #caso-burbu { --case-accent: conic-gradient(from 120deg, #9e8bd2, #f2a8d4, #ffebc9, #9e8bd2); }
     #caso-brasas { --case-accent: conic-gradient(from 120deg, #e47e42, #ffcf77, #8f4d39, #e47e42); }
     #caso-establo { --case-accent: conic-gradient(from 120deg, #8f4d39, #d9b46a, #6b0f12, #8f4d39); }
-    .service-list { display: grid; gap: 5px; margin: 12px 0 0; padding: 0 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .service-list { display: grid; gap: 3px; margin: 12px 0 0; padding: 0 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.4; }
     :focus-visible { outline: 3px solid var(--lilac-deep); outline-offset: 3px; }
     .collaborations { overflow: hidden; }
     .nav a.is-current { color: var(--purple); }
@@ -850,6 +852,19 @@
           <div class="project-dots" id="projectDots" aria-label="Seleccionar proyecto"></div>
         </div>
       </div>
+        <div class="reel-strip reveal">
+          <h3 class="reel-strip-title">Ediciones recientes</h3>
+          <div class="reel-grid">
+            <a class="reel-card" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer">
+              <span class="reel-media"><img src="/images/reels/enigma-reel.jpg" alt="Reel de Enigma Café con guion y edición de giniplay junto a De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
+              <span class="reel-body"><b>Enigma Café</b><small>Guion y edición · giniplay × De los Andes Estudio</small><i>Ver reel ↗</i></span>
+            </a>
+            <a class="reel-card" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer">
+              <span class="reel-media"><img src="/images/reels/primos-reel.jpg" alt="Reel de Primos Café Gourmet producido y editado por De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
+              <span class="reel-body"><b>Primos Café Gourmet</b><small>Producción y edición · De los Andes Estudio</small><i>Ver reel ↗</i></span>
+            </a>
+          </div>
+        </div>
     </section>
 
     <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="caseModalTitle">
@@ -885,7 +900,7 @@
 
     <section class="section services" id="servicios">
       <div class="section-inner">
-        <div class="reveal"><span class="eyebrow">Lo que hacemos</span><h2>Una agencia,<br><em>todas las piezas.</em></h2><p class="services-lede">Elige el área que más se parece a lo que necesitas. Diseñamos cada propuesta a la medida de tu marca.</p><p class="nichos"><b>Nichos:</b><span>Gastronomía</span><span>Lanzamientos</span><span>Retail</span><span>Eventos</span><span>Marcas personales y creadores</span><span>Servicios profesionales</span><span>Belleza y bienestar</span><span>Hoteles y turismo</span><span>Carnes y parrillas</span></p></div>
+        <div class="reveal"><span class="eyebrow">Lo que hacemos</span><h2>Una agencia,<br><em>todas las piezas.</em></h2><p class="services-lede">Elige el área que más se parece a lo que necesitas. Diseñamos cada propuesta a la medida de tu marca.</p><p class="nichos"><span>Gastronomía</span><span>Lanzamientos</span><span>Retail</span><span>Eventos</span><span>Marcas personales y creadores</span><span>Servicios profesionales</span><span>Belleza y bienestar</span><span>Hoteles y turismo</span><span>Carnes y parrillas</span></p></div>
         <div class="service-grid">
           <article class="service reveal"><div class="service-head"><span class="service-ico">📱</span><span class="service-number">01 · Redes</span></div><h3>Gestión de redes sociales</h3><span class="service-kicker">Estrategia · Comunidad · Constancia</span><div class="service-reveal"><p>Una presencia constante, estratégica y humana para que tus redes trabajen contigo.</p><ul class="service-list"><li>Reunión inicial y diagnóstico de marca</li><li>Planeación mensual de contenidos</li><li>Creación y programación de publicaciones</li><li>Atención a mensajes y optimización de perfil</li><li>Informe de resultados</li></ul><a class="text-link" href="#contacto" data-service="Gestión de redes sociales">Quiero este servicio →</a></div></article>
           <article class="service reveal"><div class="service-head"><span class="service-ico">✏️</span><span class="service-number">02 · Contenido</span></div><h3>Diseño de contenido</h3><span class="service-kicker">Parrilla · Copys · Piezas</span><div class="service-reveal"><p>Una parrilla visual y verbal lista para publicar, con una idea clara detrás de cada pieza.</p><ul class="service-list"><li>Reunión inicial y planeación de contenido</li><li>Diseño de parrilla de contenido</li><li>Redacción de copys para cada post</li><li>Entrega organizada vía Drive y lista para publicar</li></ul><a class="text-link" href="#contacto" data-service="Diseño de contenido">Quiero este servicio →</a></div></article>
@@ -915,19 +930,6 @@
                 <div class="plans-grid kit-edits">
           <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
           <article class="plan featured reveal"><span class="eyebrow">Edición premium</span><h3>Edición de video</h3><p>Para contenido con dirección de marca y acabado de alto nivel.</p><ul><li>Dirección de ritmo y narrativa</li><li>Motion graphics y diseño sonoro</li><li>Corrección de color avanzada</li><li>Versiones para distintas plataformas</li></ul><a class="btn" href="#contacto" data-service="Edición de video">Solicitar edición →</a></article>
-        </div>
-        <div class="reel-strip reveal">
-          <h3 class="reel-strip-title">Ediciones recientes</h3>
-          <div class="reel-grid">
-            <a class="reel-card" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer">
-              <span class="reel-media"><img src="/images/reels/enigma-reel.jpg" alt="Reel de Enigma Café con guion y edición de giniplay junto a De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
-              <span class="reel-body"><b>Enigma Café</b><small>Guion y edición · giniplay × De los Andes Estudio</small><i>Ver reel ↗</i></span>
-            </a>
-            <a class="reel-card" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer">
-              <span class="reel-media"><img src="/images/reels/primos-reel.jpg" alt="Reel de Primos Café Gourmet producido y editado por De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
-              <span class="reel-body"><b>Primos Café Gourmet</b><small>Producción y edición · De los Andes Estudio</small><i>Ver reel ↗</i></span>
-            </a>
-          </div>
         </div>
       </div>
     </section>
