@@ -1148,6 +1148,8 @@
       const item = caseDetails[index];
       caseModalVisual.innerHTML = item.visual;
       caseModalCategory.textContent = item.category;
+      const panelEl = caseModal.querySelector('.case-modal-panel');
+      if (panelEl) panelEl.scrollTop = 0;
       caseModalTitle.textContent = item.title;
       caseModalDescription.textContent = item.description;
       caseModal.classList.add('is-open');
