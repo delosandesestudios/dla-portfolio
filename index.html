@@ -93,6 +93,7 @@
     em { color: var(--lilac-deep); font-family: Allura, cursive; font-size: 1.28em; font-style: normal; font-weight: 400; letter-spacing: 0; }
     .eyebrow { color: var(--lilac-deep); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
     .section { padding: clamp(44px, 5.5vw, 72px) clamp(20px, 5vw, 72px); }
+    .fade-sep { height: clamp(110px, 12vw, 200px); background: linear-gradient(180deg, var(--sep-from), var(--sep-to)); }
     .section-inner { width: min(1180px, 100%); margin: 0 auto; }
 
     /* Navegación */
@@ -145,6 +146,7 @@
     /* Hero */
     .hero { position: relative; display: grid; min-height: 90svh; place-items: center; overflow: hidden; background: linear-gradient(180deg, rgba(238,231,250,0) 72%, #eee7fa 97%), linear-gradient(115deg, #d8c8e5, #eee7fa 45%, var(--cream)); }
     .hero::before { content: ""; position: absolute; inset: -28%; background: radial-gradient(circle at 20% 35%, var(--lilac), transparent 32%), radial-gradient(circle at 80% 25%, var(--cream), transparent 30%), radial-gradient(circle at 55% 90%, rgba(141,106,194,.58), transparent 35%); filter: blur(44px); animation: breath 18s ease-in-out infinite alternate; }
+    .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(70px, 9vw, 150px); background: linear-gradient(180deg, rgba(252,251,255,0), var(--paper)); pointer-events: none; }
     .hero-inner { position: relative; z-index: 1; width: min(850px, 100%); padding: 96px 20px 64px; text-align: center; }
     .hero-mark { position: relative; display: grid; width: min(150px, 34vw); aspect-ratio: 900/558; margin: 0 auto 18px; place-items: center; animation: markIn 1s var(--ease) both; }
     .hero-mark::before { content: ''; position: absolute; inset: -55% -60%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
@@ -202,7 +204,7 @@
     @keyframes collaborationsMarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
     /* Portafolio */
-    .projects { position: relative; background: linear-gradient(180deg, rgba(177,164,213,.45) 0, rgba(177,164,213,0) 240px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 38px), linear-gradient(180deg, #211a2b 0%, #17121f 22%, #33264b 100%); color: var(--cream); }
+    .projects { position: relative; background: linear-gradient(180deg, #211a2b 0%, #17121f 22%, #33264b 100%); color: var(--cream); }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
     .section-head h2 { margin: 0; font-size: clamp(52px, 7vw, 100px); line-height: .95; }
     .section-note { max-width: 290px; color: #c8bddf; font-size: 13px; line-height: 1.55; }
@@ -272,6 +274,7 @@
     .workflow .section-inner { position: relative; z-index: 1; }
     .workflow .aurora::before, .workflow .aurora::after { opacity: .3; }
     .workflow h2 { margin: 0 0 24px; font-size: clamp(50px, 6vw, 90px); line-height: .95; }
+    .web h2, .faq h2 { margin: 14px 0 26px; font-size: clamp(50px, 6.4vw, 92px); line-height: .95; }
     .steps-accordion { display: grid; gap: 8px; max-width: 880px; margin: 24px auto 0; }
     #faq { padding-top: 24px; }
     #faq .section-head em, #faq h2 em { color: inherit; }
@@ -307,7 +310,7 @@
     .step.is-open { background: #fff; border-color: rgba(177,164,213,.75); box-shadow: 0 16px 38px rgba(83,60,120,.13); }
     .step-head { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 18px; border: 0; background: none; cursor: pointer; text-align: left; font: inherit; }
     .step-num { color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
-    .step-head h3 { flex: 1; margin: 0; font-size: clamp(20px, 2.4vw, 27px); line-height: .98; }
+    .step-head h3 { flex: 1; margin: 0; font-size: clamp(16px, 2vw, 21px); line-height: 1.15; font-weight: 600; letter-spacing: -.02em; }
     .step-chevron { display: grid; place-items: center; color: var(--purple); }
     .step-chevron svg { transition: transform .4s var(--ease); }
     .step.is-open .step-chevron svg { transform: rotate(180deg); }
@@ -319,7 +322,7 @@
     body.dark-mode .step.is-open { background: rgba(255,255,255,.1); border-color: rgba(177,164,213,.5); }
     body.dark-mode .step-body p { color: #d0c4dc; }
     .plans-note { max-width: 680px; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .plans { background: linear-gradient(180deg, rgba(177,164,213,.35) 0, rgba(177,164,213,0) 130px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(0deg, var(--paper) 0, rgba(252,251,255,0) 38px), linear-gradient(135deg, #17131d 0%, #241b2b 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
+    .plans { background: linear-gradient(180deg, #17131d 0, rgba(23,19,29,0) 130px), linear-gradient(0deg, #17131d 0, rgba(23,19,29,0) 130px), linear-gradient(135deg, #17131d 0%, #241b2b 46%, #1a2330 78%, #17131d 100%); color: var(--cream); }
     .plans h2 { color: var(--cream); }
     .plan { display: flex; min-height: 355px; flex-direction: column; padding: 27px; border: 1px solid rgba(255,235,201,.14); background: linear-gradient(155deg, #17131d 0%, #251a2b 60%, #15131d 100%); }
     .plan.featured { background: var(--lilac); color: var(--ink); }
@@ -338,14 +341,16 @@
     .plan .btn { width: max-content; margin-top: auto; }
 
     /* Contacto */
-    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, rgba(177,164,213,.35) 0, rgba(177,164,213,0) 130px), linear-gradient(180deg, var(--paper) 0, rgba(252,251,255,0) 80px), linear-gradient(160deg, #0b0b0b 0%, #181322 55%, #101318 100%); color: var(--cream); }
+    .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(45px, 8vw, 110px); background: linear-gradient(180deg, #0b0b0b 0, rgba(11,11,11,0) 140px), linear-gradient(160deg, #0b0b0b 0%, #181322 55%, #101318 100%); color: var(--cream); }
     .contact h2 { margin: 16px 0 22px; font-size: clamp(55px, 7vw, 102px); line-height: .95; }
     .contact-copy > p { max-width: 390px; color: #c8bddf; font-size: 13px; line-height: 1.65; }
     .contact-details { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 35px; color: var(--lilac); font-family: 'League Spartan', sans-serif; font-size: 13px; font-weight: 700; }
     .form { display: grid; gap: 18px; }
-    .form label { display: grid; gap: 8px; color: #b5aace; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .form label { display: grid; gap: 8px; color: #cfc2e4; font-size: 12.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
     .form input, .form textarea, .form select { width: 100%; border: 0; border-bottom: 1px solid #5a4b70; border-radius: 0; outline: 0; padding: 12px 0; background: transparent; color: var(--cream); }
     .form select { appearance: none; }
+    .form input::placeholder, .form textarea::placeholder { color: rgba(228,218,246,.65); font-weight: 400; }
+    .form input:focus, .form textarea:focus, .form select:focus { border-bottom-color: var(--lilac); }
     .form input[type="date"] { color-scheme: dark; }
     body:not(.dark-mode) .form input[type="date"] { color-scheme: light; }
     .contact { align-items: start; padding-top: 110px; }
@@ -416,6 +421,10 @@
     body.dark-mode .modal p { color: #c8bddf; }
     body.dark-mode .modal input, body.dark-mode .modal textarea { border-color: #6f5c86; background: rgba(255,255,255,.06); color: #f8f1ff; }
     body.dark-mode .modal-close { background: var(--lilac); color: #14111b; }
+    body.dark-mode .workflow { background: linear-gradient(130deg, #241c2e, #1b1524 60%, #2a2130); }
+    body.dark-mode .strip-set .ph--eye { background: url('/images/eye-dark.jpg') center/cover; }
+    body.dark-mode .strip-set .ph--eye img { opacity: 0; }
+    body.dark-mode .workflow .services-lede { color: #c3b7d1; }
 
     /* Apariciones y responsive */
     .reveal { opacity: 0; transform: translateY(26px) scale(.965); transition: opacity .7s ease, transform .85s cubic-bezier(.22,1,.36,1); }
@@ -534,11 +543,6 @@
     .plan-group b { display: block; margin-bottom: 7px; color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .plan.featured .plan-group b { color: var(--ink); }
     .plan.featured .eyebrow { color: var(--ink-soft); }
-    .retainer { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) max-content; gap: clamp(20px, 4vw, 48px); align-items: center; margin-top: 18px; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(255,235,201,.14); background: linear-gradient(150deg, #17131d 0%, #251a2b 65%, #15131d 100%); color: var(--cream); }
-    .retainer h3 { margin: 12px 0 10px; font-size: clamp(26px, 3.4vw, 40px); line-height: .9; }
-    .retainer p { margin: 0; color: #c8bddf; font-size: 13px; line-height: 1.6; }
-    .retainer ul { display: grid; gap: 8px; margin: 0; padding: 0 0 0 16px; color: #c8bddf; font-size: 12px; }
-    .retainer .btn { justify-self: start; }
     .kit h2, .testimonials h2 { margin: 14px 0 30px; font-size: clamp(48px, 6.4vw, 92px); line-height: .86; }
     .kit-edits { margin-top: 0; }
     .plan:not(.featured) h3 { color: var(--cream); }
@@ -549,7 +553,7 @@
     .quick-modal .case-modal-content h2 { margin: 12px 0 14px; font-size: clamp(32px, 5vw, 52px); line-height: .88; }
     .quick-form textarea { min-height: 84px; }
     .quick-form .btn { width: max-content; }
-    @media (max-width: 900px) { .retainer { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .form-row { grid-template-columns: 1fr; } }
     .form label.consent, .quick-form label.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 11.5px; letter-spacing: 0; text-transform: none; font-weight: 500; color: inherit; opacity: .9; }
     .consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--lilac); }
     .consent a { color: inherit; }
@@ -815,7 +819,9 @@
       </div>
     </section>
 
-    <section class="section projects" id="portafolio">
+    
+  <div class="fade-sep" style="--sep-from:var(--paper);--sep-to:#211a2b" aria-hidden="true"></div>
+<section class="section projects" id="portafolio">
       <div class="section-inner">
         <div class="section-head reveal">
           <h2>Trabajo que<br><em>deja huella.</em></h2>
@@ -845,7 +851,7 @@
       </div>
         <div class="reel-strip reveal">
           <h3 class="reel-strip-title">Ediciones recientes</h3>
-          <div class="footer-collage" id="edicionCollage"><div class="strip strip-a"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div></div></div><div class="strip strip-b"><div class="strip-in"><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div></div></div><div class="strip strip-c"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div></div></div></div>
+          <div class="footer-collage" id="edicionCollage"><div class="strip strip-a"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div></div></div><div class="strip strip-b"><div class="strip-in"><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DYVg4rgR1LC/" target="_blank" rel="noreferrer" aria-label="Video de Burbu Fresh por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/burbu.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DcCBXRuuxOT/" target="_blank" rel="noreferrer" aria-label="Video de Kobayashi por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/kobayashi.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/Ddw5Y5ghXLk/" target="_blank" rel="noreferrer" aria-label="Video de Estancia Paramillo por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/estancia.mp4"></video></a></div><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DYVg4rgR1LC/" target="_blank" rel="noreferrer" aria-label="Video de Burbu Fresh por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/burbu.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DcCBXRuuxOT/" target="_blank" rel="noreferrer" aria-label="Video de Kobayashi por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/kobayashi.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/Ddw5Y5ghXLk/" target="_blank" rel="noreferrer" aria-label="Video de Estancia Paramillo por De los Andes Estudio"><video muted loop playsinline preload="metadata" src="/images/videos/estancia.mp4"></video></a></div></div></div><div class="strip strip-c"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div></div></div></div>
 </div>
     </section>
 
@@ -880,7 +886,9 @@
       </div>
     </div>
 
-    <section class="section services" id="servicios">
+    
+  <div class="fade-sep" style="--sep-from:#33264b;--sep-to:var(--paper)" aria-hidden="true"></div>
+<section class="section services" id="servicios">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Lo que hacemos</span><h2>Una agencia,<br><em>todas las piezas.</em></h2><p class="services-lede">Elige el área que más se parece a lo que necesitas. Diseñamos cada propuesta a la medida de tu marca.</p><p class="nichos"><span>Gastronomía</span><span>Lanzamientos</span><span>Retail</span><span>Eventos</span><span>Marcas personales y creadores</span><span>Servicios profesionales</span><span>Belleza y bienestar</span><span>Hoteles y turismo</span><span>Carnes y parrillas</span></p></div>
         <div class="service-grid">
@@ -894,46 +902,7 @@
       </div>
     </section>
 
-    <section class="section workflow" id="proceso">
-      <div class="aurora" aria-hidden="true"></div>
-      <div class="section-inner">
-        <div class="reveal"><span class="eyebrow">Cómo trabaja DLA</span><h2>Un proceso con<br><em>dirección.</em></h2><p class="services-lede">Cada proyecto se organiza a partir del contexto real de la empresa. No trabajamos con soluciones idénticas para todo el mundo ni prometemos resultados garantizados.</p></div>
-                <div class="steps-deck">
-          <article class="gstep reveal" style="--i:0"><span class="gstep-ico">🔍</span><div><h3>Entendemos el contexto</h3><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver. Sin este paso no hay dirección posible.</p></div></article>
-          <article class="gstep reveal" style="--i:1"><span class="gstep-ico">🧭</span><div><h3>Definimos la dirección</h3><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña. Aquí se decide qué se comunica y por qué.</p></div></article>
-          <article class="gstep reveal" style="--i:2"><span class="gstep-ico">🎨</span><div><h3>Desarrollamos la solución</h3><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias, con revisión contigo en cada entrega.</p></div></article>
-          <article class="gstep reveal" style="--i:3"><span class="gstep-ico">🚀</span><div><h3>Optimizamos y acompañamos</h3><p>Revisamos lo que ocurre, ajustamos el trabajo cuando el proyecto lo requiere y acompañamos la operación día a día.</p></div></article>
-        </div>
-      </div>
-    </section>
-    <section class="section kit" id="content-kit">
-      <div class="section-inner">
-        <div class="reveal"><span class="eyebrow">Formas de trabajar</span><h2>Cómo podemos<br><em>trabajar juntos.</em></h2><p class="plans-note">No todas las empresas necesitan el mismo nivel de acompañamiento. Definimos el alcance del trabajo según el punto en el que se encuentra tu marca, sus objetivos y lo que necesita construir.</p></div>
-        <div class="reveal"><span class="eyebrow">Servicio de contenido</span><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Enfócate en tu negocio mientras producimos todo tu ecosistema visual. Recibirás un banco de contenido organizado para alimentar tus redes durante semanas.</p></div>
-                <div class="plans-grid kit-edits">
-          <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">Edición premium</span><h3>Edición de video</h3><p>Para contenido con dirección de marca y acabado de alto nivel.</p><ul><li>Dirección de ritmo y narrativa</li><li>Motion graphics y diseño sonoro</li><li>Corrección de color avanzada</li><li>Versiones para distintas plataformas</li></ul><a class="btn" href="#contacto" data-service="Edición de video">Solicitar edición →</a></article>
-        </div>
-      </div>
-    </section>
-    <section class="section plans" id="como-trabajamos">
-      <div class="section-inner">
-        <div class="plans-grid">
-          <article class="plan reveal"><span class="eyebrow">Nivel 01 · Puntual</span><h3>Estándar</h3><p>Contenido + difusión puntual.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 2 videos para comunicar tu marca</li><li>Gestión de anuncios en Meta Ads durante 10 días</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Estándar">Solicitar este plan →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">Nivel 02 · Mensual</span><h3>Intermedio</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="#contacto" data-service="Plan Intermedio">Solicitar este plan →</a></article>
-          <article class="plan reveal"><span class="eyebrow">Nivel 03 · Integral</span><h3>Premium</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Implementación u optimización de herramientas de autoservicio digital: página web si no cuentas con una, menú digital para restaurantes o catálogo digital, según tu negocio</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
-        </div>
-        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
-        <div class="retainer reveal">
-          <div><span class="eyebrow">Plan de crecimiento sostenido · Trimestral</span><h3>Tarifa de Retenedor Protegida</h3><p>Reserva continuidad para tu marca durante tres meses y gana entre <strong>10–15% de beneficio</strong> frente a la contratación mes a mes.</p></div>
-          <ul><li>Retención de marca y consistencia creativa</li><li>Optimización de píxeles y aprendizaje de campañas</li><li>Mejor lectura de datos a mediano plazo</li></ul>
-          <a class="btn" href="#contacto" data-service="Tarifa de Retenedor Protegida">Quiero proteger mi crecimiento →</a>
-        </div>
-        <p class="plans-note">Cada propuesta se construye según la etapa, los objetivos y el nivel de acompañamiento que necesita cada empresa.</p>
-      </div>
-    </section>
-
-<section class="section web" id="web">
+    <section class="section web" id="web">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Páginas web</span><h2>Sitios que también<br><em>hacemos nosotros.</em></h2><p class="services-lede">Además de contenido y pauta, diseñamos y publicamos páginas web: menús digitales, directorios y sitios de marca, listos para verse bien desde cualquier teléfono.</p></div>
         <div class="web-grid">
@@ -958,6 +927,45 @@
         </div>
       </div>
     </section>
+<section class="section workflow" id="proceso">
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Cómo trabaja DLA</span><h2>Un proceso con<br><em>dirección.</em></h2><p class="services-lede">Cada proyecto se organiza a partir del contexto real de la empresa. No trabajamos con soluciones idénticas para todo el mundo ni prometemos resultados garantizados.</p></div>
+                <div class="steps-deck">
+          <article class="gstep reveal" style="--i:0"><span class="gstep-ico">🔍</span><div><h3>Entendemos el contexto</h3><p>Conocemos la empresa, su oferta, sus objetivos y el problema que quiere resolver. Sin este paso no hay dirección posible.</p></div></article>
+          <article class="gstep reveal" style="--i:1"><span class="gstep-ico">🧭</span><div><h3>Definimos la dirección</h3><p>Organizamos la estrategia, el mensaje, la identidad o el enfoque de campaña. Aquí se decide qué se comunica y por qué.</p></div></article>
+          <article class="gstep reveal" style="--i:2"><span class="gstep-ico">🎨</span><div><h3>Desarrollamos la solución</h3><p>Producimos las piezas, contenidos, sistemas visuales o campañas necesarias, con revisión contigo en cada entrega.</p></div></article>
+          <article class="gstep reveal" style="--i:3"><span class="gstep-ico">🚀</span><div><h3>Optimizamos y acompañamos</h3><p>Revisamos lo que ocurre, ajustamos el trabajo cuando el proyecto lo requiere y acompañamos la operación día a día.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section kit" id="content-kit">
+      <div class="section-inner">
+                <div class="reveal"><span class="eyebrow">Servicio de contenido</span><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Enfócate en tu negocio mientras producimos todo tu ecosistema visual. Recibirás un banco de contenido organizado para alimentar tus redes durante semanas.</p></div>
+                <div class="plans-grid kit-edits">
+          <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">Edición premium</span><h3>Edición de video</h3><p>Para contenido con dirección de marca y acabado de alto nivel.</p><ul><li>Dirección de ritmo y narrativa</li><li>Motion graphics y diseño sonoro</li><li>Corrección de color avanzada</li><li>Versiones para distintas plataformas</li></ul><a class="btn" href="#contacto" data-service="Edición de video">Solicitar edición →</a></article>
+        </div>
+      </div>
+    </section>
+    
+  <div class="fade-sep" style="--sep-from:var(--paper);--sep-to:#17131d" aria-hidden="true"></div>
+<section class="section plans" id="como-trabajamos">
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Formas de trabajar</span><h2>Cómo podemos<br><em>trabajar juntos.</em></h2><p class="plans-note">No todas las empresas necesitan el mismo nivel de acompañamiento. Definimos el alcance del trabajo según el punto en el que se encuentra tu marca, sus objetivos y lo que necesita construir.</p></div>
+        <div class="plans-grid">
+          <article class="plan reveal"><span class="eyebrow">Nivel 01 · Puntual</span><h3>Estándar</h3><p>Contenido + difusión puntual.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 2 videos para comunicar tu marca</li><li>Gestión de anuncios en Meta Ads durante 10 días</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Estándar">Solicitar este plan →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">Nivel 02 · Mensual</span><h3>Intermedio</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="#contacto" data-service="Plan Intermedio">Solicitar este plan →</a></article>
+          <article class="plan reveal"><span class="eyebrow">Nivel 03 · Integral</span><h3>Premium</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Implementación u optimización de herramientas de autoservicio digital: página web si no cuentas con una, menú digital para restaurantes o catálogo digital, según tu negocio</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
+        </div>
+        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
+        
+        <p class="plans-note">Cada propuesta se construye según la etapa, los objetivos y el nivel de acompañamiento que necesita cada empresa.</p>
+      </div>
+    </section>
+
+
+  <div class="fade-sep" style="--sep-from:#17131d;--sep-to:var(--paper)" aria-hidden="true"></div>
 <section class="section faq" id="faq">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que las marcas<br><em>nos preguntan.</em></h2></div>
@@ -972,7 +980,9 @@
       </div>
     </section>
 
-  <section class="section contact" id="contacto">
+  
+  <div class="fade-sep" style="--sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
+<section class="section contact" id="contacto">
       <div class="aurora aurora--noche" aria-hidden="true"></div>
       <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar. <strong>Recibirás respuesta en menos de 24 horas.</strong></p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817241" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7241</a><span>San Cristóbal · Venezuela</span></div></div>
       <form class="form reveal" id="contactForm">
@@ -1402,14 +1412,60 @@
   })();
   (function(){
     var collage=document.querySelector('.footer-collage');
-    if(!collage||!('IntersectionObserver' in window))return;
-    var vids=collage.querySelectorAll('video');
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        vids.forEach(function(v){ if(entry.isIntersecting){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();} });
+    if(!collage)return;
+    var vids=Array.prototype.slice.call(collage.querySelectorAll('video'));
+    var enPantalla=true;
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ enPantalla=e.isIntersecting; }); },{threshold:.05}).observe(collage);
+    }
+    function visible(v){
+      var r=v.getBoundingClientRect(), c=collage.getBoundingClientRect();
+      return r.bottom>c.top+8&&r.top<c.bottom-8&&r.right>c.left+8&&r.left<c.right-8;
+    }
+    setInterval(function(){
+      vids.forEach(function(v){
+        if(enPantalla&&visible(v)){ if(v.paused){var p=v.play(); if(p&&p.catch)p.catch(function(){});} }
+        else if(!v.paused){ v.pause(); }
       });
-    },{threshold:.05});
-    io.observe(collage);
+    },400);
+    collage.style.touchAction='pan-x';
+    var strips=Array.prototype.slice.call(collage.querySelectorAll('.strip-in'));
+    var dragging=false,moved=false,startY=0,refs=[];
+    collage.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='mouse'&&e.button!==0)return;
+      refs=strips.map(function(s){
+        var a=s.getAnimations?s.getAnimations()[0]:null;
+        if(!a||a.playState!=='running')return null;
+        var dur=Number(a.effect.getTiming().duration)||46000;
+        var loop=Math.max(1,s.scrollHeight/2);
+        return {an:a,loop:loop,ms:dur/loop,px:((a.currentTime%dur)/dur)*loop,rev:getComputedStyle(s).animationDirection==='reverse'};
+      }).filter(Boolean);
+      if(!refs.length)return;
+      startY=e.clientY; dragging=true; moved=false;
+      refs.forEach(function(o){ o.an.pause(); });
+    });
+    collage.addEventListener('pointermove',function(e){
+      if(!dragging)return;
+      var dy=e.clientY-startY;
+      if(Math.abs(dy)>8)moved=true;
+      if(!moved)return;
+      if(e.cancelable)e.preventDefault();
+      refs.forEach(function(o){
+        var np=((o.px+(o.rev?dy:-dy))%o.loop+o.loop)%o.loop;
+        o.an.currentTime=np*o.ms;
+      });
+    });
+    function soltar(){
+      if(!dragging)return; dragging=false;
+      refs.forEach(function(o){
+        var an=o.an,t0=performance.now();
+        an.play(); an.playbackRate=.25;
+        (function sube(){ var k=Math.min(1,(performance.now()-t0)/600); an.playbackRate=.25+.75*k; if(k<1)requestAnimationFrame(sube); else an.playbackRate=1; })();
+      });
+    }
+    collage.addEventListener('pointerup',soltar);
+    collage.addEventListener('pointercancel',soltar);
+    collage.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; } },true);
   })();
   </script>
 </body>
