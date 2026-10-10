@@ -564,21 +564,21 @@
     .site-footer { display: block; background: var(--ink-soft); color: var(--cream); }
     /* Footer estilo TWOHY: collage disperso + banda oscura */
     .footer-collage { position: relative; height: clamp(340px, 42vw, 540px); overflow: hidden; }
-    .footer-collage .fc { position: absolute; border-radius: 14px; overflow: hidden; box-shadow: 0 26px 54px rgba(11,11,11,.2); }
-    .footer-collage .fc img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .footer-collage .fc--mark { display: grid; place-items: center; color: #fff7e6; font-family: 'League Spartan', Arial, sans-serif; font-weight: 900; font-size: clamp(22px, 3vw, 44px); letter-spacing: -.06em; background: linear-gradient(140deg, #b1a4d5, #8d6ac2); }
-    .footer-collage .fc--eye { display: grid; place-items: center; background: linear-gradient(140deg, #e8def7, #f6ecdf); }
-    .footer-collage .fc--eye img { width: 62%; height: auto; object-fit: contain; }
-    .fc1 { left: 3%; top: 12%; width: clamp(150px, 18vw, 250px); aspect-ratio: 3/4; transform: rotate(-7deg); }
-    .fc2 { left: 24%; top: 5%; width: clamp(110px, 11vw, 165px); aspect-ratio: 3/4; transform: rotate(6deg); }
-    .fc3 { left: 41%; top: 26%; width: clamp(140px, 15vw, 240px); aspect-ratio: 3/4; transform: rotate(-4deg); }
-    .fc4 { left: 63%; top: 6%; width: clamp(150px, 16vw, 250px); aspect-ratio: 3/4; transform: rotate(7deg); }
-    .fc5 { left: 84%; top: 40%; width: clamp(120px, 12vw, 190px); aspect-ratio: 4/5; transform: rotate(-6deg); }
-    .fc6 { left: 23%; bottom: -24px; width: clamp(90px, 10vw, 150px); aspect-ratio: 1/1; transform: rotate(5deg); }
-    .fc7 { left: 86%; top: 2%; width: clamp(96px, 9.5vw, 155px); aspect-ratio: 3/4; transform: rotate(5deg); }
-    .fc8 { left: 63%; top: 63%; width: clamp(110px, 12vw, 190px); aspect-ratio: 3/4; transform: rotate(-5deg); }
-    .fc9 { left: 47%; bottom: -26px; width: clamp(95px, 9vw, 150px); aspect-ratio: 3/4; transform: rotate(4deg); }
-    .fband { display: grid; grid-template-columns: auto 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; padding: 44px clamp(20px, 5vw, 72px) 30px; }
+    .footer-collage .strip { position: absolute; top: -8%; height: 116%; overflow: hidden; }
+    .strip-a { left: 2%; width: 29%; }
+    .strip-b { left: 35.5%; width: 29%; }
+    .strip-c { left: 69%; width: 29%; }
+    .strip-in { display: flex; flex-direction: column; animation: stripMove 46s linear infinite; will-change: transform; }
+    .strip-b .strip-in { animation-duration: 38s; animation-direction: reverse; }
+    .strip-c .strip-in { animation-duration: 54s; }
+    .strip-set { display: grid; gap: 14px; padding-bottom: 14px; }
+    .strip-set .ph { border-radius: 14px; overflow: hidden; box-shadow: 0 18px 38px rgba(11,11,11,.18); aspect-ratio: 3/4; }
+    .strip-set .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .strip-set .ph--mark { display: grid; place-items: center; color: #fff7e6; font-family: 'League Spartan', Arial, sans-serif; font-weight: 900; font-size: clamp(22px, 3vw, 44px); letter-spacing: -.06em; background: linear-gradient(140deg, #b1a4d5, #8d6ac2); }
+    .strip-set .ph--eye { display: grid; place-items: center; background: linear-gradient(140deg, #e8def7, #f6ecdf); }
+    .strip-set .ph--eye img { width: 58%; height: auto; object-fit: contain; }
+    @keyframes stripMove { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+        .fband { display: grid; grid-template-columns: auto 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; padding: 44px clamp(20px, 5vw, 72px) 30px; }
     .fband-brand { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
     .footer-badge { position: relative; width: clamp(120px, 12vw, 160px); aspect-ratio: 1; }
     .footer-badge svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: badge-spin 26s linear infinite; }
@@ -598,7 +598,7 @@
       .projects, .plans { padding-bottom: 22px; }
       .hero { min-height: 78svh; }
     }
-    @media (max-width: 700px) { .footer-collage { height: 280px; } .fc5, .fc6, .fc7, .fc9 { display: none; } .fc8 { left: 66%; bottom: -14px; top: auto; width: 30vw; } .fc1 { width: 44vw; } .fc2 { width: 30vw; top: 4%; left: 20%; } .fc3 { left: 38%; top: 44%; width: 34vw; } .fc4 { left: 68%; top: 8%; width: 34vw; } .fband { grid-template-columns: 1fr; } .fband .footer-cta { justify-self: start; } .fband .footer-cta-text { text-align: left; } }
+    @media (max-width: 700px) { .footer-collage { height: 280px; } .strip-b { display: none; } .strip-a { left: 3%; width: 46%; } .strip-c { left: 51%; width: 46%; } .strip-set { gap: 10px; padding-bottom: 10px; } .fc8 { left: 66%; bottom: -14px; top: auto; width: 30vw; } .fc1 { width: 44vw; } .fc2 { width: 30vw; top: 4%; left: 20%; } .fc3 { left: 38%; top: 44%; width: 34vw; } .fc4 { left: 68%; top: 8%; width: 34vw; } .fband { grid-template-columns: 1fr; } .fband .footer-cta { justify-self: start; } .fband .footer-cta-text { text-align: left; } }
     .footer-main { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 54px clamp(20px, 5vw, 72px) 30px; }
     .footer-left { display: grid; gap: 14px; justify-items: start; text-align: left; }
     .footer-cta { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 26px); justify-self: end; text-decoration: none; }
@@ -1007,15 +1007,7 @@
   </main>
 
   <section class="footer-collage" aria-hidden="true">
-    <div class="fc fc1"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt=""></div>
-    <div class="fc fc--eye fc2"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div>
-    <div class="fc fc3"><img loading="lazy" decoding="async" src="/images/fotos/miguel-brasas-pitmaster.jpg" alt=""></div>
-    <div class="fc fc4"><img loading="lazy" decoding="async" src="/images/fotos/parrilla-pt6.jpg" alt=""></div>
-    <div class="fc fc5"><img loading="lazy" decoding="async" src="/images/fotos/mostris-carne-mechada.jpg" alt=""></div>
-    <div class="fc fc--mark fc6"><span>DLA</span></div>
-    <div class="fc fc7"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt=""></div>
-    <div class="fc fc8"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt=""></div>
-    <div class="fc fc9"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt=""></div>
+    <div class="strip strip-a"><div class="strip-in"><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/mostris-carne-mechada.jpg" alt=""></div></div><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/mostris-carne-mechada.jpg" alt=""></div></div></div></div><div class="strip strip-b"><div class="strip-in"><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/miguel-brasas-2.jpg" alt=""></div><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/miguel-brasas-2.jpg" alt=""></div><div class="ph ph--mark"><span>DLA</span></div></div></div></div><div class="strip strip-c"><div class="strip-in"><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt=""></div></div><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt=""></div></div></div></div>
   </section>
 
   <footer class="site-footer">
