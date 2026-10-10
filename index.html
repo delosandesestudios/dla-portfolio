@@ -185,6 +185,7 @@
     .carousel-arrow:hover, .carousel-arrow:focus-visible { border-color: var(--lilac-deep); background: var(--lilac); outline: none; transform: translateY(-50%) scale(1.06); }
     .carousel-arrow:active { transform: scale(.95); }
     .bubble-track { min-width: 0; overflow: hidden; padding: 12px 0 24px; cursor: grab; user-select: none; touch-action: pan-y; }
+    .bubble-track:hover .bubble-row { animation-play-state: paused; }
     .bubble-track.is-dragging { cursor: grabbing; }
     .bubble-row { display: flex; width: max-content; gap: 0; padding: 0; animation: collaborationsMarquee 54s linear infinite; animation-play-state: running; will-change: transform; }
     .bubble-row.is-nudging { transition: transform .68s cubic-bezier(.23, 1, .32, 1); }
@@ -328,7 +329,7 @@
     .reel-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
     .reel-card { display: block; overflow: hidden; border-radius: 18px; background: #fcfbff; box-shadow: 0 18px 40px rgba(11,11,11,.18); }
     .reel-media { display: block; overflow: hidden; }
-    .reel-media img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; transition: transform .6s var(--ease); }
+    .reel-media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; transition: transform .6s var(--ease); }
     .reel-card:hover .reel-media img, .reel-card:focus-visible .reel-media img { transform: scale(1.05); }
     .reel-body { display: grid; gap: 3px; padding: 14px 15px 15px; }
     .reel-body b { font-family: 'League Spartan', Arial, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
@@ -906,26 +907,9 @@
         </div>
       </div>
     </section>
-    <section class="section plans" id="como-trabajamos">
-      <div class="section-inner">
-        <div class="reveal"><span class="eyebrow">Formas de trabajar</span><h2>Cómo podemos<br><em>trabajar juntos.</em></h2><p class="plans-note">No todas las empresas necesitan el mismo nivel de acompañamiento. Definimos el alcance del trabajo según el punto en el que se encuentra tu marca, sus objetivos y lo que necesita construir.</p></div>
-        <div class="plans-grid">
-          <article class="plan reveal"><span class="eyebrow">Nivel 01 · Puntual</span><h3>Estándar</h3><p>Contenido + difusión puntual.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 2 videos para comunicar tu marca</li><li>Gestión de anuncios en Meta Ads durante 10 días</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Estándar">Solicitar este plan →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">Nivel 02 · Mensual</span><h3>Intermedio</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="#contacto" data-service="Plan Intermedio">Solicitar este plan →</a></article>
-          <article class="plan reveal"><span class="eyebrow">Nivel 03 · Integral</span><h3>Premium</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Implementación u optimización de herramientas de autoservicio digital: página web si no cuentas con una, menú digital para restaurantes o catálogo digital, según tu negocio</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
-        </div>
-        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
-        <div class="retainer reveal">
-          <div><span class="eyebrow">Plan de crecimiento sostenido · Trimestral</span><h3>Tarifa de Retenedor Protegida</h3><p>Reserva continuidad para tu marca durante tres meses y gana entre <strong>10–15% de beneficio</strong> frente a la contratación mes a mes.</p></div>
-          <ul><li>Retención de marca y consistencia creativa</li><li>Optimización de píxeles y aprendizaje de campañas</li><li>Mejor lectura de datos a mediano plazo</li></ul>
-          <a class="btn" href="#contacto" data-service="Tarifa de Retenedor Protegida">Quiero proteger mi crecimiento →</a>
-        </div>
-        <p class="plans-note">Cada propuesta se construye según la etapa, los objetivos y el nivel de acompañamiento que necesita cada empresa.</p>
-      </div>
-    </section>
-
     <section class="section kit" id="content-kit">
       <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Formas de trabajar</span><h2>Cómo podemos<br><em>trabajar juntos.</em></h2><p class="plans-note">No todas las empresas necesitan el mismo nivel de acompañamiento. Definimos el alcance del trabajo según el punto en el que se encuentra tu marca, sus objetivos y lo que necesita construir.</p></div>
         <div class="reveal"><span class="eyebrow">Servicio de contenido</span><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Enfócate en tu negocio mientras producimos todo tu ecosistema visual. Recibirás un banco de contenido organizado para alimentar tus redes durante semanas.</p></div>
                 <div class="plans-grid kit-edits">
           <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
@@ -946,6 +930,23 @@
         </div>
       </div>
     </section>
+    <section class="section plans" id="como-trabajamos">
+      <div class="section-inner">
+        <div class="plans-grid">
+          <article class="plan reveal"><span class="eyebrow">Nivel 01 · Puntual</span><h3>Estándar</h3><p>Contenido + difusión puntual.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 2 videos para comunicar tu marca</li><li>Gestión de anuncios en Meta Ads durante 10 días</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Estándar">Solicitar este plan →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">Nivel 02 · Mensual</span><h3>Intermedio</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="#contacto" data-service="Plan Intermedio">Solicitar este plan →</a></article>
+          <article class="plan reveal"><span class="eyebrow">Nivel 03 · Integral</span><h3>Premium</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Implementación u optimización de herramientas de autoservicio digital: página web si no cuentas con una, menú digital para restaurantes o catálogo digital, según tu negocio</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
+        </div>
+        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
+        <div class="retainer reveal">
+          <div><span class="eyebrow">Plan de crecimiento sostenido · Trimestral</span><h3>Tarifa de Retenedor Protegida</h3><p>Reserva continuidad para tu marca durante tres meses y gana entre <strong>10–15% de beneficio</strong> frente a la contratación mes a mes.</p></div>
+          <ul><li>Retención de marca y consistencia creativa</li><li>Optimización de píxeles y aprendizaje de campañas</li><li>Mejor lectura de datos a mediano plazo</li></ul>
+          <a class="btn" href="#contacto" data-service="Tarifa de Retenedor Protegida">Quiero proteger mi crecimiento →</a>
+        </div>
+        <p class="plans-note">Cada propuesta se construye según la etapa, los objetivos y el nivel de acompañamiento que necesita cada empresa.</p>
+      </div>
+    </section>
+
 <section class="section web" id="web">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Páginas web</span><h2>Sitios que también<br><em>hacemos nosotros.</em></h2><p class="services-lede">Además de contenido y pauta, diseñamos y publicamos páginas web: menús digitales, directorios y sitios de marca, listos para verse bien desde cualquier teléfono.</p></div>
@@ -1227,10 +1228,11 @@
     const bubbleRow = document.querySelector('.bubble-row');
     const prevCollaborations = document.getElementById('prevCollaborations');
     const nextCollaborations = document.getElementById('nextCollaborations');
-    let dragStartX = 0;
+    let dragStartX = null;
     let rowStartX = 0;
     let hasDragged = false;
     let blockNextClick = false;
+    let dragActivo = false;
     const marqueeDuration = 54;
 
     function moveCarousel(direction) {
@@ -1279,24 +1281,32 @@
 
     bubbleTrack.addEventListener('pointerdown', event => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
-      bubbleTrack.setPointerCapture(event.pointerId);
-      bubbleTrack.classList.add('is-dragging');
-      bubbleRow.style.animationPlayState = 'paused';
       dragStartX = event.clientX;
       rowStartX = currentTransformX(bubbleRow);
       hasDragged = false;
+      dragActivo = false;
+      bubbleRow.style.animationPlayState = 'paused'; // pausa al tocar o pasar el mouse: permite hacer click
     });
 
     bubbleTrack.addEventListener('pointermove', event => {
-      if (!bubbleTrack.hasPointerCapture(event.pointerId)) return;
+      if (dragStartX === null) return;
       const distance = event.clientX - dragStartX;
-      if (Math.abs(distance) > 5) hasDragged = true;
+      if (!dragActivo) {
+        if (Math.abs(distance) <= 5) return;
+        dragActivo = true;
+        bubbleTrack.setPointerCapture(event.pointerId);
+        bubbleTrack.classList.add('is-dragging');
+      }
+      hasDragged = true;
       bubbleRow.style.animation = 'none';
       bubbleRow.style.transform = `translate3d(${rowStartX + distance}px, 0, 0)`;
     });
 
     function finishDrag(event) {
-      if (!bubbleTrack.hasPointerCapture(event.pointerId)) return;
+      if (dragStartX === null) return;
+      dragStartX = null;
+      if (!dragActivo) { bubbleRow.style.animationPlayState = ''; return; } // fue un click, no un arrastre
+      dragActivo = false;
       const distance = bubbleRow.scrollWidth / 2;
       let position = rowStartX + (event.clientX - dragStartX);
       if (distance > 0) position = -(((-position % distance) + distance) % distance);
@@ -1306,7 +1316,7 @@
       bubbleRow.style.animationDelay = `-${progress * marqueeDuration}s`;
       bubbleRow.style.animationPlayState = '';
       bubbleTrack.classList.remove('is-dragging');
-      bubbleTrack.releasePointerCapture(event.pointerId);
+      if (bubbleTrack.hasPointerCapture(event.pointerId)) bubbleTrack.releasePointerCapture(event.pointerId);
       if (hasDragged) {
         blockNextClick = true;
         setTimeout(() => { blockNextClick = false; }, 80);
