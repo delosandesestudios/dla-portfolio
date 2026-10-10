@@ -185,20 +185,21 @@
     .carousel-arrow:last-child { right: 10px; }
     .carousel-arrow:hover, .carousel-arrow:focus-visible { border-color: var(--lilac-deep); background: var(--lilac); outline: none; transform: translateY(-50%) scale(1.06); }
     .carousel-arrow:active { transform: scale(.95); }
-    .bubble-track { min-width: 0; overflow: hidden; padding: 12px 0 24px; cursor: grab; user-select: none; touch-action: pan-y; }
+    .bubble-track { min-width: 0; overflow: hidden; padding: 12px 0 24px; cursor: grab; user-select: none; touch-action: pan-y; -webkit-touch-callout: none; }
+    .bubble-track img { -webkit-touch-callout: none; -webkit-user-drag: none; }
     .bubble-track:hover .bubble-row { animation-play-state: paused; }
     .bubble-track.is-dragging { cursor: grabbing; }
     .bubble-row { display: flex; width: max-content; gap: 0; padding: 0; animation: collaborationsMarquee 54s linear infinite; animation-play-state: running; will-change: transform; }
     .bubble-row.is-nudging { transition: transform .68s cubic-bezier(.23, 1, .32, 1); }
     .bubble-set { display: flex; flex-shrink: 0; gap: clamp(56px, 7vw, 104px); padding: 0 40px; align-items: center; }
-    .collab-bubble { display: grid; height: 96px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
-    .collab-bubble img { height: 96px; width: auto; max-width: none; }
+    .collab-bubble { display: grid; width: 96px; height: 96px; place-items: center; transition: transform .35s var(--ease), opacity .3s ease; opacity: .82; }
+    .collab-bubble img { width: 100%; height: 100%; object-fit: contain; }
     .collab-bubble--photo { border-radius: 50%; overflow: hidden; }
-    .collab-bubble--photo img { width: 76px; height: 76px; object-fit: cover; border-radius: 50%; }
+    .collab-bubble--photo img { object-fit: cover; border-radius: 50%; }
     .collab-link { display: grid; height: 96px; flex: 0 0 auto; place-items: center; outline: none; }
     .collab-link:hover .collab-bubble, .collab-bubble:hover { opacity: 1; transform: translateY(-4px); }
     .collab-link { cursor: inherit; }
-    @media (max-width: 700px) { .collab-bubble, .collab-link { height: 74px; } .collab-bubble img { height: 74px; } }
+    @media (max-width: 700px) { .collab-bubble, .collab-link { width: 74px; height: 74px; } }
     .collab-link:focus-visible { border-radius: 50%; outline: 3px solid var(--lilac-deep); outline-offset: 6px; }
     body.dark-mode .carousel-arrow { border-color: rgba(248,241,255,.2); background: rgba(20,17,27,.86); color: var(--ink); }
     @keyframes collaborationsMarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
@@ -854,7 +855,7 @@
           </article>
           <article class="case-card reveal" id="caso-brasas">
             <div class="case-top case-top--brasa case-top--foto"><video class="case-foto" muted loop autoplay playsinline preload="metadata" poster="/images/fotos/brasas-banner.jpg?v=2" src="/images/videos/brasas-banner.mp4?v=2"></video><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">02</span></div>
-            <div class="case-content"><span class="case-category">Restauración · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">El enfoque</span><p>Lo acompañamos a un evento en otro punto de Venezuela con grabación estilo minivlog: la cámara detrás de Miguel Brasas, la ruta y el fuego. Así la audiencia conecta más con él y conoce el detrás de cámaras de la marca.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
+            <div class="case-content"><span class="case-category">Acompañamiento · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">El enfoque</span><p>Lo acompañamos a un evento en otro punto de Venezuela con grabación estilo minivlog: la cámara detrás de Miguel Brasas, la ruta y el fuego. Así la audiencia conecta más con él y conoce el detrás de cámaras de la marca.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
           </article>
           <article class="case-card reveal" id="caso-establo">
             <div class="case-top case-top--establo case-top--foto"><img class="case-foto" src="/images/fotos/establo-banner.jpg?v=3" alt="Cortes de carne jugosa servidos en El Establo" loading="lazy" decoding="async" width="670" height="343"><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">03</span></div>
@@ -1304,38 +1305,42 @@
       bubbleRow.style.animationPlayState = 'paused'; // pausa al tocar la sección: permite apuntar y hacer click
     });
 
-    bubbleTrack.addEventListener('pointermove', event => {
+    function trackMove(event) {
       if (dragStartX === null) return;
       const distance = event.clientX - dragStartX;
       if (!dragActivo) {
         if (Math.abs(distance) <= 5) return;
         dragActivo = true;
-        bubbleTrack.setPointerCapture(event.pointerId);
+        try { event.target.setPointerCapture(event.pointerId); } catch (e) {}
         bubbleTrack.classList.add('is-dragging');
       }
       hasDragged = true;
       bubbleRow.style.animation = 'none';
       bubbleRow.style.transform = `translate3d(${rowStartX + distance}px, 0, 0)`;
-    });
+    }
+    bubbleTrack.addEventListener('pointermove', trackMove);
+    collabSection.addEventListener('pointermove', trackMove);
 
     function finishDrag(event) {
       if (dragStartX === null) return;
+      const startX = dragStartX;
       dragStartX = null;
       if (!dragActivo) { // fue un toque: la franja queda quieta un momento para apuntar
         setTimeout(() => { bubbleRow.style.animationPlayState = ''; }, 1200);
         return;
       }
       dragActivo = false;
-      const distance = bubbleRow.scrollWidth / 2;
-      let position = rowStartX + (event.clientX - dragStartX);
-      if (distance > 0) position = -(((-position % distance) + distance) % distance);
-      const progress = distance > 0 ? (-position / distance) : 0;
+      const endX = event.clientX;
+      const loop = bubbleRow.scrollWidth / 2;
+      let position = rowStartX + (endX - startX);
+      if (loop > 0) position = -(((-position % loop) + loop) % loop);
+      const progress = loop > 0 ? (-position / loop) : 0;
       bubbleRow.style.transform = '';
       bubbleRow.style.animation = `collaborationsMarquee ${marqueeDuration}s linear infinite`;
       bubbleRow.style.animationDelay = `-${progress * marqueeDuration}s`;
       bubbleRow.style.animationPlayState = '';
       bubbleTrack.classList.remove('is-dragging');
-      if (bubbleTrack.hasPointerCapture(event.pointerId)) bubbleTrack.releasePointerCapture(event.pointerId);
+      if (event.pointerId !== undefined && bubbleTrack.hasPointerCapture(event.pointerId)) bubbleTrack.releasePointerCapture(event.pointerId);
       if (hasDragged) {
         blockNextClick = true;
         setTimeout(() => { blockNextClick = false; }, 80);
