@@ -840,7 +840,7 @@
             <div class="case-content"><span class="case-category">Restauración · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">Problema principal</span><p>Necesitaba comunicar la experiencia de la marca y sostener una presencia digital más activa.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
           </article>
           <article class="case-card reveal" id="caso-establo">
-            <div class="case-top case-top--establo case-top--foto"><img class="case-foto" src="/images/fotos/establo-plato.jpg" alt="Corte de carne servido en El Establo" loading="lazy" decoding="async" width="640" height="800"><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">03</span></div>
+            <div class="case-top case-top--establo case-top--foto"><video class="case-foto" muted loop autoplay playsinline preload="metadata" poster="/images/fotos/establo-banner.jpg?v=2" src="/images/videos/establo-banner.mp4?v=2"></video><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">03</span></div>
             <div class="case-content"><span class="case-category">Restauración · Gestión completa + Meta Ads</span><h3>El Establo</h3><div class="case-stats"><span><b>5K→7K</b>seguidores</span><span><b>200→2.000</b>vistas promedio</span><span><b>2.138</b>visitas con pauta</span></div><span class="case-label">Servicios realizados</span><p>Gestión completa de la cuenta desde mayo y campañas de Meta Ads orientadas a ventas.</p><span class="case-label">Resultado</span><p>Ventas y presencia en la ciudad en aumento. Agosto fue el mejor mes del perfil: +674 seguidores y 51 mil vistas.</p><button class="case-link" type="button" data-case="El Establo">Ver caso <span>↗</span></button></div>
           </article>
           <div class="project-arrows">
@@ -1471,11 +1471,12 @@
     collage.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; } },true);
   })();
     (function(){
-    var v=document.querySelector('.case-top--brasa video.case-foto');
-    if(!v||!('IntersectionObserver' in window))return;
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();} });
-    },{threshold:.15}).observe(v.closest('.case-top'));
+    var vids=Array.prototype.slice.call(document.querySelectorAll('.case-top video.case-foto'));
+    if(!vids.length||!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ var v=e.target; if(e.isIntersecting){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();} });
+    },{threshold:.15});
+    vids.forEach(function(v){ io.observe(v.closest('.case-top')); });
   })();
   </script>
 </body>
