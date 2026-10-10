@@ -140,7 +140,7 @@
     .text-link:hover { padding-left: 8px; color: var(--lilac-deep); }
 
     /* Hero */
-    .hero { position: relative; display: grid; min-height: 90svh; place-items: center; overflow: hidden; background: linear-gradient(115deg, #d8c8e5, #eee7fa 45%, var(--cream)); }
+    .hero { position: relative; display: grid; min-height: 90svh; place-items: center; overflow: hidden; background: linear-gradient(180deg, rgba(238,231,250,0) 72%, #eee7fa 97%), linear-gradient(115deg, #d8c8e5, #eee7fa 45%, var(--cream)); }
     .hero::before { content: ""; position: absolute; inset: -28%; background: radial-gradient(circle at 20% 35%, var(--lilac), transparent 32%), radial-gradient(circle at 80% 25%, var(--cream), transparent 30%), radial-gradient(circle at 55% 90%, rgba(141,106,194,.58), transparent 35%); filter: blur(44px); animation: breath 18s ease-in-out infinite alternate; }
     .hero::after { content: ""; position: absolute; right: 9%; bottom: 14%; width: 24vw; height: 24vw; max-width: 320px; max-height: 320px; border: 1px solid rgba(11, 11, 11, .14); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.12), 0 0 0 70px rgba(255,255,255,.08); }
     .hero-inner { position: relative; z-index: 1; width: min(850px, 100%); padding: 96px 20px 64px; text-align: center; }
@@ -339,7 +339,8 @@
     .form option { color: var(--ink); }
     /* Aurora giratoria (adaptada del patrón de uiverse.io/ariba_9087) */
     .hero, .contact { position: relative; overflow: hidden; }
-    .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; -webkit-mask-image: linear-gradient(180deg, #000 52%, transparent 90%); mask-image: linear-gradient(180deg, #000 52%, transparent 90%); }
+    .aurora--noche { -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 76%); mask-image: radial-gradient(ellipse at center, #000 38%, transparent 76%); }
     .aurora::before, .aurora::after { content: ""; position: absolute; top: 50%; left: 50%; width: 190%; height: 190%; background: conic-gradient(from 0deg, #b1a4d5, #f2a8d4, #ffebc9, #b1a4d5); transform: translate(-50%, -50%); animation: aurora-giro 8s linear infinite; filter: blur(55px); opacity: .38; will-change: transform; }
     .aurora::after { width: 165%; height: 165%; animation: aurora-giro-reverse 11s linear infinite; opacity: .28; }
     .aurora--noche::before, .aurora--noche::after { background: conic-gradient(from 0deg, #8d6ac2, #b1a4d5, #4a3c73, #8d6ac2); opacity: .3; }
@@ -387,7 +388,7 @@
     body, .topbar, .hero, .collaborations, .services, .service, .theme-toggle, .collaborations-lede { transition: background .55s ease, background-color .55s ease, color .4s ease, border-color .4s ease; }
     body.dark-mode { --ink: #f8f1ff; --ink-soft: #211a2b; --paper: #14111b; --muted: #b8aec7; --line: rgba(248,241,255,.18); background: var(--paper); color: var(--ink); }
     body.dark-mode .topbar.scrolled { background: rgba(20,17,27,.82); color: var(--ink); }
-    body.dark-mode .hero { background: linear-gradient(115deg, #211a2b, #302743 48%, #48352e); }
+    body.dark-mode .hero { background: linear-gradient(180deg, rgba(33,26,43,0) 72%, #211a2b 97%), linear-gradient(115deg, #211a2b, #302743 48%, #48352e); }
     body.dark-mode .hero::before { opacity: .62; }
     body.dark-mode .hero::after { border-color: rgba(248,241,255,.18); box-shadow: 0 0 0 35px rgba(177,164,213,.1), 0 0 0 70px rgba(255,235,201,.06); }
     body.dark-mode .collaborations { background: radial-gradient(circle at 15% 15%, rgba(141,106,194,.55), transparent 28%), linear-gradient(120deg, #211a2b, #14111b 52%, #30251e); }
