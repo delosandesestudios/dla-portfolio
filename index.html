@@ -313,6 +313,16 @@
     .plan.featured p { color: #3f354b; }
     .plan-price { display: block; margin: 2px 0 16px; font-size: 42px; line-height: 1; letter-spacing: -.01em; }
     .plan-price small { font-size: 13px; font-weight: 600; letter-spacing: .06em; opacity: .75; }
+    .reel-strip { max-width: 1060px; margin: 36px auto 0; }
+    .reel-strip-title { margin: 0 0 16px; font-size: 23px; }
+    .reel-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; max-width: 640px; margin: 0 auto; }
+    .reel-card { position: relative; display: block; overflow: hidden; border-radius: 18px; border: 1px solid rgba(11,11,11,.08); background: var(--ink-soft); }
+    .reel-card img { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; transition: transform .6s var(--ease); }
+    .reel-card:hover img, .reel-card:focus-visible img { transform: scale(1.045); }
+    .reel-brand { position: absolute; top: 10px; left: 10px; max-width: calc(100% - 20px); padding: 5px 10px; border-radius: 999px; background: rgba(23,19,29,.75); color: var(--cream); font-family: 'League Spartan', Arial, sans-serif; font-size: 9.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; backdrop-filter: blur(6px); }
+    .reel-credit { display: block; padding: 12px 14px 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .reel-play { display: inline-block; padding: 4px 14px 14px; color: var(--lilac-deep); font-weight: 700; font-size: 12.5px; }
+
     .plan ul { display: grid; gap: 10px; margin: 0; padding: 0 0 0 17px; color: #c8bddf; font-size: 12px; }
     .plan.featured ul { color: #3f354b; }
     .plan .btn { width: max-content; margin-top: auto; }
@@ -888,6 +898,23 @@
         <div class="plans-grid kit-edits">
           <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
           <article class="plan featured reveal"><span class="eyebrow">Edición premium</span><h3>Edición de video</h3><p>Para contenido con dirección de marca y acabado de alto nivel.</p><ul><li>Dirección de ritmo y narrativa</li><li>Motion graphics y diseño sonoro</li><li>Corrección de color avanzada</li><li>Versiones para distintas plataformas</li></ul><a class="btn" href="#contacto" data-service="Edición de video">Solicitar edición →</a></article>
+        </div>
+        <div class="reel-strip reveal">
+          <h3 class="reel-strip-title">Ediciones recientes</h3>
+          <div class="reel-grid">
+            <a class="reel-card" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer">
+              <img src="/images/reels/enigma-reel.jpg" alt="Reel de Enigma Café con guion y edición de giniplay junto a De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720">
+              <span class="reel-brand">Enigma Café</span>
+              <span class="reel-credit">Guion y edición · giniplay × De los Andes Estudio</span>
+              <span class="reel-play">Ver reel ↗</span>
+            </a>
+            <a class="reel-card" href="https://www.instagram.com/reel/DbrKlGyhD3l/" target="_blank" rel="noreferrer">
+              <img src="/images/reels/digiprint-reel.jpg" alt="Reel de Digiprint Venezuela con guion y edición de giniplay junto a De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720">
+              <span class="reel-brand">Digiprint Venezuela</span>
+              <span class="reel-credit">Guion y edición · giniplay × De los Andes Estudio</span>
+              <span class="reel-play">Ver reel ↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
