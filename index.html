@@ -42,7 +42,7 @@
     "serviceType": ["Gestión de redes sociales", "Diseño de contenido", "Publicidad digital · Meta Ads", "Creación de Reels", "Asesoría creativa", "Content Kit", "Desarrollo web", "Diseño de identidad de marca"],
     "priceRange": "$$$"
   }
-  </script>
+    </script>
   <link rel="preload" as="image" href="/images/logo-original.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,7 +145,6 @@
     /* Hero */
     .hero { position: relative; display: grid; min-height: 90svh; place-items: center; overflow: hidden; background: linear-gradient(180deg, rgba(238,231,250,0) 72%, #eee7fa 97%), linear-gradient(115deg, #d8c8e5, #eee7fa 45%, var(--cream)); }
     .hero::before { content: ""; position: absolute; inset: -28%; background: radial-gradient(circle at 20% 35%, var(--lilac), transparent 32%), radial-gradient(circle at 80% 25%, var(--cream), transparent 30%), radial-gradient(circle at 55% 90%, rgba(141,106,194,.58), transparent 35%); filter: blur(44px); animation: breath 18s ease-in-out infinite alternate; }
-    .hero::after { content: ""; position: absolute; right: 9%; bottom: 14%; width: 24vw; height: 24vw; max-width: 320px; max-height: 320px; border: 1px solid rgba(11, 11, 11, .14); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.12), 0 0 0 70px rgba(255,255,255,.08); }
     .hero-inner { position: relative; z-index: 1; width: min(850px, 100%); padding: 96px 20px 64px; text-align: center; }
     .hero-mark { position: relative; display: grid; width: min(150px, 34vw); aspect-ratio: 900/558; margin: 0 auto 18px; place-items: center; animation: markIn 1s var(--ease) both; }
     .hero-mark::before { content: ''; position: absolute; inset: -55% -60%; border-radius: 50%; background: radial-gradient(closest-side, rgba(177,164,213,.3), rgba(255,235,201,.14) 58%, transparent 74%); filter: blur(16px); transform: scaleX(.35); opacity: 0; animation: auraOpen 1.4s var(--ease) .35s forwards, auraBreathe 5.4s ease-in-out 1.75s infinite; pointer-events: none; }
@@ -329,19 +328,10 @@
     .plan.featured p { color: #3f354b; }
     .plan-price { display: block; margin: 2px 0 16px; font-size: 42px; line-height: 1; letter-spacing: -.01em; }
     .plan-price small { font-size: 13px; font-weight: 600; letter-spacing: .06em; opacity: .75; }
-    .reel-strip { max-width: 760px; margin: 36px auto 0; }
+    .reel-strip { margin: 40px 0 0; }
     .reel-strip-title { margin: 0 0 16px; font-size: 23px; }
-    .reel-grid { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-    .reel-grid::-webkit-scrollbar { display: none; }
-    .reel-card { flex: 0 0 clamp(230px, 58vw, 290px); }
-    .reel-card { display: block; overflow: hidden; border-radius: 18px; background: #fcfbff; box-shadow: 0 18px 40px rgba(11,11,11,.18); }
-    .reel-media { display: block; overflow: hidden; }
-    .reel-media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; transition: transform .6s var(--ease); }
-    .reel-card:hover .reel-media img, .reel-card:focus-visible .reel-media img { transform: scale(1.05); }
-    .reel-body { display: grid; gap: 3px; padding: 14px 15px 15px; }
-    .reel-body b { font-family: 'League Spartan', Arial, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
-    .reel-body small { color: var(--muted); font-size: 11.5px; line-height: 1.5; }
-    .reel-body i { margin-top: 4px; color: var(--lilac-deep); font-style: normal; font-weight: 700; font-size: 12px; }
+    .footer-collage .strip-set a.ph { display: block; }
+    .footer-collage .strip-set .ph video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .plan ul { display: grid; gap: 10px; margin: 0; padding: 0 0 0 17px; color: #c8bddf; font-size: 12px; }
     .plan.featured ul { color: #3f354b; }
@@ -413,7 +403,6 @@
     body.dark-mode .topbar.scrolled { background: rgba(20,17,27,.82); color: var(--ink); }
     body.dark-mode .hero { background: linear-gradient(180deg, rgba(33,26,43,0) 72%, #211a2b 97%), linear-gradient(115deg, #211a2b, #302743 48%, #48352e); }
     body.dark-mode .hero::before { opacity: .62; }
-    body.dark-mode .hero::after { border-color: rgba(248,241,255,.18); box-shadow: 0 0 0 35px rgba(177,164,213,.1), 0 0 0 70px rgba(255,235,201,.06); }
     body.dark-mode .collaborations { background: radial-gradient(circle at 15% 15%, rgba(141,106,194,.55), transparent 28%), linear-gradient(120deg, #211a2b, #14111b 52%, #30251e); }
     body.dark-mode .trusted-line { color: #d0c4dc; }
     body.dark-mode .services { background: linear-gradient(180deg, var(--paper) 0, rgba(20,17,27,0) 120px), linear-gradient(0deg, var(--paper) 0, rgba(20,17,27,0) 120px), linear-gradient(130deg, #211a2b, #453b5b, #3c3024); }
@@ -442,7 +431,6 @@
       .nav a { padding: 11px 0; }
       .menu { display: block; }
       .actions { flex-direction: column; align-items: center; }
-      .hero::after { right: -18%; bottom: 9%; width: 55vw; height: 55vw; }
       .section-head { display: block; }
       .section-note { margin-top: 22px; }
       .service-grid, .plans-grid { grid-template-columns: 1fr; }
@@ -603,7 +591,7 @@
       .projects, .plans { padding-bottom: 22px; }
       .hero { min-height: 78svh; }
     }
-    @media (max-width: 700px) { .footer-collage { height: 280px; } .strip-b { display: none; } .strip-a { left: 3%; width: 46%; } .strip-c { left: 51%; width: 46%; } .strip-set { gap: 10px; padding-bottom: 10px; } .fc8 { left: 66%; bottom: -14px; top: auto; width: 30vw; } .fc1 { width: 44vw; } .fc2 { width: 30vw; top: 4%; left: 20%; } .fc3 { left: 38%; top: 44%; width: 34vw; } .fc4 { left: 68%; top: 8%; width: 34vw; } .fband { grid-template-columns: 1fr; } .fband .footer-cta { justify-self: start; } .fband .footer-cta-text { text-align: left; } }
+    @media (max-width: 700px) { .footer-collage { height: 300px; } .strip-a { left: 2%; width: 31%; } .strip-b { left: 34.5%; width: 31%; } .strip-c { left: 67%; width: 31%; } .strip-set { gap: 10px; padding-bottom: 10px; } .fband { grid-template-columns: 1fr; } .fband .footer-cta { justify-self: start; } .fband .footer-cta-text { text-align: left; } }
     .footer-main { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 54px clamp(20px, 5vw, 72px) 30px; }
     .footer-left { display: grid; gap: 14px; justify-items: start; text-align: left; }
     .footer-cta { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 26px); justify-self: end; text-decoration: none; }
@@ -857,17 +845,8 @@
       </div>
         <div class="reel-strip reveal">
           <h3 class="reel-strip-title">Ediciones recientes</h3>
-          <div class="reel-grid">
-            <a class="reel-card" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer">
-              <span class="reel-media"><img src="/images/reels/enigma-reel.jpg" alt="Reel de Enigma Café con guion y edición de giniplay junto a De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
-              <span class="reel-body"><b>Enigma Café</b><small>Guion y edición · giniplay × De los Andes Estudio</small><i>Ver reel ↗</i></span>
-            </a>
-            <a class="reel-card" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer">
-              <span class="reel-media"><img src="/images/reels/primos-reel.jpg" alt="Reel de Primos Café Gourmet producido y editado por De los Andes Estudio" loading="lazy" decoding="async" width="405" height="720"></span>
-              <span class="reel-body"><b>Primos Café Gourmet</b><small>Producción y edición · De los Andes Estudio</small><i>Ver reel ↗</i></span>
-            </a><a class="reel-card" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio" loading="lazy" decoding="async"></span><span class="reel-body"><b>Enigma Café</b><small>Contenido · De los Andes Estudio</small><i>Ver más ↗</i></span></a><a class="reel-card" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo" loading="lazy" decoding="async"></span><span class="reel-body"><b>El Establo Restaurante</b><small>Contenido · De los Andes Estudio</small><i>Ver más ↗</i></span></a><a class="reel-card" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo" loading="lazy" decoding="async"></span><span class="reel-body"><b>El Establo Restaurante</b><small>Diseño de historias · De los Andes Estudio</small><i>Ver más ↗</i></span></a><a class="reel-card" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/miguel-brasas-pitmaster.jpg" alt="Miguel Brasas en su evento" loading="lazy" decoding="async"></span><span class="reel-body"><b>Miguel Brasas</b><small>Contenido y pauta · De los Andes Estudio</small><i>Ver más ↗</i></span></a><a class="reel-card" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/mostris-carne-mechada.jpg" alt="Carne mechada de Mostris" loading="lazy" decoding="async"></span><span class="reel-body"><b>Mostris</b><small>Contenido · De los Andes Estudio</small><i>Ver más ↗</i></span></a><a class="reel-card" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer"><span class="reel-media"><img src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi" loading="lazy" decoding="async"></span><span class="reel-body"><b>Kobayashi</b><small>Contenido · De los Andes Estudio</small><i>Ver más ↗</i></span></a>
-          </div>
-        </div>
+          <div class="footer-collage" id="edicionCollage"><div class="strip strip-a"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt="Mesas de El Establo Restaurante"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de la torta de Enigma Café"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt="Torta creada para Enigma Café por De los Andes Estudio"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/Dd4xZtcTHE4/" target="_blank" rel="noreferrer" aria-label="Reel de Enigma Café"><video muted loop playsinline preload="metadata" src="/images/videos/enigma.mp4"></video></a></div></div></div><div class="strip strip-b"><div class="strip-in"><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DZ8qy3zObfD/" target="_blank" rel="noreferrer" aria-label="Reel de carne mechada de Mostris"><video muted loop playsinline preload="metadata" src="/images/videos/mostris.mp4"></video></a></div><div class="strip-set"><div class="ph ph--mark"><span>DLA</span></div></div></div></div><div class="strip strip-c"><div class="strip-in"><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt="Corte servido en El Establo"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/reel/DchrAdQxbfP/" target="_blank" rel="noreferrer" aria-label="Reel de Miguel Brasas"><video muted loop playsinline preload="metadata" src="/images/videos/brasas.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/kobayashi_sc/" target="_blank" rel="noreferrer" aria-label="Kobayashi en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt="Sushi de Kobayashi"></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/p/DZD8E2Xp9Zf/" target="_blank" rel="noreferrer" aria-label="Reel de Primos Café Gourmet"><video muted loop playsinline preload="metadata" src="/images/videos/primos.mp4"></video></a></div><div class="strip-set"><a class="ph" href="https://www.instagram.com/elestablosc/" target="_blank" rel="noreferrer" aria-label="El Establo Restaurante en Instagram"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt="Historia promocional de carne en vara para El Establo"></a></div></div></div></div>
+</div>
     </section>
 
     <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="caseModalTitle">
@@ -1012,10 +991,7 @@
     </section>
   </main>
 
-  <section class="footer-collage" aria-hidden="true">
-    <div class="strip strip-a"><div class="strip-in"><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/mostris-carne-mechada.jpg" alt=""></div></div><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-mesas.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/torta-enigma.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/mostris-carne-mechada.jpg" alt=""></div></div></div></div><div class="strip strip-b"><div class="strip-in"><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/miguel-brasas-2.jpg" alt=""></div><div class="ph ph--mark"><span>DLA</span></div></div><div class="strip-set"><div class="ph ph--eye"><img loading="lazy" decoding="async" src="/images/logo-original.png" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/miguel-brasas-2.jpg" alt=""></div><div class="ph ph--mark"><span>DLA</span></div></div></div></div><div class="strip strip-c"><div class="strip-in"><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt=""></div></div><div class="strip-set"><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-plato.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/kobayashi-sushi.jpg" alt=""></div><div class="ph"><img loading="lazy" decoding="async" src="/images/fotos/establo-carne.jpg" alt=""></div></div></div></div>
-  </section>
-
+  
   <footer class="site-footer">
     <div class="fband">
       <div class="fband-brand">
@@ -1424,6 +1400,17 @@
     window.addEventListener('resize', onMove, { passive: true });
     update();
   })();
-</script>
+  (function(){
+    var collage=document.querySelector('.footer-collage');
+    if(!collage||!('IntersectionObserver' in window))return;
+    var vids=collage.querySelectorAll('video');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        vids.forEach(function(v){ if(entry.isIntersecting){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();} });
+      });
+    },{threshold:.05});
+    io.observe(collage);
+  })();
+  </script>
 </body>
 </html>
