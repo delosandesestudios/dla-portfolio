@@ -247,8 +247,8 @@
     .service:first-child { grid-column: span 2; }
     .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .services-lede { max-width: 650px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
-    .kit-bridge { max-width: 650px; margin: 12px 0 0; color: var(--ink); font-size: 14.5px; line-height: 1.65; font-weight: 600; }
-    body.dark-mode .kit-bridge { color: #e6ddf2; }
+    .kit-bridge { max-width: 650px; margin: 10px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; font-weight: 500; }
+    body.dark-mode .kit-bridge { color: #b3a8c4; }
     .nichos { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; margin: 16px 0 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .nichos b { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--purple); margin-right: 4px; }
     .nichos::-webkit-scrollbar { display: none; }
@@ -279,6 +279,12 @@
     .workflow h2 { margin: 0 0 24px; font-size: clamp(50px, 6vw, 90px); line-height: .95; }
     .web h2, .faq h2 { margin: 14px 0 26px; font-size: clamp(50px, 6.4vw, 92px); line-height: .95; }
     .steps-accordion { display: grid; gap: 8px; max-width: 880px; margin: 24px auto 0; }
+    @media (min-width: 980px) {
+      #faq .section-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); gap: clamp(30px, 4vw, 60px); align-items: start; }
+      #faq .reveal { grid-column: 2; grid-row: 1; position: sticky; top: 110px; }
+      #faq .steps-accordion { grid-column: 1; grid-row: 1; margin: 0; max-width: none; }
+    }
+    .faq { padding-bottom: clamp(20px, 3vw, 36px); }
     #faq { padding-top: 24px; }
     #faq .section-head em, #faq h2 em { color: inherit; }
     h2 em { line-height: .86; }
@@ -963,7 +969,7 @@
   <div class="fade-sep" style="height: clamp(38px, 4.5vw, 64px); --sep-from:#fff8ed;--sep-to:var(--paper)" aria-hidden="true"></div>
     <section class="section kit" id="content-kit">
       <div class="section-inner">
-        <div class="reveal"><span class="eyebrow">Content Kit</span><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Enfócate en tu negocio mientras producimos todo tu ecosistema visual. Recibirás un banco de contenido organizado para alimentar tus redes durante semanas.</p><p class="kit-bridge">¿Necesitas solo editar? Elige una edición. ¿Quieres el mes completo? <em>El Content Kit une producción, edición y pauta.</em></p></div>
+        <div class="reveal"><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Enfócate en tu negocio mientras producimos todo tu ecosistema visual. Recibirás un banco de contenido organizado para alimentar tus redes durante semanas.</p><p class="kit-bridge">¿Necesitas solo editar? Elige una edición. ¿Quieres el mes completo? El Content Kit une producción, edición y pauta.</p></div>
                 <div class="plans-grid kit-edits">
           <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Para piezas que necesitan verse profesionales y publicarse sin fricción.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="#contacto" data-service="Edición esencial de video">Solicitar edición →</a></article>
           <article class="plan featured reveal"><span class="eyebrow">El kit completo</span><h3>Content Kit</h3><p>Tu mes completo: producción, edición y pauta reunidos en un solo paquete.</p><ul><li>Producción de video y foto del mes</li><li>Edición premium y diseño aplicado</li><li>Pauta en Meta Ads</li><li>Entrega organizada lista para publicar</li></ul><a class="btn" href="#contacto" data-service="Content Kit">Armar mi kit →</a></article>
@@ -971,7 +977,7 @@
       </div>
     </section>
     
-  <div class="fade-sep" style="--sep-from:var(--paper);--sep-to:#17131d" aria-hidden="true"></div>
+  <div class="fade-sep" style="height: clamp(30px, 3.5vw, 48px); --sep-from:var(--paper);--sep-to:#17131d" aria-hidden="true"></div>
 <section class="section plans" id="como-trabajamos">
       <div class="section-inner">
                 <div class="plans-grid">
@@ -980,8 +986,6 @@
           <article class="plan reveal"><span class="eyebrow">Nivel 03 · Integral</span><h3>Premium</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Implementación u optimización de herramientas de autoservicio digital: página web si no cuentas con una, menú digital para restaurantes o catálogo digital, según tu negocio</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn btn-outline" href="#contacto" data-service="Plan Premium">Solicitar este plan →</a></article>
         </div>
         <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
-        
-        <p class="plans-note">Cada propuesta se construye según la etapa, los objetivos y el nivel de acompañamiento que necesita cada empresa.</p>
       </div>
     </section>
 
@@ -1002,7 +1006,7 @@
     </section>
 
   
-  <div class="fade-sep" style="--sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
+  <div class="fade-sep" style="height: clamp(26px, 3vw, 42px); --sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
 <section class="section contact" id="contacto">
       <div class="aurora aurora--noche" aria-hidden="true"></div>
       <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar. <strong>Recibirás respuesta en menos de 1 hora.</strong></p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817241" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7241</a><span>San Cristóbal · Venezuela</span></div></div>
