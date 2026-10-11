@@ -206,7 +206,7 @@
 
     /* Portafolio */
     .projects { position: relative; padding-top: clamp(20px, 2.5vw, 34px); padding-bottom: clamp(18px, 2vw, 28px); background: linear-gradient(180deg, #211a2b 0%, #17121f 22%, #33264b 100%); color: var(--cream); }
-    #portafolio .section-head { position: relative; z-index: 6; margin-bottom: clamp(120px, 18vw, 200px); }
+    #portafolio .section-head { position: relative; z-index: 6; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
     .section-head h2 { margin: 0; font-size: clamp(52px, 7vw, 100px); line-height: .95; }
     .section-note { max-width: 290px; color: #c8bddf; font-size: 13px; line-height: 1.55; }
@@ -513,7 +513,6 @@
       .service-reveal { max-height: none; opacity: 1; margin-top: 8px; }
       .project-grid { grid-template-columns: 1fr; }
       .case-card { min-height: auto; }
-      #portafolio .section-head { margin-bottom: 240px; }
       .collab-bubble { width: 118px; height: 118px; font-size: 14px; }
       .bubble-set { gap: 10px; padding: 0 10px; }
       .bubble-row { animation-duration: 80s; }
@@ -526,7 +525,7 @@
     @media (max-width: 420px) { .brand { font-size: 24px; } .brand small { display: none; } .hero-inner { padding-right: 16px; padding-left: 16px; } .hero h1 { font-size: 54px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .bubble-row { transform: none; } .reveal, .hero .hero-inner > * { opacity: 1; transform: none; } }
     /* Carrusel showcase del portafolio */
-    .project-grid { position: relative; display: flex; width: min(1120px, 100%); min-height: 590px; align-items: center; justify-content: center; margin: 0 auto; perspective: 1400px; }
+    .project-grid { position: relative; display: flex; width: min(1120px, 100%); min-height: 590px; align-items: center; justify-content: center; margin: 0 auto; perspective: 1400px; transition: min-height .5s var(--ease); }
     .project-grid .case-card { position: absolute; width: min(430px, 80vw); min-height: 540px; transform: translate3d(calc(var(--offset, 0) * 300px), 0, 0) rotateY(calc(var(--offset, 0) * -10deg)) scale(var(--card-scale, .85)); transform-origin: center center; opacity: var(--card-opacity, .55); filter: blur(var(--card-blur, 5px)) brightness(var(--card-bright, 1.18)) saturate(var(--card-sat, .8)); z-index: var(--card-z, 1); transition: transform .8s cubic-bezier(.23,1,.32,1), opacity .65s ease, filter .65s ease, box-shadow .45s ease, border-color .35s ease; }
     .project-grid .case-card.is-active { --card-scale: 1; --card-opacity: 1; --card-blur: 0px; --card-bright: 1; --card-sat: 1; --card-z: 3; animation: cardBreath 6.5s ease-in-out infinite; }
     @keyframes cardBreath { 0%, 100% { box-shadow: 0 26px 60px rgba(0,0,0,.38); } 50% { box-shadow: 0 26px 60px rgba(0,0,0,.38), 0 0 46px 2px rgba(177,164,213,.16); } }
@@ -900,16 +899,13 @@
         <div class="project-grid">
           <article class="case-card reveal" id="caso-burbu">
             <div class="case-top case-top--burbu case-top--foto case-top--compact"><img class="case-foto" src="/images/fotos/burbu-boba.jpg?v=2" alt="Bebidas de Burbu Fresh con bolitas de jugo sobre fondo oscuro" loading="lazy" decoding="async" width="1200" height="800"><span class="case-number">01</span></div>
-            <div class="case-content"><span class="case-category">Experiencia · Reel UGC + Meta Ads</span><h3>Burbu Fresh</h3><div class="case-stats"><span><b>66,5K</b>views en 1 reel</span><span><b>97,6%</b>audiencia nueva</span><span><b>200→892</b>seguidores</span></div><span class="case-label">Servicios realizados</span><p>Un solo reel de colaboración con nuestra creadora UGC, pautado en Meta Ads.</p><span class="case-label">El enfoque</span><p>Nos enfocamos en destacar algo innovador: ¿qué los hacía diferentes? Por eso elegimos resaltar la actividad de cerámica. Nos gusta entrar a la cocina y verificar que todo esté aseado (no con cualquiera): tomas close-up que destacan texturas y storytelling.</p><span class="case-label">Resultado del contenido</span><p>1.009 compartidos y una audiencia 87,9% femenina.</p><span class="case-label">Reportado por el cliente</span><p>La clienta/el cliente reportó fines de semana llenos después de la colaboración.</p><button class="case-link" type="button" data-case="Burbu Fresh">Ver caso <span>↗</span></button><a class="text-link" href="https://www.instagram.com/burbufreshsc/" target="_blank" rel="noreferrer">@burbufreshsc ↗</a></div>
-          </article>
+            <div class="case-content"><span class="case-category">Experiencia · Reel UGC + Meta Ads</span><h3>Burbu Fresh</h3><div class="case-stats"><span><b>66,5K</b>views en 1 reel</span><span><b>97,6%</b>audiencia nueva</span><span><b>200→892</b>seguidores</span></div><span class="case-label">Servicios realizados</span><p>Un solo reel de colaboración con nuestra creadora UGC, pautado en Meta Ads.</p><button class="case-link" type="button" data-case="Burbu Fresh">Ver caso <span>↗</span></button><a class="text-link" href="https://www.instagram.com/burbufreshsc/" target="_blank" rel="noreferrer">@burbufreshsc ↗</a></div></article>
           <article class="case-card reveal" id="caso-brasas">
             <div class="case-top case-top--brasa case-top--foto"><video class="case-foto" muted loop autoplay playsinline preload="metadata" poster="/images/fotos/brasas-banner.jpg?v=2" src="/images/videos/brasas-banner.mp4?v=2"></video><span class="case-art" data-parallax="0.08">MIGUEL<br>BRASAS</span><span class="case-number">02</span></div>
-            <div class="case-content"><span class="case-category">Acompañamiento · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><span class="case-label">El enfoque</span><p>Lo acompañamos a un evento en otro punto de Venezuela con grabación estilo minivlog: la cámara detrás de Miguel Brasas, la ruta y el fuego. Así la audiencia conecta más con él y conoce el detrás de cámaras de la marca.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div>
-          </article>
+            <div class="case-content"><span class="case-category">Acompañamiento · Pauta y contenido</span><h3>Miguel Brasas</h3><span class="case-label">Servicios realizados</span><p>Producción audiovisual, pauta digital y optimización de contenido.</p><button class="case-link" type="button" data-case="Miguel Brasas">Ver caso <span>↗</span></button></div></article>
           <article class="case-card reveal" id="caso-establo">
             <div class="case-top case-top--establo case-top--foto"><img class="case-foto" src="/images/fotos/establo-banner.jpg?v=3" alt="Cortes de carne jugosa servidos en El Establo" loading="lazy" decoding="async" width="670" height="343"><span class="case-art" data-parallax="0.08">EL<br>ESTABLO</span><span class="case-number">03</span></div>
-            <div class="case-content"><span class="case-category">Restauración · Gestión completa + Meta Ads</span><h3>El Establo</h3><div class="case-stats"><span><b>5K→7K</b>seguidores</span><span><b>200→2.000</b>vistas promedio</span><span><b>30K+</b>visitas con pauta · ROAS</span></div><span class="case-label">Servicios realizados</span><p>Gestión completa de la cuenta desde mayo y campañas de Meta Ads orientadas a ventas.</p><span class="case-label">Resultado</span><p>Ventas y presencia en la ciudad en aumento. Agosto fue el mejor mes del perfil: +674 seguidores y 51 mil vistas. La pauta trajo más de 30.000 visitas al perfil con ROAS positivo: no solo seguidores, también leads.</p><button class="case-link" type="button" data-case="El Establo">Ver caso <span>↗</span></button></div>
-          </article>
+            <div class="case-content"><span class="case-category">Restauración · Gestión completa + Meta Ads</span><h3>El Establo</h3><div class="case-stats"><span><b>5K→7K</b>seguidores</span><span><b>200→2.000</b>vistas promedio</span><span><b>30K+</b>visitas con pauta · ROAS</span></div><span class="case-label">Servicios realizados</span><p>Gestión completa de la cuenta desde mayo y campañas de Meta Ads orientadas a ventas.</p><button class="case-link" type="button" data-case="El Establo">Ver caso <span>↗</span></button></div></article>
           <div class="project-arrows">
             <button class="project-control" id="projectPrev" type="button" aria-label="Proyecto anterior">‹</button>
             <button class="project-control" id="projectNext" type="button" aria-label="Proyecto siguiente">›</button>
@@ -1274,7 +1270,17 @@
         dot.classList.toggle('is-active', index === activeProject);
         dot.setAttribute('aria-current', index === activeProject ? 'true' : 'false');
       });
+      updateProjectGridHeight();
     }
+    // El carrusel mide exactamente la altura de la tarjeta activa: las tarjetas
+    // nunca sobresalen sobre el título ni tapan lo que viene después.
+    function updateProjectGridHeight() {
+      const activeCard = projectCards[activeProject];
+      if (!activeCard) return;
+      projectGrid.style.minHeight = Math.ceil(activeCard.getBoundingClientRect().height / (parseFloat(getComputedStyle(projectCards[activeProject]).getPropertyValue('--card-scale')) || 1)) + 'px';
+    }
+    window.addEventListener('resize', updateProjectGridHeight);
+    if (window.ResizeObserver) { const projectRO = new ResizeObserver(updateProjectGridHeight); projectCards.forEach(card => projectRO.observe(card)); }
     projectPrev.addEventListener('click', () => setActiveProject(activeProject - 1));
     projectNext.addEventListener('click', () => setActiveProject(activeProject + 1));
     projectCards.forEach((card, index) => card.addEventListener('click', event => {
