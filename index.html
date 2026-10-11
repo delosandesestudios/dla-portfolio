@@ -248,7 +248,6 @@
     .plans-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .services-lede { max-width: 650px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
     .kit-bridge { max-width: 650px; margin: 10px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; font-weight: 500; }
-    .web-cta { margin-top: 20px; }
     .plan-claro { max-width: 300px; margin: 12px 0 0; color: #b8aec7; font-size: 11.5px; line-height: 1.55; }
     .case-quote { max-width: 390px; margin: 14px 0 0; padding: 2px 0 2px 12px; border-left: 2px solid rgba(177,164,213,.55); font-size: 12.5px; line-height: 1.6; color: #ddd3ec; }
     .case-quote cite { display: block; margin-top: 6px; font-style: normal; font-weight: 800; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--lilac); }
@@ -260,6 +259,27 @@
     .wa-msg p { margin: 0; color: rgba(255,255,255,.95); font-size: 12px; line-height: 1.55; }
     .wa-meta { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin-top: 4px; color: rgba(255,255,255,.55); font-size: 9px; }
     .wa-check { width: 14px; height: 10px; fill: #53bdeb; }
+    /* Zona de testimonios: burbuja flotando en la nube */
+    .testimonial { position: relative; overflow: hidden; text-align: center; }
+    .testimonial::before { content: ""; position: absolute; inset: -18%; background: radial-gradient(circle at 22% 28%, rgba(177,164,213,.34), transparent 40%), radial-gradient(circle at 78% 18%, rgba(255,205,232,.28), transparent 38%), radial-gradient(circle at 52% 88%, rgba(141,106,194,.3), transparent 42%), radial-gradient(circle at 88% 72%, rgba(255,235,201,.3), transparent 34%); filter: blur(26px); animation: cloudBreathe 12s ease-in-out infinite alternate; }
+    .testimonial .section-inner { position: relative; z-index: 1; }
+    .testimonial .wa-bubble { display: inline-grid; margin: 44px auto 8px; max-width: 480px; }
+    .testimonial .wa-msg { max-width: 460px; padding: 16px 18px 12px; border-radius: 20px 20px 20px 6px; text-align: left; animation: waFloat 6.5s ease-in-out infinite; box-shadow: 0 18px 46px rgba(3,60,48,.42), 0 0 40px rgba(37,211,102,.14); }
+    .testimonial .wa-msg::before { width: 16px; height: 18px; left: -9px; }
+    .testimonial .wa-head { font-size: 12px; }
+    .testimonial .wa-head svg { width: 16px; height: 16px; }
+    .testimonial .wa-msg p { font-size: 13.5px; line-height: 1.75; }
+    .testimonial .wa-meta { font-size: 10px; margin-top: 8px; }
+    .wa-note { margin: 26px 0 0; color: var(--muted); font-size: 13px; }
+    @keyframes waFloat { 0%, 100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-12px) rotate(.4deg); } }
+    @keyframes cloudBreathe { 0% { opacity: .75; } 100% { opacity: 1; } }
+    body.dark-mode .testimonial::before { background: radial-gradient(circle at 22% 28%, rgba(160,120,240,.4), transparent 42%), radial-gradient(circle at 78% 18%, rgba(240,150,225,.32), transparent 40%), radial-gradient(circle at 52% 88%, rgba(120,80,220,.42), transparent 44%), radial-gradient(circle at 88% 72%, rgba(255,190,235,.2), transparent 36%); }
+    @media (prefers-reduced-motion: reduce) { .testimonial .wa-msg, .testimonial::before { animation: none; } }
+    /* CTA web dreamcore */
+    .web-cta { margin-top: 20px; background: linear-gradient(120deg, #8d6ac2, #a97ddb 40%, #d9a8ee); box-shadow: 0 12px 34px rgba(141,106,194,.45), inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(30,10,50,.25); animation: ctaBreathe 5.5s ease-in-out infinite; }
+    .web-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(160,110,235,.6), inset 0 1px 0 rgba(255,255,255,.45); }
+    @keyframes ctaBreathe { 0%, 100% { box-shadow: 0 12px 34px rgba(141,106,194,.42), inset 0 1px 0 rgba(255,255,255,.35); } 50% { box-shadow: 0 12px 40px rgba(170,120,240,.62), 0 0 26px rgba(216,150,255,.35), inset 0 1px 0 rgba(255,255,255,.5); } }
+    @media (prefers-reduced-motion: reduce) { .web-cta { animation: none; } }
     body.dark-mode .kit-bridge { color: #b3a8c4; }
     .nichos { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; margin: 16px 0 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .nichos b { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--purple); margin-right: 4px; }
@@ -1018,6 +1038,15 @@
     </section>
 
   
+  <section class="section testimonial" id="testimonios">
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Testimonios</span><h2>Lo que dicen<br><em>las marcas.</em></h2></div>
+        <div class="reveal">
+          <figure class="wa-bubble"><div class="wa-msg"><span class="wa-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26b.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>Víctor · Burbu Fresh</span><p>Trabajamos con De los Andes Estudio en un video para mostrar nuestra experiencia y la actividad de cerámica. Después de la colaboración hemos tenido fines de semana llenos. Ese es uno de los cambios que hemos observado en el negocio.</p><span class="wa-meta">12:04 <svg class="wa-check" viewBox="0 0 16 11" aria-hidden="true"><path d="M11.1.6 5.4 8 2.9 5.9 2 7l3.4 3L12.5 1.6 11.1.6Zm3.4 0L8.9 8l-.9-.7-.9 1.1 1.8 1.6L15.9 1.6 14.5.6Z"/></svg></span></div></figure>
+          <p class="wa-note">Construimos acompañamientos que se notan en el negocio. Cuando una marca quiere contarlo, su historia vive aquí.</p>
+        </div>
+      </div>
+    </section>
   <div class="fade-sep" style="height: clamp(26px, 3vw, 42px); --sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
 <section class="section contact" id="contacto">
       <div class="aurora aurora--noche" aria-hidden="true"></div>
