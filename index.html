@@ -261,7 +261,7 @@
     .wa-meta { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin-top: 4px; color: rgba(255,255,255,.55); font-size: 9px; }
     .wa-check { width: 14px; height: 10px; fill: #53bdeb; }
     /* Zona de testimonios: burbuja flotando en la nube */
-    .testimonial { position: relative; overflow: hidden; text-align: center; }
+    .testimonial { position: relative; overflow: hidden; text-align: center; padding-bottom: 36px; }
     .testimonial::before { content: ""; position: absolute; inset: -18%; background: radial-gradient(circle at 22% 28%, rgba(177,164,213,.34), transparent 40%), radial-gradient(circle at 78% 18%, rgba(255,205,232,.28), transparent 38%), radial-gradient(circle at 52% 88%, rgba(141,106,194,.3), transparent 42%), radial-gradient(circle at 88% 72%, rgba(255,235,201,.3), transparent 34%); filter: blur(26px); animation: cloudBreathe 12s ease-in-out infinite alternate; }
     .testimonial .section-inner { position: relative; z-index: 1; }
     .testimonial .wa-bubble { display: inline-grid; margin: 44px auto 8px; max-width: 480px; }
@@ -299,7 +299,9 @@
     .service-ico { font-size: 30px; line-height: 1; filter: drop-shadow(0 4px 10px rgba(70,46,91,.18)); }
     .service-number { position: relative; z-index: 1; font-size: 11px; font-weight: 800; letter-spacing: .08em; opacity: .75; }
     .service h3 { position: relative; z-index: 1; max-width: 340px; margin: auto 0 4px; font-size: clamp(20px, 2.1vw, 25px); line-height: 1; }
-    .service-reveal { position: static; display: block; padding: 12px 0 0; opacity: 1; }
+    .service-reveal { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .55s var(--ease), opacity .35s ease, margin-top .55s var(--ease); }
+    .service:hover .service-reveal, .service:focus-within .service-reveal { max-height: 380px; opacity: 1; margin-top: 10px; }
+    .service-grid { align-items: start; }
     .service-kicker { display: block; margin: 0; color: var(--purple); font-family: 'League Spartan', Arial, sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .service p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
     .service .text-link { display: table; padding-top: 18px; }
@@ -508,6 +510,7 @@
       .service-grid, .plans-grid { grid-template-columns: 1fr; }
       .service:first-child { grid-column: auto; }
       .service { min-height: 0; }
+      .service-reveal { max-height: none; opacity: 1; margin-top: 8px; }
       .project-grid { grid-template-columns: 1fr; }
       .case-card { min-height: auto; }
       #portafolio .section-head { margin-bottom: 240px; }
@@ -1057,7 +1060,7 @@
         </div>
       </div>
     </section>
-  <div class="fade-sep" style="height: clamp(26px, 3vw, 42px); --sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
+  <div class="fade-sep" style="height: clamp(18px, 2vw, 26px); --sep-from:var(--paper);--sep-to:#0b0b0b" aria-hidden="true"></div>
 <section class="section contact" id="contacto">
       <div class="aurora aurora--noche" aria-hidden="true"></div>
       <div class="contact-copy reveal"><span class="eyebrow">Comienza con una conversación</span><h2>¿Tu marca necesita<br>una dirección <em>más clara?</em></h2><p>Cuéntanos qué tienes en mente. Al enviar, se abrirá WhatsApp con tu solicitud lista para revisar. <strong>Recibirás respuesta en menos de 1 hora.</strong></p><div class="contact-details"><span>delosandesestudio@gmail.com</span><a href="https://wa.me/584247817241" target="_blank" rel="noreferrer">WhatsApp · +58 424-781-7241</a><span>San Cristóbal · Venezuela</span></div></div>
