@@ -706,30 +706,7 @@
       .case-stats span { display: flex; flex-direction: column; gap: 3px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #b8aec7; }
       .case-stats b { font-family: 'League Spartan', Arial, sans-serif; font-size: 19px; letter-spacing: 0; text-transform: none; color: var(--cream); }
       .case-top--establo { background: linear-gradient(135deg, #8f4d39, #d9b46a); }
-      #loader { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 38%, #2e2340 0%, #1b1425 62%, #120d18 100%); transition: opacity .6s var(--ease), visibility .6s; }
-      #loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
-      #loader .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; will-change: transform; }
-      #loader .orb--lila { width: 52vmax; height: 52vmax; left: -14vmax; top: -18vmax; background: radial-gradient(circle, rgba(141,106,194,.85), rgba(141,106,194,0) 70%); animation: orb-a 14s ease-in-out infinite alternate; }
-      #loader .orb--crema { width: 44vmax; height: 44vmax; right: -12vmax; bottom: -16vmax; background: radial-gradient(circle, rgba(255,235,201,.7), rgba(255,235,201,0) 70%); animation: orb-b 18s ease-in-out infinite alternate; }
-      #loader .orb--rosa { width: 34vmax; height: 34vmax; right: 8vmax; top: -10vmax; background: radial-gradient(circle, rgba(242,168,212,.5), rgba(242,168,212,0) 70%); animation: orb-c 16s ease-in-out infinite alternate; }
-      @keyframes orb-a { to { transform: translate(10vmax, 8vmax) scale(1.15); } }
-      @keyframes orb-b { to { transform: translate(-9vmax, -7vmax) scale(1.12); } }
-      @keyframes orb-c { to { transform: translate(-6vmax, 9vmax) scale(.9); } }
-      #loader .star { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px 2px rgba(255,235,201,.8); animation: twinkle 2.2s ease-in-out infinite; }
-      @keyframes twinkle { 0%, 100% { opacity: .12; transform: scale(.7); } 50% { opacity: .9; transform: scale(1.2); } }
-      #loader .lring { position: relative; height: 180px; width: 180px; border-radius: 50%; }
-      #loader .lring::before, #loader .lring::after { content: ""; height: 100%; width: 100%; border: 1.5px solid rgba(177,164,213,.85); border-radius: 50%; position: absolute; }
-      #loader .lring::before { animation: doitreverse 4s infinite; }
-      #loader .lring::after { border-color: rgba(255,235,201,.85); animation: doit 4s infinite; }
-      @keyframes doit { 0% { transform: scale(1); } 50% { border-radius: 20% 50%; transform: scale(1.25); } 100% { transform: scale(1); } }
-      @keyframes doitreverse { 0% { transform: rotate(360deg); } 50% { border-radius: 50% 20%; transform: rotate(180deg); } 100% { transform: rotate(0deg); } }
-      #loader .leye { height: 50%; width: 50%; border-radius: 50%; background: #8d6ac2; border: 1px solid rgba(255,255,255,.4); position: absolute; left: 25%; top: 25%; animation: showme 4s infinite; box-shadow: 0 0 46px rgba(141,106,194,.85), inset 0 0 20px rgba(255,255,255,.22); }
-      #loader .leye::before { content: ""; height: 20%; width: 20%; border-radius: 50%; background: #fff; position: absolute; top: 25%; left: 50%; animation: showme 4s infinite; }
-      #loader .leye::after { content: ""; height: 10%; width: 10%; border-radius: 50%; background: #fff; position: absolute; top: 60%; left: 50%; animation: showme 4s infinite; }
-      @keyframes showme { 0% { transform: scale(.3); } 50% { transform: scale(1); } 100% { transform: scale(.3); } }
-      #loader .loader-mark { position: absolute; top: calc(50% + 132px); left: 50%; transform: translateX(-50%); color: var(--lilac); font-family: 'League Spartan', Arial, sans-serif; font-weight: 800; letter-spacing: .35em; font-size: 11px; text-transform: uppercase; white-space: nowrap; animation: mark-pulse 2.8s ease-in-out infinite; }
-      @keyframes mark-pulse { 0%, 100% { opacity: .5; } 50% { opacity: .95; } }
-      @media (prefers-reduced-motion: reduce) { #loader { display: none; } }
+
 
     /* Oferta clara y contacto directo; carruseles sin cambios. */
     .services .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
@@ -810,6 +787,8 @@
     .plans .plan:not(.featured) .btn:hover { background: #f0e5ff; color: #17111f; }
     #talkButton { background: #17111f; color: #fff; border: 1px solid #d5bee9; font-size: 14px; opacity: 1; }
     #talkButton::before { display: none; }
+
+    .plans .packages-title { margin: 14px 0 32px; font-size: clamp(38px, 5vw, 68px); line-height: 1; color: #fff; }
 </style>
 <script type="application/ld+json">
 {
@@ -870,31 +849,6 @@
 </head>
 
 <body>
-<div id="loader" aria-hidden="true">
-  <span class="orb orb--lila"></span><span class="orb orb--crema"></span><span class="orb orb--rosa"></span>
-  <span class="star" style="left:16%; top:26%; animation-delay:-.4s"></span>
-  <span class="star" style="left:78%; top:20%; animation-delay:-1.1s"></span>
-  <span class="star" style="left:30%; top:74%; animation-delay:-1.7s"></span>
-  <span class="star" style="left:70%; top:68%; animation-delay:-.8s"></span>
-  <span class="star" style="left:50%; top:14%; animation-delay:-2s"></span>
-  <div class="lring"><div class="leye"></div></div>
-  <span class="loader-mark">De los Andes Estudio</span>
-</div>
-<script>
-  (function () {
-    var l = document.getElementById('loader');
-    if (!l) return;
-    var hidden = false;
-    function hide() {
-      if (hidden) return;
-      hidden = true;
-      l.classList.add('is-done');
-      setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 600);
-    }
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { hide(); }
-    else { setTimeout(hide, 4300); }
-  })();
-</script>
   <header class="topbar" id="topbar">
     <a class="brand" href="#inicio" aria-label="De los Andes Estudio, inicio">DLA <small>DE LOS ANDES ESTUDIO</small></a>
     <nav class="nav" id="nav" aria-label="Navegación principal">
@@ -1058,6 +1012,32 @@
         </div>
       </div>
     </section>
+
+    <section class="section kit" id="content-kit">
+      <div class="section-inner">
+        <div class="reveal"><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Videos y fotos de tu negocio, editados y organizados para publicar durante el mes.</p><p class="kit-bridge">¿Necesitas solo editar? Elige una edición. ¿Quieres el mes completo? El Content Kit une producción, edición y pauta.</p></div>
+                <div class="plans-grid kit-edits">
+          <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Nos envías tus grabaciones y las editamos para publicar.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Edici%C3%B3n%20esencial%20de%20video.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Edición esencial de video">Cotizar mis videos →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">El kit completo</span><h3>Contenido del mes</h3><p>Tu mes completo: producción, edición y pauta reunidos en un solo paquete.</p><ul><li>Producción de video y foto del mes</li><li>Edición premium y diseño aplicado</li><li>Pauta en Meta Ads</li><li>Entrega organizada lista para publicar</li></ul><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Content%20Kit.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Content Kit">Cotizar mi contenido del mes →</a></article>
+        </div>
+      </div>
+    </section>
+
+  <div class="fade-sep" style="height: clamp(30px, 3.5vw, 48px); --sep-from:var(--paper);--sep-to:#17131d" aria-hidden="true"></div>
+<section class="section plans" id="como-trabajamos">
+      <div class="section-inner">
+        <div class="reveal"><span class="eyebrow">Opciones para empezar</span><h2 class="packages-title">Contenido puntual o<br><em>gestión mensual.</em></h2></div>
+                <div class="plans-grid">
+          <article class="plan reveal"><span class="eyebrow">Acción puntual</span><h3>Video + campaña puntual</h3><p>Una pieza UGC y una campaña puntual para comunicar una oferta concreta.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 1 video UGC para presentar tu producto, servicio o experiencia</li><li>Video de hasta 40 segundos, grabado en 1 locación</li><li>Gestión de una campaña en Meta Ads durante 7 días</li><li>Sin derechos de uso adicionales: el video se publica en las cuentas de la creadora, la agencia y la marca</li></ul><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Video%20%2B%20campa%C3%B1a%20puntual.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Video + campaña puntual">Consultar este paquete →</a></article>
+          <article class="plan featured reveal"><span class="eyebrow">Gestión mensual</span><h3>Gestión mensual · 4 publicaciones</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Gesti%C3%B3n%20mensual%20%C2%B7%204%20publicaciones.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Gestión mensual · 4 publicaciones">Consultar este paquete →</a></article>
+          <article class="plan reveal"><span class="eyebrow">Gestión mensual ampliada</span><h3>Gestión mensual · 8 publicaciones</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><p class="plan-claro">Páginas web, menús y catálogos digitales se cotizan como proyectos independientes y no están incluidos en este plan.</p><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Gesti%C3%B3n%20mensual%20%C2%B7%208%20publicaciones.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Gestión mensual · 8 publicaciones">Consultar este paquete →</a></article>
+        </div>
+        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
+      </div>
+    </section>
+
+
+  <div class="fade-sep" style="height: clamp(30px, 3.5vw, 48px); --sep-from:#17131d;--sep-to:#f6f1fb" aria-hidden="true"></div>
 <section class="section workflow" id="proceso">
       <div class="aurora" aria-hidden="true"></div>
       <div class="section-inner">
@@ -1072,31 +1052,7 @@
         </div>
       </div>
     </section>
-  <div class="fade-sep" style="height: clamp(38px, 4.5vw, 64px); --sep-from:#fff8ed;--sep-to:var(--paper)" aria-hidden="true"></div>
-    <section class="section kit" id="content-kit">
-      <div class="section-inner">
-        <div class="reveal"><h2>Content Kit:<br><em>tu mes completo.</em></h2><p class="services-lede">Videos y fotos de tu negocio, editados y organizados para publicar durante el mes.</p><p class="kit-bridge">¿Necesitas solo editar? Elige una edición. ¿Quieres el mes completo? El Content Kit une producción, edición y pauta.</p></div>
-                <div class="plans-grid kit-edits">
-          <article class="plan reveal"><span class="eyebrow">Edición esencial</span><h3>Edición esencial de video</h3><p>Nos envías tus grabaciones y las editamos para publicar.</p><ul><li>Edición dinámica de video</li><li>Subtítulos y formato vertical</li><li>Diseño gráfico aplicado</li><li>Entrega optimizada para publicar</li></ul><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Edici%C3%B3n%20esencial%20de%20video.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Edición esencial de video">Cotizar mis videos →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">El kit completo</span><h3>Contenido del mes</h3><p>Tu mes completo: producción, edición y pauta reunidos en un solo paquete.</p><ul><li>Producción de video y foto del mes</li><li>Edición premium y diseño aplicado</li><li>Pauta en Meta Ads</li><li>Entrega organizada lista para publicar</li></ul><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Content%20Kit.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Content Kit">Cotizar mi contenido del mes →</a></article>
-        </div>
-      </div>
-    </section>
-
-  <div class="fade-sep" style="height: clamp(30px, 3.5vw, 48px); --sep-from:var(--paper);--sep-to:#17131d" aria-hidden="true"></div>
-<section class="section plans" id="como-trabajamos">
-      <div class="section-inner">
-                <div class="plans-grid">
-          <article class="plan reveal"><span class="eyebrow">Acción puntual</span><h3>Video + campaña puntual</h3><p>Una pieza UGC y una campaña puntual para comunicar una oferta concreta.</p><span class="plan-price">$60<small> / paquete</small></span><ul><li>Producción de 1 video UGC para presentar tu producto, servicio o experiencia</li><li>Video de hasta 40 segundos, grabado en 1 locación</li><li>Gestión de una campaña en Meta Ads durante 7 días</li><li>Sin derechos de uso adicionales: el video se publica en las cuentas de la creadora, la agencia y la marca</li></ul><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Video%20%2B%20campa%C3%B1a%20puntual.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Video + campaña puntual">Consultar este paquete →</a></article>
-          <article class="plan featured reveal"><span class="eyebrow">Gestión mensual</span><h3>Gestión mensual · 4 publicaciones</h3><p>Continuidad para tus redes.</p><span class="plan-price">$150<small> / mes</small></span><ul><li>4 publicaciones al mes</li><li>Gestión de redes sociales</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Gesti%C3%B3n%20mensual%20%C2%B7%204%20publicaciones.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Gestión mensual · 4 publicaciones">Consultar este paquete →</a></article>
-          <article class="plan reveal"><span class="eyebrow">Gestión mensual ampliada</span><h3>Gestión mensual · 8 publicaciones</h3><p>Una gestión integral de tu marca.</p><span class="plan-price">$200<small> / mes</small></span><ul><li>Gestión de redes sociales y asesoría de marca</li><li>8 publicaciones al mes en Instagram, entre reels y carruseles</li><li>Optimización del perfil de Instagram</li><li>Gestión de campañas publicitarias en Meta Ads</li></ul><p class="plan-claro">Páginas web, menús y catálogos digitales se cotizan como proyectos independientes y no están incluidos en este plan.</p><a class="btn btn-outline" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Me%20interesa%20Gesti%C3%B3n%20mensual%20%C2%B7%208%20publicaciones.%20Quisiera%20conocer%20el%20alcance%20y%20recibir%20una%20propuesta." target="_blank" rel="noopener noreferrer" data-wa-service="Gestión mensual · 8 publicaciones">Consultar este paquete →</a></article>
-        </div>
-        <p class="plans-note">Inversión publicitaria: el presupuesto de pauta en Meta Ads se paga por separado y se define según los objetivos de cada campaña.</p>
-      </div>
-    </section>
-
-
-  <div class="fade-sep" style="--sep-from:#17131d;--sep-to:var(--paper)" aria-hidden="true"></div>
+<div class="fade-sep" style="height: clamp(38px, 4.5vw, 64px); --sep-from:#fff8ed;--sep-to:var(--paper)" aria-hidden="true"></div>
 <section class="section faq" id="faq">
       <div class="section-inner">
         <div class="reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que las marcas<br><em>nos preguntan.</em></h2></div>
