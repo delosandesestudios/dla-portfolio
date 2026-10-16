@@ -771,6 +771,45 @@
       .contact-details a { overflow-wrap: anywhere; }
       .float-talk { font-size: 12px; }
     }
+    /* Legibilidad comercial: solo texto y CTA; sin mover ni editar carruseles. */
+    .hero .lede, .services .services-lede, .web .services-lede, .web .web-scope,
+    .workflow .services-lede, .kit .services-lede, .kit .kit-bridge,
+    .testimonial .wa-note, .faq .step-body-in p {
+      color: #403747; opacity: 1;
+    }
+    .services .service-summary, .services .service-list { color: #32283e; opacity: 1; }
+    .services .service-number, .plans .plan-price small, .kit .plan-price small { opacity: 1; }
+    .services .service-kicker { color: #452b61; opacity: 1; }
+    .services .service .text-link + .text-link { color: #403747; opacity: 1; font-size: 14px; }
+    .kit .plan p, .kit .plan ul, .plans .plan p, .plans .plan ul,
+    .plans .plans-note, .contact .contact-copy > p, .contact .contact-next p,
+    .contact .contact-next ol { color: #f3edf9; opacity: 1; }
+    .kit .plan.featured p, .kit .plan.featured ul,
+    .plans .plan.featured p, .plans .plan.featured ul { color: #23192f; opacity: 1; }
+    body.dark-mode .hero .lede, body.dark-mode .services .services-lede,
+    body.dark-mode .web .services-lede, body.dark-mode .web .web-scope,
+    body.dark-mode .workflow .services-lede, body.dark-mode .kit .services-lede,
+    body.dark-mode .kit .kit-bridge, body.dark-mode .testimonial .wa-note,
+    body.dark-mode .faq .step-body-in p,
+    body.dark-mode .services .service-summary, body.dark-mode .services .service-list,
+    body.dark-mode .services .service .text-link + .text-link { color: #f3edf9; opacity: 1; }
+    body.dark-mode .services .service-kicker { color: #e5d5ff; }
+    .hero .btn, .web .btn, .kit .plan.featured .btn, .plans .plan.featured .btn,
+    body.dark-mode .hero .btn, body.dark-mode .web .btn,
+    body.dark-mode .kit .plan.featured .btn, body.dark-mode .plans .plan.featured .btn {
+      background: #17111f; color: #fff; opacity: 1; border-color: #17111f; font-size: 14px;
+    }
+    .contact .btn, .kit .plan:not(.featured) .btn, .plans .plan:not(.featured) .btn,
+    body.dark-mode .contact .btn, body.dark-mode .kit .plan:not(.featured) .btn,
+    body.dark-mode .plans .plan:not(.featured) .btn {
+      background: #fff; color: #17111f; opacity: 1; border-color: #fff; font-size: 14px;
+    }
+    .hero .btn:hover, .web .btn:hover, .kit .plan.featured .btn:hover,
+    .plans .plan.featured .btn:hover { background: #352443; color: #fff; }
+    .contact .btn:hover, .kit .plan:not(.featured) .btn:hover,
+    .plans .plan:not(.featured) .btn:hover { background: #f0e5ff; color: #17111f; }
+    #talkButton { background: #17111f; color: #fff; border: 1px solid #d5bee9; font-size: 14px; opacity: 1; }
+    #talkButton::before { display: none; }
 </style>
 <script type="application/ld+json">
 {
