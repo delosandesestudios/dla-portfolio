@@ -956,16 +956,25 @@
     @media(max-width:800px) { .reviews { grid-template-columns:1fr; max-width:460px; } }
 
 
+    /* Testimonios consistentes, sin alterar su contenido. */
+    .testimonial h2 { font-size: clamp(52px, 6.8vw, 96px); line-height: .88; margin: 12px 0 0; }
+    .testimonial h2 em { display: block; line-height: .8; margin-top: -.08em; }
+    .testimonial .reviews .wa-msg, .testimonial .reviews .review-quote { animation: waFloat 6.5s ease-in-out infinite; }
+    .testimonial .reviews .review-quote { position: relative; height: 100%; padding: 16px 18px 12px; border: 0; border-radius: 20px 20px 20px 6px; background: #005c4b; box-shadow: 0 18px 46px rgba(3,60,48,.42), 0 0 40px rgba(37,211,102,.14); }
+    .testimonial .reviews .review-quote::before { content: ""; position: absolute; left: -9px; bottom: 0; width: 16px; height: 18px; background: #005c4b; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+    .testimonial .reviews .review-quote blockquote { margin: 0; color: rgba(255,255,255,.95); font-size: 13.5px; line-height: 1.75; }
+    .testimonial .reviews .review-quote figcaption { margin: 0 0 3px; color: #f5d78e; font-size: 12px; font-weight: 800; }
+    .testimonial .reviews .review-quote:nth-child(2) { animation-delay: -2s; }
+    .testimonial .reviews .review-quote:nth-child(3) { animation-delay: -4s; }
+    .trusted-line { font-size: 13px; }
+    /* El título de servicios permanece en una sola línea. */
+    .services h2 { white-space: nowrap; font-size: clamp(32px, 5.1vw, 72px); }
+    @media(max-width:700px) { .services h2 { font-size: clamp(22px, 8vw, 44px); } }
+    @media (prefers-reduced-motion: reduce) { .testimonial .reviews .wa-msg, .testimonial .reviews .review-quote { animation: none; } }
+
     /* CTA compacto y proporcionado en contacto y pie de página. */
     .contact h2, .fband .footer-cta-text { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
     .contact h2 em, .fband .footer-cta-text em { display: block; font-size: 1.1em; line-height: 1; margin-top: -.5rem; }
-    /* Marcas en una retícula monocromática sin recorte circular. */
-    .collab-bubble, .collab-bubble.collab-asoreta { width: 126px; height: 80px; margin: 0; border-radius: 0; overflow: visible; background: transparent; }
-    .collab-bubble img, .collab-bubble--photo img { display: block; width: auto; max-width: 120px; height: 60px; max-height: 60px; object-fit: contain; border-radius: 0; background: transparent; filter: grayscale(100%) opacity(70%); transition: filter .3s ease; }
-    .collab-link:hover .collab-bubble img, .collab-link:focus-visible .collab-bubble img { filter: grayscale(0%) opacity(100%); }
-    body.dark-mode .collab-bubble { filter: none; }
-    .collab-link { min-height: 115px; }
-    @media (max-width:700px) { .collab-bubble, .collab-bubble.collab-asoreta { width:110px; height:80px; margin:0; } .collab-link { min-height:115px; } }
     @media (max-width:700px) { .fband .footer-cta-text { font-size: clamp(1.75rem, 8vw, 2.5rem); } }
     /* La flecha no modifica dimensiones ni mueve el texto al interactuar. */
     .fband .footer-cta-arrow { flex: 0 0 auto; box-sizing: border-box; margin: 0; transition: transform .3s ease, background-color .3s ease, color .3s ease; }
@@ -1214,14 +1223,14 @@ SOFTWARE.
         <div class="reveal">
           <div class="reviews">
           <figure class="wa-bubble"><div class="wa-msg"><span class="wa-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26b.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>Víctor · Burbu Fresh</span><p>Trabajamos con De los Andes Estudio en un video para mostrar nuestra experiencia y la actividad de cerámica. Después de la colaboración hemos tenido fines de semana llenos. Ese es uno de los cambios que hemos observado en el negocio.</p><span class="wa-meta">12:04 <svg class="wa-check" viewBox="0 0 16 11" aria-hidden="true"><path d="M11.1.6 5.4 8 2.9 5.9 2 7l3.4 3L12.5 1.6 11.1.6Zm3.4 0L8.9 8l-.9-.7-.9 1.1 1.8 1.6L15.9 1.6 14.5.6Z"/></svg></span></div></figure>
-          <figure class="review-quote"><blockquote>“Con DLA pudimos mostrar lo que pasa detrás de nuestros eventos: la preparación, el fuego y todo el trabajo que hay detrás del servicio. El video refleja la experiencia que queremos compartir con nuestros clientes”.</blockquote><figcaption>Miguel · Miguel Brasas</figcaption></figure>
-          <figure class="review-quote"><blockquote>“DLA nos ha ayudado a mostrar que El Establo es más que parrilla: también tenemos almuerzos y una experiencia para disfrutar durante la semana. Con las campañas hemos visto llegar clientes al restaurante y siempre nos hemos sentido acompañados”.</blockquote><figcaption>Edgar · El Establo</figcaption></figure>
+          <figure class="review-quote"><figcaption>Miguel · Miguel Brasas</figcaption><blockquote>“Con DLA pudimos mostrar lo que pasa detrás de nuestros eventos: la preparación, el fuego y todo el trabajo que hay detrás del servicio. El video refleja la experiencia que queremos compartir con nuestros clientes”.</blockquote></figure>
+          <figure class="review-quote"><figcaption>Edgar · El Establo</figcaption><blockquote>“DLA nos ha ayudado a mostrar que El Establo es más que parrilla: también tenemos almuerzos y una experiencia para disfrutar durante la semana. Con las campañas hemos visto llegar clientes al restaurante y siempre nos hemos sentido acompañados”.</blockquote></figure>
           </div>
           <p class="wa-note">La experiencia de trabajar con DLA, contada por nuestros clientes.</p>
         </div>
       </div>
     </section>
-<section class="section services" id="servicios"><div class="section-inner"><div class="reveal"><span class="eyebrow">Elige por dónde empezar</span><h2>Lo que necesita<br><em>tu marca.</em></h2><p class="services-lede">Crea tu marca, muestra tu oferta o facilita la compra. Puedes contratar cada servicio por separado.</p></div><div class="service-grid">
+<section class="section services" id="servicios"><div class="section-inner"><div class="reveal"><span class="eyebrow">Elige por dónde empezar</span><h2>Lo que necesita <em>tu marca.</em></h2><p class="services-lede">Crea tu marca, muestra tu oferta o facilita la compra. Puedes contratar cada servicio por separado.</p></div><div class="service-grid">
 <article class="service reveal"><span class="eyebrow">Tu marca, desde la base</span><h3>Branding e identidad</h3><p class="service-summary">Para crear una marca o renovar una que ya no representa lo que vendes.</p><p>Definimos qué la diferencia, cómo habla y cómo se ve.</p><details class="scope-details"><summary>Qué incluye y cómo se cotiza</summary><ul class="service-list"><li>Posicionamiento y tono de voz.</li><li>Logotipo y sistema visual: colores y tipografías.</li><li>Manual de marca y aplicaciones acordadas para redes, empaques o papelería.</li></ul><p>Presupuesto por proyecto, según estrategia, aplicaciones y revisiones. La web se cotiza aparte.</p></details><a class="text-link" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20cotizar%20mi%20identidad%20de%20marca." target="_blank" rel="noopener noreferrer">Cotizar mi identidad de marca →</a></article>
 <article class="service reveal"><span class="eyebrow">Lo que haces, en pantalla</span><h3>Contenido y redes</h3><p class="service-summary">Para mostrar tus productos, tu experiencia o el día a día de tu negocio.</p><p>Videos, reels, edición y cobertura de eventos. También podemos acompañarte cada mes.</p><details class="scope-details" id="content-kit"><summary>Edición y producción de contenido</summary><p>Si ya grabaste, editamos tus videos. Si necesitas material nuevo, cotizamos producción de fotos y videos, edición y entrega organizada. Cantidades, formatos, grabación y revisiones se definen en la propuesta.</p><p>La gestión de redes y los anuncios se acuerdan según el servicio. El presupuesto publicitario se paga aparte.</p></details><a class="text-link" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20cotizar%20videos%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">Cotizar mis videos →</a><a class="text-link" href="#como-trabajamos">Ver opciones mensuales →</a></article>
 <article class="service reveal"><span class="eyebrow">Lleva tu oferta más lejos</span><h3>Anuncios para tu negocio</h3><p class="service-summary">Para poner una oferta frente a personas que pueden interesarse en ella.</p><p>Preparamos, activamos y ajustamos tus campañas en Instagram y Facebook.</p><details class="scope-details"><summary>Qué incluye y qué va aparte</summary><p>Estrategia, configuración, seguimiento, ajustes y reporte. La creación de piezas se define en la propuesta; el dinero para publicar los anuncios se paga aparte.</p></details><a class="text-link" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20anunciar%20mi%20negocio." target="_blank" rel="noopener noreferrer">Quiero anunciar mi negocio →</a></article>
@@ -1678,7 +1687,22 @@ SOFTWARE.
     },400);
     collage.style.touchAction='pan-x';
     var strips=Array.prototype.slice.call(collage.querySelectorAll('.strip-in'));
+    // La rueda o el trackpad avanzan el collage sin bloquear el desplazamiento de la página.
+    collage.addEventListener('wheel',function(e){
+      var delta=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+      if(!delta)return;
+      strips.forEach(function(s){
+        var a=s.getAnimations?s.getAnimations()[0]:null;
+        if(!a)return;
+        var dur=Number(a.effect.getTiming().duration)||46000, loop=Math.max(1,s.scrollHeight/2);
+        var step=delta*(e.deltaMode===1?16:e.deltaMode===2?collage.clientHeight:1);
+        var sign=getComputedStyle(s).animationDirection==='reverse'?-1:1;
+        a.currentTime=(((Number(a.currentTime)||0)+sign*step*dur/loop)%dur+dur)%dur;
+      });
+    },{passive:true});
     var dragging=false,moved=false,startY=0,refs=[];
+    // Evita que el arrastre nativo de enlaces o imágenes cancele el gesto.
+    collage.addEventListener('dragstart',function(e){ e.preventDefault(); });
     collage.addEventListener('pointerdown',function(e){
       if(e.pointerType==='mouse'&&e.button!==0)return;
       refs=strips.map(function(s){
@@ -1697,6 +1721,7 @@ SOFTWARE.
       var dy=e.clientY-startY;
       if(Math.abs(dy)>8)moved=true;
       if(!moved)return;
+      if(!collage.hasPointerCapture(e.pointerId)) collage.setPointerCapture(e.pointerId);
       if(e.cancelable)e.preventDefault();
       refs.forEach(function(o){
         var np=((o.px+(o.rev?dy:-dy))%o.loop+o.loop)%o.loop;
