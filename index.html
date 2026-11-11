@@ -955,6 +955,22 @@
     body.dark-mode .review-quote figcaption { color:#dec8f5; }
     @media(max-width:800px) { .reviews { grid-template-columns:1fr; max-width:460px; } }
 
+
+    /* CTA compacto y proporcionado en contacto y pie de página. */
+    .contact h2, .fband .footer-cta-text { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
+    .contact h2 em, .fband .footer-cta-text em { display: block; font-size: 1.1em; line-height: 1; margin-top: -.5rem; }
+    /* Marcas en una retícula monocromática sin recorte circular. */
+    .collab-bubble, .collab-bubble.collab-asoreta { width: 126px; height: 80px; margin: 0; border-radius: 0; overflow: visible; background: transparent; }
+    .collab-bubble img, .collab-bubble--photo img { display: block; width: auto; max-width: 120px; height: 60px; max-height: 60px; object-fit: contain; border-radius: 0; background: transparent; filter: grayscale(100%) opacity(70%); transition: filter .3s ease; }
+    .collab-link:hover .collab-bubble img, .collab-link:focus-visible .collab-bubble img { filter: grayscale(0%) opacity(100%); }
+    body.dark-mode .collab-bubble { filter: none; }
+    .collab-link { min-height: 115px; }
+    @media (max-width:700px) { .collab-bubble, .collab-bubble.collab-asoreta { width:110px; height:80px; margin:0; } .collab-link { min-height:115px; } }
+    @media (max-width:700px) { .fband .footer-cta-text { font-size: clamp(1.75rem, 8vw, 2.5rem); } }
+    /* La flecha no modifica dimensiones ni mueve el texto al interactuar. */
+    .fband .footer-cta-arrow { flex: 0 0 auto; box-sizing: border-box; margin: 0; transition: transform .3s ease, background-color .3s ease, color .3s ease; }
+    .fband .footer-cta:hover .footer-cta-arrow, .fband .footer-cta:focus-visible .footer-cta-arrow { transform: translateX(8px); }
+
 </style>
 <script type="application/ld+json">
 {
@@ -1281,7 +1297,7 @@ SOFTWARE.
 
 
   <div aria-hidden="true" class="fade-sep" style="height: clamp(18px, 2vw, 26px); --sep-from:var(--paper);--sep-to:#0b0b0b"></div>
-<section class="section contact" id="contacto"><div class="aurora aurora--noche" aria-hidden="true"></div><div class="contact-copy reveal"><span class="eyebrow">Tu siguiente paso</span><h2>Empecemos con<br><em>tu negocio.</em></h2><p>Cuéntanos qué necesitas. No hace falta tenerlo todo definido: te ayudamos a elegir por dónde empezar.</p><div class="actions"><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">Empecemos con mi negocio →</a></div><p class="contact-note">Sin formularios previos. El alcance, el presupuesto y las fechas los conversamos contigo.</p><div class="contact-details"><a href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a><span>San Cristóbal · Venezuela</span></div></div><div class="contact-next reveal"><h3>¿Qué pasa después?</h3><ol><li>Nos cuentas sobre tu negocio y lo que necesitas.</li><li>Definimos qué incluye el proyecto, el precio y los tiempos.</li><li>Con la propuesta aprobada, empezamos a trabajar contigo.</li></ol><p>¿Prefieres escribir por correo? También te leemos allí.</p></div></section>
+<section class="section contact" id="contacto"><div class="aurora aurora--noche" aria-hidden="true"></div><div class="contact-copy reveal"><span class="eyebrow">Tu siguiente paso</span><h2>Empecemos con<em>tu negocio.</em></h2><p>Cuéntanos qué necesitas. No hace falta tenerlo todo definido: te ayudamos a elegir por dónde empezar.</p><div class="actions"><a class="btn" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">Empecemos con mi negocio →</a></div><p class="contact-note">Sin formularios previos. El alcance, el presupuesto y las fechas los conversamos contigo.</p><div class="contact-details"><a href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a><span>San Cristóbal · Venezuela</span></div></div><div class="contact-next reveal"><h3>¿Qué pasa después?</h3><ol><li>Nos cuentas sobre tu negocio y lo que necesitas.</li><li>Definimos qué incluye el proyecto, el precio y los tiempos.</li><li>Con la propuesta aprobada, empezamos a trabajar contigo.</li></ol><p>¿Prefieres escribir por correo? También te leemos allí.</p></div></section>
   </main>
 
 
@@ -1296,7 +1312,7 @@ SOFTWARE.
         <span class="fband-copy">© De los Andes Estudio · 2025</span>
       </div>
       <a class="footer-cta" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">
-<span class="footer-cta-text">Empecemos con<br/><em>tu negocio.</em></span>
+<span class="footer-cta-text">Empecemos con<em>tu negocio.</em></span>
 <span class="footer-cta-arrow">→</span>
 </a>
     </div>
