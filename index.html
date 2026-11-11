@@ -634,10 +634,10 @@
     @keyframes badge-spin { to { transform: rotate(360deg); } }
     .fband-mail { color: var(--lilac); font-size: 13px; font-weight: 700; letter-spacing: .05em; text-decoration: underline; text-underline-offset: 4px; }
     .fband-copy { color: #9d92ab; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
-    .fband .footer-cta { justify-self: end; display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); }
-    .fband .footer-cta-text { font-size: clamp(44px, 7.5vw, 118px); text-align: right; }
-    .fband .footer-cta-arrow { display: grid; place-items: center; width: clamp(80px, 9vw, 130px); aspect-ratio: 1; border: 2.5px solid rgba(255,235,201,.75); border-radius: 50%; background: transparent; color: var(--cream); font-size: clamp(28px, 3.4vw, 52px); transition: transform .35s var(--ease), background .35s ease, color .35s ease; }
-    .fband .footer-cta:hover .footer-cta-arrow { background: var(--cream); color: var(--ink-soft); transform: translateX(6px); }
+    .pre-footer .footer-cta { justify-self: end; display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); }
+    .pre-footer .footer-cta-text { font-size: clamp(44px, 7.5vw, 118px); text-align: right; }
+    .pre-footer .footer-cta-arrow { display: grid; place-items: center; width: clamp(80px, 9vw, 130px); aspect-ratio: 1; border: 2.5px solid rgba(255,235,201,.75); border-radius: 50%; background: transparent; color: var(--cream); font-size: clamp(28px, 3.4vw, 52px); transition: transform .35s var(--ease), background .35s ease, color .35s ease; }
+    .pre-footer .footer-cta:hover .footer-cta-arrow { background: var(--cream); color: var(--ink-soft); transform: translateX(6px); }
     .footer-legal-row { border-top: 1px solid rgba(255,235,201,.14); margin: 26px clamp(20px, 5vw, 72px) 0; padding: 22px 0 28px; display: grid; gap: 12px; justify-items: center; }
     @media (max-width: 700px) {
       .section { padding-top: 34px; padding-bottom: 34px; }
@@ -645,7 +645,7 @@
       .projects, .plans { padding-bottom: 22px; }
       .hero { min-height: 78svh; }
     }
-    @media (max-width: 700px) { .footer-collage { height: 300px; } .strip-a { left: 2%; width: 31%; } .strip-b { left: 34.5%; width: 31%; } .strip-c { left: 67%; width: 31%; } .strip-set { gap: 10px; padding-bottom: 10px; } .fband { grid-template-columns: 1fr; } .fband .footer-cta { justify-self: start; } .fband .footer-cta-text { text-align: left; } }
+    @media (max-width: 700px) { .footer-collage { height: 300px; } .strip-a { left: 2%; width: 31%; } .strip-b { left: 34.5%; width: 31%; } .strip-c { left: 67%; width: 31%; } .strip-set { gap: 10px; padding-bottom: 10px; } .fband { grid-template-columns: 1fr; } .pre-footer .footer-cta { justify-self: start; } .pre-footer .footer-cta-text { text-align: left; } }
     .footer-main { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 54px clamp(20px, 5vw, 72px) 30px; }
     .footer-left { display: grid; gap: 14px; justify-items: start; text-align: left; }
     .footer-cta { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 26px); justify-self: end; text-decoration: none; }
@@ -973,12 +973,27 @@
     @media (prefers-reduced-motion: reduce) { .testimonial .reviews .wa-msg, .testimonial .reviews .review-quote { animation: none; } }
 
     /* CTA compacto y proporcionado en contacto y pie de página. */
-    .contact h2, .fband .footer-cta-text { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
-    .contact h2 em, .fband .footer-cta-text em { display: block; font-size: 1.1em; line-height: 1; margin-top: -.5rem; }
-    @media (max-width:700px) { .fband .footer-cta-text { font-size: clamp(1.75rem, 8vw, 2.5rem); } }
+    .contact h2, .pre-footer .footer-cta-text { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
+    .contact h2 em, .pre-footer .footer-cta-text em { display: block; font-size: 1.1em; line-height: 1; margin-top: -.5rem; }
+    @media (max-width:700px) { .pre-footer .footer-cta-text { font-size: clamp(1.75rem, 8vw, 2.5rem); } }
     /* La flecha no modifica dimensiones ni mueve el texto al interactuar. */
-    .fband .footer-cta-arrow { flex: 0 0 auto; box-sizing: border-box; margin: 0; transition: transform .3s ease, background-color .3s ease, color .3s ease; }
-    .fband .footer-cta:hover .footer-cta-arrow, .fband .footer-cta:focus-visible .footer-cta-arrow { transform: translateX(8px); }
+    .pre-footer .footer-cta-arrow { flex: 0 0 auto; box-sizing: border-box; margin: 0; transition: transform .3s ease, background-color .3s ease, color .3s ease; }
+    .pre-footer .footer-cta:hover .footer-cta-arrow, .pre-footer .footer-cta:focus-visible .footer-cta-arrow { transform: translateX(8px); }
+
+    /* Pre-footer independiente y pie con contactos sin duplicar. */
+    .pre-footer { background: var(--ink-soft); color: var(--cream); padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 72px); border-bottom: 1px solid rgba(255,235,201,.14); }
+    .pre-footer .footer-cta { width: min(100%, 1000px); margin: 0 auto; justify-content: space-between; }
+    .pre-footer .footer-cta-text { text-align: left; }
+    .site-footer .fband { max-width: 1144px; margin: 0 auto; grid-template-columns: 1fr auto; align-items: center; }
+    .site-footer .footer-data { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; font-size: 13px; }
+    .site-footer .footer-data a { overflow-wrap: anywhere; }
+    .site-footer .footer-disclaimer { max-width: 800px; margin: 1.5rem auto 0; padding: 0 20px; text-align: center; font-size: .75rem; opacity: .5; line-height: 1.4; color: var(--cream); }
+    .site-footer .footer-legal { justify-content: center; gap: 1.5rem; }
+    @media (max-width:700px) {
+      .site-footer .fband { grid-template-columns: 1fr; gap: 28px; }
+      .pre-footer .footer-cta { gap: 12px; }
+      .pre-footer .footer-cta-arrow { width: clamp(60px, 17vw, 80px); }
+    }
 
 </style>
 <script type="application/ld+json">
@@ -1310,6 +1325,13 @@ SOFTWARE.
   </main>
 
 
+  <section class="pre-footer" aria-label="Empecemos con tu negocio">
+    <a class="footer-cta" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">
+      <span class="footer-cta-text">Empecemos con<em>tu negocio.</em></span>
+      <span class="footer-cta-arrow" aria-hidden="true">→</span>
+    </a>
+  </section>
+
   <footer class="site-footer">
     <div class="fband">
       <div class="fband-brand">
@@ -1317,27 +1339,21 @@ SOFTWARE.
           <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="badgeRing" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#badgeRing">De los Andes Estudio · San Cristóbal · Venezuela ·</textPath></text></svg>
           <img class="badge-eye" src="/images/logo-original.png" alt="Logo de De los Andes Estudio">
         </div>
-        <a class="fband-mail" href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a>
         <span class="fband-copy">© De los Andes Estudio · 2025</span>
       </div>
-      <a class="footer-cta" href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">
-<span class="footer-cta-text">Empecemos con<em>tu negocio.</em></span>
-<span class="footer-cta-arrow">→</span>
-</a>
-    </div>
-    <div class="footer-legal-row">
       <div class="footer-data">
         <a href="mailto:delosandesestudio@gmail.com">delosandesestudio@gmail.com</a>
-        <a href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noreferrer" target="_blank">WhatsApp · +58 424-781-7241</a>
+        <a href="https://wa.me/584247817241?text=Hola%2C%20DLA.%20Quiero%20una%20propuesta%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">WhatsApp · +58 424-781-7241</a>
         <span>San Cristóbal · Táchira · Venezuela</span>
       </div>
+    </div>
+    <p class="footer-disclaimer">De los Andes Estudio no es afiliado ni distribuidor autorizado de las marcas mencionadas. Las marcas y logotipos pertenecen a sus respectivos titulares y se muestran como referencia de trabajos realizados con autorización de sus propietarios.</p>
+    <div class="footer-legal-row">
       <nav class="footer-legal" aria-label="Legal">
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/terminos.html">Términos y condiciones</a>
         <a href="/cookies.html">Política de cookies</a>
-        <a href="/reembolsos.html">Política de reembolsos</a>
       </nav>
-      <p class="footer-disclaimer">De los Andes Estudio no es afiliado ni distribuidor autorizado de las marcas mencionadas. Las marcas y logotipos pertenecen a sus respectivos titulares y se muestran como referencia de trabajos realizados con autorización de sus propietarios.</p>
     </div>
   </footer>
 
